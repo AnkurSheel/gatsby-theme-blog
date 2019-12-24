@@ -1,0 +1,23 @@
+trigger:
+    branches:
+        include:
+            - master
+
+jobs:
+    - job: Build_and_Release_Package
+      displayName: Build and Release Package
+      condition: not(contains(variables['Build.SourceBranch'], 'tag'))
+      steps:
+          - task: NodeTool@0
+            displayName: 'Use Node 10.x'
+            inputs:
+                versionSpec: 10.x
+
+          - script: yarn install
+            displayName: Install dependencies
+
+          - script: yarn semantic-release
+            displayName: Version and Tag
+            env:
+                GH_TOKEN: $(gh.token)
+                NPM_TOKEN: $(npm.token)
