@@ -5,7 +5,6 @@ import { IFluidObject } from 'gatsby-background-image';
 import { oc } from 'ts-optchain';
 import { SEO } from '@codinators/gatsby-shared-library';
 import Wrapper from '../01-elements/Wrapper';
-import Disqus from '../02-components/Disqus';
 import PrevNextPost from '../02-components/PrevNextPost';
 import Article from '../03-composites/Article';
 import Hero from '../03-composites/Hero';
@@ -66,7 +65,7 @@ const BlogPostTemplate = (props: BlogPostTemplateProps) => {
             </main>
 
             <main css={Wrapper}>
-                <Disqus slug={slug} title={title} />
+                {/* <Disqus slug={slug} title={title} /> */}
                 <PrevNextPost previous={previous} next={next} />
             </main>
         </Layout>
