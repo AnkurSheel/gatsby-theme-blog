@@ -21,7 +21,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             allMarkdown: allMdx(
                 sort: { fields: [frontmatter___date], order: DESC }
                 limit: 1000
-                ${isDevelop ? '' : `filter: { frontmatter: { published: { eq: true }, date: { lte: "${date}" } } }`}
+                ${
+                    isDevelop
+                        ? 'filter:{fileAbsolutePath: {regex: "/content/posts/"}}'
+                        : `filter: { frontmatter: { published: { eq: true }, date: { lte: "${date}" } }, fileAbsolutePath: {regex: "/content/posts/"} }`
+                }
             ) {
                 edges {
                     node {
@@ -44,7 +48,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const allPagesQuery = await graphql(`
         {
             allMarkdown: allMdx
-                ${isDevelop ? '' : '(filter: { frontmatter: { published: { eq: true } } })'}
+                ${
+                    isDevelop
+                        ? '(filter: { fileAbsolutePath: {regex: "/content/pages/"} })'
+                        : '(filter: { frontmatter: { published: { eq: true } }, fileAbsolutePath: {regex: "/content/pages/"} })'
+                }
             {
                 edges {
                     node {
@@ -73,9 +81,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         }
     `);
 
-    const markdownFiles = allPostsQuery.data.allMarkdown.edges;
-
-    const posts = markdownFiles.filter(item => item.node.fileAbsolutePath.includes('/content/posts/'));
+    const posts = allPostsQuery.data.allMarkdown.edges;
 
     // generate paginated post list
     const { postsPerPage } = postPerPageQuery.data.site.siteMetadata;
@@ -136,20 +142,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
 
     // generate pages
-    allPagesQuery.data.allMarkdown.edges
-        .filter(item => item.node.fileAbsolutePath.includes('/content/pages/'))
-        .forEach(page => {
-            createPage({
-                path: page.node.frontmatter.slug,
-                component: PageTemplate,
-                context: {
-                    slug: page.node.frontmatter.slug,
-                },
-            });
+    allPagesQuery.data.allMarkdown.edges.forEach(page => {
+        createPage({
+            path: page.node.frontmatter.slug,
+            component: PageTemplate,
+            context: {
+                slug: page.node.frontmatter.slug,
+            },
         });
+    });
 
     // generate tags
-    markdownFiles
+    posts
         .filter(item => item.node.frontmatter.tags !== null)
         .reduce((acc, cur) => [...new Set([...acc, ...cur.node.frontmatter.tags.map(t => t.toLowerCase())])], [])
         .forEach(uniqTag => {
