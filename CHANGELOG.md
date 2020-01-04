@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.1.0...v1.2.0) (2020-01-04)
+
+
+### Bug Fixes
+
+* remove underlines from header links ([d77ff62](https://github.com/AnkurSheel/gatsby-theme-blog/commit/d77ff62896ae9708e953e631340714880009c8e6))
+
+
+### Features
+
+* add related posts component ([300668f](https://github.com/AnkurSheel/gatsby-theme-blog/commit/300668fff44d6faba3bdaf39fd6bea7aa28fec7e))
+* replace previous next with related posts ([81e9f7e](https://github.com/AnkurSheel/gatsby-theme-blog/commit/81e9f7e2d810899dd42cac4a5ee3cc57cc222974))
+
 # [1.1.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.0.0...v1.1.0) (2020-01-02)
 
 
