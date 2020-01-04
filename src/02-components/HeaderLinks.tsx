@@ -8,6 +8,7 @@ const styles = {
     link: css({
         color: `${colors.textLightest}`,
         padding: '0.5rem',
+        textDecoration: 'none',
     }),
 };
 export type HeaderLinkData = Pick<SiteSiteMetadataHeaderLinks, 'label' | 'url'>;
