@@ -5,19 +5,15 @@ import { IFluidObject } from 'gatsby-background-image';
 import { oc } from 'ts-optchain';
 import { SEO } from '@codinators/gatsby-shared-library';
 import Wrapper from '../01-elements/Wrapper';
-import PrevNextPost from '../02-components/PrevNextPost';
 import Article from '../03-composites/Article';
 import Hero from '../03-composites/Hero';
 import Layout from '../04-layouts/layout';
-import { BlogPostBySlugQuery, SitePageContextNext, SitePageContextPrevious } from '../graphqlTypes';
+import { BlogPostBySlugQuery } from '../graphqlTypes';
 import useSiteMetadata from '../hooks/use-site-config';
+import RelatedPosts from '../03-composites/RelatedPosts';
 
 interface BlogPostTemplateProps {
     data: Pick<BlogPostBySlugQuery, 'post'>;
-    pageContext: {
-        next: SitePageContextNext;
-        previous: SitePageContextPrevious;
-    };
     path: string;
 }
 const BlogPostTemplate = (props: BlogPostTemplateProps) => {
@@ -26,7 +22,6 @@ const BlogPostTemplate = (props: BlogPostTemplateProps) => {
     const {
         path,
         data: { post },
-        pageContext: { previous, next },
     } = props;
 
     const siteUrl = oc(siteMetaData).siteUrl('');
@@ -66,7 +61,8 @@ const BlogPostTemplate = (props: BlogPostTemplateProps) => {
 
             <main css={Wrapper}>
                 {/* <Disqus slug={slug} title={title} /> */}
-                <PrevNextPost previous={previous} next={next} />
+                {/* <PrevNextPost previous={previous} next={next} /> */}
+                {slug && <RelatedPosts tags={tags} date={date} slug={slug} />}
             </main>
         </Layout>
     );

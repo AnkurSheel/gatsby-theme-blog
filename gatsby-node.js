@@ -102,17 +102,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
 
     // generate blog posts
-    posts.forEach((post, index) => {
-        const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-        const next = index === 0 ? null : posts[index - 1].node;
-
+    posts.forEach(post => {
         createPage({
             path: `/blog/${post.node.frontmatter.slug}`,
             component: BlogPostTemplate,
             context: {
                 slug: post.node.frontmatter.slug,
-                previous,
-                next,
             },
         });
 
