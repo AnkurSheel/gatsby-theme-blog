@@ -12,6 +12,7 @@ const styles = {
         padding: '0.5rem 0.5rem 0.5rem 0',
         display: 'flex',
         alignItems: 'center',
+        textDecoration: 'none',
     }),
     icon: css({
         width: '3rem',
