@@ -23,10 +23,10 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-    const shortcodes = { Video, SEO, Quote, ImageGallery };
+    const components = { Video, SEO, Quote, ImageGallery };
 
     return (
-        <MDXProvider components={shortcodes}>
+        <MDXProvider components={{ ...components }}>
             <GlobalStyle />
             <Header />
             <div css={styles.siteContent}>{children}</div>
