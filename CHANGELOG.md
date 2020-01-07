@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.2.0...v1.2.1) (2020-01-07)
+
+
+### Bug Fixes
+
+* fix MdxProvider components warning ([4f1e5da](https://github.com/AnkurSheel/gatsby-theme-blog/commit/4f1e5da6fc875acbecf66727e66f35bc2185e402))
+
 # [1.2.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.1.0...v1.2.0) (2020-01-04)
 
 
