@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.2.1...v1.2.2) (2020-01-09)
+
+
+### Bug Fixes
+
+* update RelatedPosts styling ([89a9fe3](https://github.com/AnkurSheel/gatsby-theme-blog/commit/89a9fe3f9457ed4852bfc22a0dccd8415ab198cf))
+
 ## [1.2.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.2.0...v1.2.1) (2020-01-07)
 
 
