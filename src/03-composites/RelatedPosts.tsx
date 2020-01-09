@@ -16,9 +16,8 @@ export const styles = {
         listStyle: 'none',
     }),
     listItem: css({
-        padding: '0.5em 0',
+        padding: '0.5em',
         borderBottom: `1px solid ${colors.primary}`,
-        width: 'max-content',
     }),
     link: css({
         textDecoration: 'none',
@@ -32,7 +31,6 @@ export const styles = {
         },
         fontSize: '1.5rem',
         lineHeight: '2rem',
-        padding: '0 0.5rem',
     }),
 };
 
@@ -117,7 +115,7 @@ const RelatedPosts = (props: RelatedPostsComponentProps) => {
                     return (
                         <li key={title} css={styles.listItem}>
                             <Link css={styles.link} to={`/blog/${path}`}>
-                                {title} &rarr;
+                                {title}&rarr;
                             </Link>
                         </li>
                     );
