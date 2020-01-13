@@ -1,3 +1,11 @@
+## [1.2.3](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.2.2...v1.2.3) (2020-01-13)
+
+
+### Bug Fixes
+
+* remove mdx warning by moving mdxProvider to gatsby-browser.js and gatsby-ssr.js ([58367af](https://github.com/AnkurSheel/gatsby-theme-blog/commit/58367af128332ffcedb70d36db5396113e859331))
+* remove migration message from 404 page ([28e04c3](https://github.com/AnkurSheel/gatsby-theme-blog/commit/28e04c3a78f9855d0a3b078f0ce6af2fdb7c5dee))
+
 ## [1.2.2](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.2.1...v1.2.2) (2020-01-09)
 
 
