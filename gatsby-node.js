@@ -12,7 +12,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const BlogPostShareImage = require.resolve('./src/templates/blog-post-share-image.tsx');
     const PageTemplate = require.resolve('./src/templates/page.tsx');
     const PostsByTagTemplate = require.resolve('./src/templates/tags.tsx');
-    const ListPostsTemplate = require.resolve('./src/templates/blog-list-template.tsx');
 
     const isDevelop = process.env.gatsby_executing_command.includes('develop');
 
@@ -71,35 +70,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         reporter.panic(allPagesQuery.errors);
     }
 
-    const postPerPageQuery = await graphql(`
-        {
-            site {
-                siteMetadata {
-                    postsPerPage
-                }
-            }
-        }
-    `);
-
     const posts = allPostsQuery.data.allMarkdown.edges;
-
-    // generate paginated post list
-    const { postsPerPage } = postPerPageQuery.data.site.siteMetadata;
-    const nbPages = Math.ceil(posts.length / postsPerPage);
-
-    Array.from({ length: nbPages }).forEach((_, i) => {
-        createPage({
-            path: i === 0 ? `/blog` : `/blog/pages/${i + 1}`,
-            component: ListPostsTemplate,
-            context: {
-                limit: postsPerPage,
-                skip: i * postsPerPage,
-                currentPage: i + 1,
-                nbPages,
-                date,
-            },
-        });
-    });
 
     // generate blog posts
     posts.forEach(post => {

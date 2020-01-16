@@ -6,12 +6,7 @@ export type Scalars = {
     Boolean: boolean;
     Int: number;
     Float: number;
-    /**
-     * A date string, such as 2007-12-03, compliant with the ISO 8601 standard for
-     * representation of dates and times using the Gregorian calendar.
-     */
     Date: any;
-    /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
     JSON: any;
 };
 
@@ -355,7 +350,6 @@ export type File = Node & {
     ctime: Scalars['Date'];
     birthtime?: Maybe<Scalars['Date']>;
     birthtimeMs?: Maybe<Scalars['Float']>;
-    /** Copy file to static directory and return public url to it */
     publicURL?: Maybe<Scalars['String']>;
     childImageSharp?: Maybe<ImageSharp>;
     id: Scalars['ID'];
@@ -1303,10 +1297,10 @@ export type ImageSharpFixed = {
     base64?: Maybe<Scalars['String']>;
     tracedSVG?: Maybe<Scalars['String']>;
     aspectRatio?: Maybe<Scalars['Float']>;
-    width?: Maybe<Scalars['Float']>;
-    height?: Maybe<Scalars['Float']>;
-    src?: Maybe<Scalars['String']>;
-    srcSet?: Maybe<Scalars['String']>;
+    width: Scalars['Float'];
+    height: Scalars['Float'];
+    src: Scalars['String'];
+    srcSet: Scalars['String'];
     srcWebp?: Maybe<Scalars['String']>;
     srcSetWebp?: Maybe<Scalars['String']>;
     originalName?: Maybe<Scalars['String']>;
@@ -1328,12 +1322,12 @@ export type ImageSharpFixedFilterInput = {
 export type ImageSharpFluid = {
     base64?: Maybe<Scalars['String']>;
     tracedSVG?: Maybe<Scalars['String']>;
-    aspectRatio?: Maybe<Scalars['Float']>;
-    src?: Maybe<Scalars['String']>;
-    srcSet?: Maybe<Scalars['String']>;
+    aspectRatio: Scalars['Float'];
+    src: Scalars['String'];
+    srcSet: Scalars['String'];
     srcWebp?: Maybe<Scalars['String']>;
     srcSetWebp?: Maybe<Scalars['String']>;
-    sizes?: Maybe<Scalars['String']>;
+    sizes: Scalars['String'];
     originalImg?: Maybe<Scalars['String']>;
     originalName?: Maybe<Scalars['String']>;
     presentationWidth?: Maybe<Scalars['Int']>;
@@ -1398,10 +1392,10 @@ export type ImageSharpResolutions = {
     base64?: Maybe<Scalars['String']>;
     tracedSVG?: Maybe<Scalars['String']>;
     aspectRatio?: Maybe<Scalars['Float']>;
-    width?: Maybe<Scalars['Float']>;
-    height?: Maybe<Scalars['Float']>;
-    src?: Maybe<Scalars['String']>;
-    srcSet?: Maybe<Scalars['String']>;
+    width: Scalars['Float'];
+    height: Scalars['Float'];
+    src: Scalars['String'];
+    srcSet: Scalars['String'];
     srcWebp?: Maybe<Scalars['String']>;
     srcSetWebp?: Maybe<Scalars['String']>;
     originalName?: Maybe<Scalars['String']>;
@@ -1423,12 +1417,12 @@ export type ImageSharpResolutionsFilterInput = {
 export type ImageSharpSizes = {
     base64?: Maybe<Scalars['String']>;
     tracedSVG?: Maybe<Scalars['String']>;
-    aspectRatio?: Maybe<Scalars['Float']>;
-    src?: Maybe<Scalars['String']>;
-    srcSet?: Maybe<Scalars['String']>;
+    aspectRatio: Scalars['Float'];
+    src: Scalars['String'];
+    srcSet: Scalars['String'];
     srcWebp?: Maybe<Scalars['String']>;
     srcSetWebp?: Maybe<Scalars['String']>;
-    sizes?: Maybe<Scalars['String']>;
+    sizes: Scalars['String'];
     originalImg?: Maybe<Scalars['String']>;
     originalName?: Maybe<Scalars['String']>;
     presentationWidth?: Maybe<Scalars['Int']>;
@@ -2400,7 +2394,6 @@ export type MdxWordCountFilterInput = {
     words?: Maybe<IntQueryOperatorInput>;
 };
 
-/** Node Interface */
 export type Node = {
     id: Scalars['ID'];
     parent?: Maybe<Node>;
@@ -2856,7 +2849,6 @@ export enum SiteFieldsEnum {
     SiteMetadataBackgroundColor = 'siteMetadata___backgroundColor',
     SiteMetadataThemeColor = 'siteMetadata___themeColor',
     SiteMetadataIcon = 'siteMetadata___icon',
-    SiteMetadataPostsPerPage = 'siteMetadata___postsPerPage',
     SiteMetadataHeaderTitle = 'siteMetadata___headerTitle',
     SiteMetadataHeaderLinksIcon = 'siteMetadata___headerLinksIcon',
     SiteMetadataHeaderLinks = 'siteMetadata___headerLinks',
@@ -2932,11 +2924,6 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
-    limit?: Maybe<Scalars['Int']>;
-    skip?: Maybe<Scalars['Int']>;
-    currentPage?: Maybe<Scalars['Int']>;
-    nbPages?: Maybe<Scalars['Int']>;
-    date?: Maybe<Scalars['Date']>;
     slug?: Maybe<Scalars['String']>;
     width?: Maybe<Scalars['Int']>;
     height?: Maybe<Scalars['Int']>;
@@ -2946,11 +2933,6 @@ export type SitePageContext = {
 };
 
 export type SitePageContextFilterInput = {
-    limit?: Maybe<IntQueryOperatorInput>;
-    skip?: Maybe<IntQueryOperatorInput>;
-    currentPage?: Maybe<IntQueryOperatorInput>;
-    nbPages?: Maybe<IntQueryOperatorInput>;
-    date?: Maybe<DateQueryOperatorInput>;
     slug?: Maybe<StringQueryOperatorInput>;
     width?: Maybe<IntQueryOperatorInput>;
     height?: Maybe<IntQueryOperatorInput>;
@@ -3057,11 +3039,6 @@ export enum SitePageFieldsEnum {
     Component = 'component',
     ComponentChunkName = 'componentChunkName',
     IsCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
-    ContextLimit = 'context___limit',
-    ContextSkip = 'context___skip',
-    ContextCurrentPage = 'context___currentPage',
-    ContextNbPages = 'context___nbPages',
-    ContextDate = 'context___date',
     ContextSlug = 'context___slug',
     ContextWidth = 'context___width',
     ContextHeight = 'context___height',
@@ -3671,7 +3648,6 @@ export type SiteSiteMetadata = {
     backgroundColor?: Maybe<Scalars['String']>;
     themeColor?: Maybe<Scalars['String']>;
     icon?: Maybe<Scalars['String']>;
-    postsPerPage?: Maybe<Scalars['Int']>;
     headerTitle?: Maybe<Scalars['String']>;
     headerLinksIcon?: Maybe<Scalars['String']>;
     headerLinks?: Maybe<Array<Maybe<SiteSiteMetadataHeaderLinks>>>;
@@ -3691,7 +3667,6 @@ export type SiteSiteMetadataFilterInput = {
     backgroundColor?: Maybe<StringQueryOperatorInput>;
     themeColor?: Maybe<StringQueryOperatorInput>;
     icon?: Maybe<StringQueryOperatorInput>;
-    postsPerPage?: Maybe<IntQueryOperatorInput>;
     headerTitle?: Maybe<StringQueryOperatorInput>;
     headerLinksIcon?: Maybe<StringQueryOperatorInput>;
     headerLinks?: Maybe<SiteSiteMetadataHeaderLinksFilterListInput>;
@@ -3982,11 +3957,7 @@ export type SiteImagesQuery = {
     };
 };
 
-export type BlogListQueryVariables = {
-    skip: Scalars['Int'];
-    limit: Scalars['Int'];
-    date: Scalars['Date'];
-};
+export type BlogListQueryVariables = {};
 
 export type BlogListQuery = {
     posts: {
