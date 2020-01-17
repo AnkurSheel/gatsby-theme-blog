@@ -6,6 +6,7 @@ const Wrapper = css({
     borderRadius: '5px',
     width: '80%',
     maxWidth: '770px',
+    minHeight: '50vh',
     wordWrap: 'break-word',
     backgroundColor: `${colors.backgroundArticle}`,
     margin: '0px auto 30px auto',
