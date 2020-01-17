@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.2.3...v1.3.0) (2020-01-17)
+
+
+### Bug Fixes
+
+* make sure content has minimum height ([7b13fcf](https://github.com/AnkurSheel/gatsby-theme-blog/commit/7b13fcfdb3a5a86c47060a0bd71cd428435298c1))
+
+
+### Features
+
+* show all articles instead if paginated list ([9fec763](https://github.com/AnkurSheel/gatsby-theme-blog/commit/9fec763d011528b306a6578166d692f80a8c85a7))
+
 ## [1.2.3](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.2.2...v1.2.3) (2020-01-13)
 
 
