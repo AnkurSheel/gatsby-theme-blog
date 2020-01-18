@@ -43,7 +43,7 @@ const Articles = () => {
 
     return (
         <Layout>
-            <SEO title={title} description={title} url={`${siteUrl}${path}`} isBlog={false} />
+            <SEO title={title} description={title} url={`${siteUrl}/${path}`} isBlog={false} />
             <Hero title={title} />
             <main css={Wrapper}>
                 <PostsList posts={posts} />
