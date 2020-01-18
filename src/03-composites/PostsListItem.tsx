@@ -60,16 +60,12 @@ const PostsListItem = (props: PostListItemProps) => {
     const articleLink = `/blog/${slug}`;
     return (
         <article css={styles.post}>
-            <header css={styles.header}>
-                <h2>
-                    <Link css={styles.headerLink} to={articleLink}>
-                        {title}
-                    </Link>
-                </h2>
-            </header>
-            <section>
-                <p css={styles.excerpt}>{excerpt}</p>
-            </section>
+            <h2 css={styles.header}>
+                <Link css={styles.headerLink} to={articleLink} aria-label={`View ${title} article`}>
+                    {title}
+                </Link>
+            </h2>
+            <p css={styles.excerpt}>{excerpt}</p>
             <footer css={styles.footer}>
                 <TagList css={styles.tags} tags={tags} />
                 <Link css={styles.readPostLink} to={articleLink} aria-label={`View ${title} article`}>
