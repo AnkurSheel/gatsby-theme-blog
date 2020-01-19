@@ -1,3 +1,15 @@
+## [1.3.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.3.0...v1.3.1) (2020-01-19)
+
+
+### Bug Fixes
+
+* fix canonical url for blog ([107f602](https://github.com/AnkurSheel/gatsby-theme-blog/commit/107f602b4dc5a123e04709944ee4b2b9a891162c))
+
+
+### Performance Improvements
+
+* remove unneccessary dom nodes from postlinkitem ([a3929ff](https://github.com/AnkurSheel/gatsby-theme-blog/commit/a3929ff6d5858ba80da80961226ef6a76f93761a))
+
 # [1.3.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.2.3...v1.3.0) (2020-01-17)
 
 
