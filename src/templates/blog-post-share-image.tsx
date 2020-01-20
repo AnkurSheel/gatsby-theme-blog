@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import GlobalStyle from '../01-elements/GlobalStyles';
 import { BlogPostShareImageQuery } from '../graphqlTypes';
-import colors from '../tokens/colors';
+import { colors } from '../tokens';
 
 const stylesWithProps = (props: BlogPostShareImageProps) => {
     const image =
@@ -29,15 +29,15 @@ const stylesWithProps = (props: BlogPostShareImageProps) => {
             fontWeight: 'bold',
             fontSize: `${props.pageContext.type === 'twitter' ? '2rem' : '3rem'}`,
             margin: '1rem 2rem',
-            color: `${colors.grey100}`,
-            textShadow: `1px 2px 0px ${colors.grey500}`,
+            color: `${colors.title}`,
+            textShadow: `1px 2px 0px ${colors.title}`,
             textAlign: 'center',
         }),
         readTime: css({
             verticalAlign: 'center',
             fontSize: `${props.pageContext.type === 'twitter' ? '1.5rem' : '2rem'}`,
             textAlign: 'center',
-            color: `${colors.grey100}`,
+            color: `${colors.paragraph}`,
             ':before': {
                 padding: '0.4em',
                 content: `'👁'`,

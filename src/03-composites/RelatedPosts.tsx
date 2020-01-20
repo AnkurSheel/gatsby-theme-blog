@@ -1,33 +1,40 @@
-import React from 'react';
-import { graphql, useStaticQuery, Link } from 'gatsby';
-import { oc } from 'ts-optchain';
 import { css } from '@emotion/core';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import React from 'react';
+import { oc } from 'ts-optchain';
 import { GetRelatedPostsQuery } from '../graphqlTypes';
 import { colors } from '../tokens';
 
 export const styles = {
+    container: css({
+        background: colors.card.background,
+        padding: '1rem',
+        borderRadius: '10px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignContent: 'center',
+    }),
     header: css({
         paddingBottom: '0.5rem',
+        color: colors.card.title,
+        alignSelf: 'center',
+        fontSize: '2.5rem',
     }),
     list: css({
-        padding: '0.5rem 1.5rem',
         margin: 0,
-        width: '100%',
         listStyle: 'none',
     }),
     listItem: css({
-        padding: '0.5em',
-        borderBottom: `1px solid ${colors.primary}`,
+        padding: '0.25em',
     }),
     link: css({
+        padding: '0 0.25em',
         textDecoration: 'none',
-        border: 'none',
-        ':visited': {
-            color: '#0000EE',
-        },
+        color: colors.card.link,
         ':hover': {
-            backgroundColor: '#0000EE',
-            color: 'white',
+            backgroundColor: colors.card.link,
+            color: colors.card.background,
         },
         fontSize: '1.5rem',
         lineHeight: '2rem',
@@ -104,10 +111,11 @@ const RelatedPosts = (props: RelatedPostsComponentProps) => {
             }
             return 0;
         })
-        .splice(0, 4);
+        .splice(0, 4)
+        .filter(s => s.points > 0);
 
     return (
-        <>
+        <section css={styles.container}>
             <h1 css={styles.header}>More like this</h1>
             <ul css={styles.list}>
                 {arrayIdentityMap.map(identity => {
@@ -121,7 +129,7 @@ const RelatedPosts = (props: RelatedPostsComponentProps) => {
                     );
                 })}
             </ul>
-        </>
+        </section>
     );
 };
 

@@ -6,25 +6,27 @@ import { colors } from '../tokens';
 
 const styles = {
     tagsList: css({
-        color: `${colors.textLight}`,
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
         alignItems: 'center',
     }),
     tag: css({
+        background: colors.tag.background,
+        color: colors.tag.link,
         margin: '1rem 1rem 0 0',
         listStyle: 'none',
-        border: '1px solid #00efe6',
         borderRadius: '1.5em',
-        padding: '0 1rem',
+        padding: '0.25em 1em',
         ':hover': {
-            background: '#00efe6',
+            cursor: 'pointer',
+            background: colors.tag.link,
+            color: colors.tag.background,
         },
     }),
     link: css({
         textDecoration: 'none',
-        color: `${colors.primary}`,
+        color: 'inherit',
         border: 'none',
         ':hover': {
             border: 'none',

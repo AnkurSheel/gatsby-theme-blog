@@ -1,16 +1,16 @@
 import { css, SerializedStyles } from '@emotion/core';
 import BackgroundImage, { IFluidObject } from 'gatsby-background-image';
 import React from 'react';
-import colors from '../tokens/colors';
+import { colors } from '../tokens';
 
 const stylesWithProps = (props: HeroProps) => {
     return {
         container: css({
             position: 'relative',
             width: '100vw',
-            height: `${props.image ? '50vh' : '30vh'}`,
+            height: '30vh',
             textAlign: 'center',
-            color: `${colors.grey100}`,
+            marginBottom: '2rem',
         }),
         image: css(
             {
@@ -29,27 +29,22 @@ const stylesWithProps = (props: HeroProps) => {
             transform: 'translate(-50%, -50%)',
         }),
         title: css({
+            color: colors.title,
             fontWeight: 'bold',
             fontSize: '2.5rem',
-            textShadow: `1px 2px 0px ${colors.grey500}`,
-        }),
-        subTitle: css({
-            textShadow: `1px 2px 0px ${colors.grey500}`,
         }),
     };
 };
 
 interface HeroProps {
     title: string;
-    subTitle?: string;
-
     image?: IFluidObject;
     imageStyles?: SerializedStyles;
 }
 
 const Hero = (props: HeroProps) => {
     const styles = stylesWithProps(props);
-    const { image, title, subTitle } = props;
+    const { image, title } = props;
     return (
         <div css={styles.container}>
             {image && (
@@ -57,7 +52,6 @@ const Hero = (props: HeroProps) => {
             )}
             <div css={styles.textContainer}>
                 <h1 css={styles.title}>{title}</h1>
-                {subTitle && <h2 css={styles.subTitle}>{subTitle}</h2>}
             </div>
         </div>
     );

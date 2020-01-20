@@ -2,10 +2,11 @@ import { css } from '@emotion/core';
 import Img from 'gatsby-image';
 import React, { useEffect } from 'react';
 import { ImageSharpFluid } from '../graphqlTypes';
+import { colors } from '../tokens';
 
 const styles = {
-    modal: css({
-        background: 'rgba(0,0,0,0.5)',
+    overlay: css({
+        background: colors.overlay,
         height: '100vh',
         position: 'fixed',
         top: 0,
@@ -17,29 +18,34 @@ const styles = {
         alignItems: 'center',
         zIndex: 1,
     }),
-    container: css({
-        background: 'white',
+    modal: css({
+        background: colors.modal.background,
+        borderRadius: '10px',
         minWidth: '300px',
         width: '50vw',
         height: '70vh',
-        padding: '2rem',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
     }),
+    container: css({
+        border: `5px solid ${colors.modal.border}`,
+    }),
     button: css({
-        background: 'none',
-        border: '1px solid black',
-        color: 'black',
+        background: colors.modal.button.background,
+        border: `1px solid ${colors.modal.button.border}`,
+        color: colors.modal.button.color,
         textAlign: 'center',
         padding: '0.5rem 1rem',
-        marginTop: '0.5rem',
+        margin: '0.5rem 1rem',
         cursor: 'pointer',
     }),
     caption: css({
+        margin: '0.5rem auto 1rem auto',
         textAlign: 'center',
         fontSize: '0.8em',
         fontStyle: 'italic',
+        color: colors.modal.text,
     }),
 };
 
@@ -76,14 +82,16 @@ const LightBoxModal = (props: LightBoxModalProps) => {
         srcWebp: image.srcWebp,
     };
     return (
-        <div css={styles.modal}>
-            <figure css={styles.container}>
-                <Img fluid={fluid} imgStyle={{ objectFit: 'contain' }} />
+        <div css={styles.overlay}>
+            <div css={styles.modal}>
+                <figure css={styles.container}>
+                    <Img fluid={fluid} imgStyle={{ objectFit: 'contain' }} />
+                </figure>
                 <figcaption css={styles.caption}>{caption}</figcaption>
                 <button type="button" css={styles.button} onClick={onClick}>
                     Close
                 </button>
-            </figure>
+            </div>
         </div>
     );
 };

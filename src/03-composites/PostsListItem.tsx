@@ -1,48 +1,43 @@
 import { css } from '@emotion/core';
 import { Link } from 'gatsby';
 import React from 'react';
-import TagList from '../02-components/TagList';
 import { colors } from '../tokens';
 
 const styles = {
     post: css({
-        borderBottom: '1px solid rgba(214, 209, 230, 0.5)',
-        paddingBottom: '1.25rem',
+        marginBottom: '1.25rem',
+        background: colors.card.background,
+        borderRadius: '5px',
+    }),
+    linkContainer: css({
+        textDecoration: 'none',
+    }),
+    section: css({
+        padding: '1em',
     }),
     header: css({
-        padding: '1em 0',
-    }),
-    headerLink: css({
-        textDecoration: 'none',
-        color: `${colors.primary}`,
+        paddingBottom: '1em',
+        color: colors.card.title,
     }),
     excerpt: css({
         paddingBottom: '0.5em',
-    }),
-    footer: css({
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-    }),
-    tags: css({
-        alignSelf: 'start',
+        color: colors.card.paragraph,
     }),
     readPostLink: css({
-        color: `${colors.primary}`,
+        color: `${colors.card.link}`,
         width: '100%',
-        marginTop: '1rem',
+        margin: '1rem auto 0 auto',
+        fontWeight: 'bold',
         lineHeight: 2,
         fontsize: '0.75rem',
         textAlign: 'center',
         textTransform: 'uppercase',
         letterSpacing: '0.05em',
-        textDecoration: 'none',
         border: 'none',
         '&:hover': {
-            backgroundColor: `${colors.primaryAlpha}`,
+            backgroundColor: `${colors.card.link}`,
             borderRadius: '0.25rem',
-            color: `${colors.textLightest}`,
+            color: `${colors.card.background}`,
         },
     }),
 };
@@ -59,20 +54,15 @@ const PostsListItem = (props: PostListItemProps) => {
 
     const articleLink = `/blog/${slug}`;
     return (
-        <article css={styles.post}>
-            <h2 css={styles.header}>
-                <Link css={styles.headerLink} to={articleLink} aria-label={`View ${title} article`}>
-                    {title}
-                </Link>
-            </h2>
-            <p css={styles.excerpt}>{excerpt}</p>
-            <footer css={styles.footer}>
-                <TagList css={styles.tags} tags={tags} />
-                <Link css={styles.readPostLink} to={articleLink} aria-label={`View ${title} article`}>
-                    Read post ›
-                </Link>
-            </footer>
-        </article>
+        <div css={styles.post}>
+            <Link css={styles.linkContainer} to={articleLink} aria-label={`View ${title} article`}>
+                <section css={styles.section}>
+                    <h2 css={styles.header}>{title}</h2>
+                    <p css={styles.excerpt}>{excerpt}</p>
+                    <p css={styles.readPostLink}>Read post ›</p>
+                </section>
+            </Link>
+        </div>
     );
 };
 export default PostsListItem;

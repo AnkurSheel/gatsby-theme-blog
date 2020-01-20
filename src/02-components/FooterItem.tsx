@@ -2,17 +2,20 @@ import { css } from '@emotion/core';
 import { Link } from 'gatsby';
 import React from 'react';
 import { SiteSiteMetadataFooterLinksLinks } from '../graphqlTypes';
-import colors from '../tokens/colors';
+import { colors } from '../tokens';
 
 const styles = {
     item: css({
         padding: '0.25rem 0',
     }),
     link: css({
+        textDecoration: 'none',
+        padding: '0.25rem 0',
         fontWeight: 'bold',
-        color: `${colors.textLightest}`,
+        color: `${colors.footer.link}`,
         ':hover': {
-            color: `${colors.textLightestHover}`,
+            color: colors.footer.background,
+            background: colors.footer.link,
         },
     }),
 };

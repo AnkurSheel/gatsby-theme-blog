@@ -1,12 +1,11 @@
 import { css } from '@emotion/core';
 import React from 'react';
-import { colors } from '../tokens';
 import TagList from './TagList';
 
 const styles = {
     header: css({
         marginBottom: '2rem',
-        color: `${colors.textLight}`,
+        fontSize: '0.8rem',
     }),
 };
 interface ContentIntroProps {

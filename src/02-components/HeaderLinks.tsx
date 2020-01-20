@@ -2,11 +2,10 @@ import { css } from '@emotion/core';
 import { Link } from 'gatsby';
 import React from 'react';
 import { SiteSiteMetadataHeaderLinks } from '../graphqlTypes';
-import { colors } from '../tokens';
 
 const styles = {
     link: css({
-        color: `${colors.textLightest}`,
+        color: 'inherit',
         padding: '0.5rem',
         textDecoration: 'none',
     }),

@@ -2,16 +2,18 @@ import { css } from '@emotion/core';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import ContentHeader from '../02-components/ContentHeader';
+import { colors } from '../tokens';
 
 const styles = {
     body: css({
         '& > h2': {
+            color: colors.subTitle,
             paddingTop: '2rem',
             marginTop: '2rem',
-            borderTop: '2px solid #b1b1b1',
+            borderTop: `2px solid ${colors.subTitle}`,
         },
         '& > h3': {
-            borderTop: '1px dashed #b1b1b1',
+            borderTop: `1px dashed ${colors.subTitle}`,
             marginTop: '1rem',
             paddingTop: '2rem',
         },
@@ -24,14 +26,14 @@ const styles = {
             fontStyle: 'italic',
         },
         '.gatsby-highlight-code-line': {
-            backgroundColor: '#707070',
+            backgroundColor: colors.codeHighlight.background,
             display: 'block',
             alignItems: 'center',
             marginLeft: '-1em',
             marginRight: '-1em',
             paddingLeft: '0.75em',
             paddingRight: '1em',
-            borderLeft: '0.25em solid #f99',
+            borderLeft: `0.25em solid ${colors.codeHighlight.border}`,
         },
         /**
          * Add back the container background-color, border-radius, padding, margin
@@ -75,12 +77,12 @@ const Content = (props: ContentProps) => {
     const { content, date, tags, path } = props;
 
     return (
-        <section>
+        <>
             {tags && date && <ContentHeader date={date} tags={tags} />}
             <div css={styles.body}>
                 <MDXRenderer path={path}>{content}</MDXRenderer>
             </div>
-        </section>
+        </>
     );
 };
 

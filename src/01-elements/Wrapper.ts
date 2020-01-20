@@ -1,24 +1,14 @@
 import { css } from '@emotion/core';
-import colors from '../tokens/colors';
+import { colors } from '../tokens';
 
 const Wrapper = css({
-    position: 'relative',
-    borderRadius: '5px',
-    width: '80%',
+    borderRadius: '20px',
     maxWidth: '770px',
     minHeight: '50vh',
     wordWrap: 'break-word',
     backgroundColor: `${colors.backgroundArticle}`,
-    margin: '0px auto 30px auto',
-    top: '30px',
-    padding: '50px',
-    boxShadow:
-        'inset 0 1px rgba(255, 255, 255, 0.5), inset 0 0 5px #d8e071, 0 0 1px rgba(0, 0, 0, 0.1), 0 2px rgba(0, 0, 0, 0.02)',
-    border: '1px solid #c3baaa',
-    '@media (max-width:780px)': {
-        width: '90%',
-        padding: '25px',
-    },
+    margin: '0px auto 2rem auto',
+    padding: '1.5rem',
 });
 
 export default Wrapper;

@@ -16,11 +16,9 @@ export const styles = {
         margin: '0 auto',
         width: '100%',
         zIndex: 1000,
-        backgroundColor: `${colors.primaryAlpha}`,
+        backgroundColor: colors.header.background,
+        color: colors.header.text,
         fontWeight: 'bold',
-        a: {
-            borderBottom: 'none',
-        },
     }),
     nav: css({
         display: 'flex',

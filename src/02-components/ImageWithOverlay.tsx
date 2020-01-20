@@ -2,13 +2,14 @@ import { css } from '@emotion/core';
 import Img from 'gatsby-image';
 import React from 'react';
 import { ImageSharpFluid } from '../graphqlTypes';
+import { colors } from '../tokens';
 
 const styles = {
     container: css({
         display: 'grid',
     }),
     image: {
-        border: '2px solid blue',
+        border: `2px solid ${colors.imageGallery.imageBorder}`,
         gridColumn: '1 / -1',
         gridRow: '1 / -1',
     },
@@ -23,9 +24,9 @@ const styles = {
         alignItems: 'center',
     }),
     button: css({
-        background: 'rgba(0, 0, 0, 0.3)',
-        border: '2px solid white',
-        color: 'white',
+        background: colors.imageGallery.button.background,
+        border: `2px solid ${colors.imageGallery.button.border}`,
+        color: colors.imageGallery.button.text,
         textAlign: 'center',
         padding: '0.5rem',
     }),

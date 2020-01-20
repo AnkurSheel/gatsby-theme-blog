@@ -40,7 +40,7 @@ const GlobalStyle = () => (
                 scroll-behavior: smooth;
                 text-rendering: optimizeSpeed;
                 line-height: 1.5;
-                color: ${colors.text};
+                color: ${colors.paragraph};
                 background: ${colors.background};
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoue UI', Roboto, Arial, sans-serif;
                 font-size: 16px;
@@ -50,10 +50,10 @@ const GlobalStyle = () => (
             }
 
             a {
-                text-decoration-skip-ink: auto;
                 &:hover {
                     text-decoration-style: dashed;
                 }
+                color: ${colors.link};
             }
 
             /* Make images easier to work with */

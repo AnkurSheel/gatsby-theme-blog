@@ -1,24 +1,21 @@
+import { SEO } from '@codinators/gatsby-shared-library';
 import { css } from '@emotion/core';
 import React from 'react';
 import { Cat } from 'react-kawaii';
 import { oc } from 'ts-optchain';
-import { SEO } from '@codinators/gatsby-shared-library';
 import Wrapper from '../01-elements/Wrapper';
 import RecentPosts from '../02-components/RecentPosts';
 import Layout from '../04-layouts/layout';
 import useSiteMetadata from '../hooks/use-site-config';
+import { colors } from '../tokens';
 
 const styles = {
     mainTitle: css({
+        color: colors.title,
         lineHeight: '1.5',
         textAlign: 'center',
         fontSize: '3rem',
-    }),
-    subTitle: css({
-        paddingTop: '2.5rem',
-        lineHeight: 1.2,
-        borderTop: '3px solid #ececec',
-        margin: '2.5rem 0 1rem 0',
+        marginBottom: '2.5rem',
     }),
     cat: css({
         margin: '2.5rem 0',
@@ -38,13 +35,13 @@ const NotFoundPage = () => {
             <SEO title="Page Not Found" description="Page Not Found" url={`${siteUrl}/404.html`} isBlog={false} />
             <main css={Wrapper}>
                 <h1 css={styles.mainTitle}>Oh No! Page Not Found</h1>
-                <Cat css={styles.cat} size={160} mood="ko" color="#596881" />
+                <Cat css={styles.cat} size={160} mood="ko" color={colors.notFound.kawaiiColor} />
                 <p css={styles.text}>
                     Looks like you&apos;ve followed a broken link or entered a URL that doesn&apos;t exist on this site.
                 </p>
-
-                <h2 css={styles.subTitle}>Recent Posts</h2>
-
+            </main>
+            <main css={Wrapper}>
+                <h1 css={styles.mainTitle}>Recent Posts</h1>
                 <RecentPosts />
             </main>
         </Layout>

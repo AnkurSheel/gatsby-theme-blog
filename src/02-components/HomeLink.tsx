@@ -3,12 +3,11 @@ import { Link } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
 import React from 'react';
 import { ImageSharpFluid } from '../graphqlTypes';
-import { colors } from '../tokens';
 
 const styles = {
     home: css({
         zIndex: 10,
-        color: `${colors.textLightest}`,
+        color: 'inherit',
         padding: '0.5rem 0.5rem 0.5rem 0',
         display: 'flex',
         alignItems: 'center',
