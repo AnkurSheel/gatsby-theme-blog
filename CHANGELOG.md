@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.4.0...v1.4.1) (2020-01-21)
+
+
+### Bug Fixes
+
+* add border to header ([cbf27c6](https://github.com/AnkurSheel/gatsby-theme-blog/commit/cbf27c6dc1c14f3d3a92c548c5535b30384b74f8))
+
 # [1.4.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.3.1...v1.4.0) (2020-01-21)
 
 
