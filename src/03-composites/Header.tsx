@@ -19,6 +19,7 @@ export const styles = {
         backgroundColor: colors.header.background,
         color: colors.header.text,
         fontWeight: 'bold',
+        border: `1px solid ${colors.header.border}`,
     }),
     nav: css({
         display: 'flex',

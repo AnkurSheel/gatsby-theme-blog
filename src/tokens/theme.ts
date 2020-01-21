@@ -17,8 +17,9 @@ export default {
             link: '#271c19',
         },
         header: {
-            background: '#ffc0ad',
-            text: '#271c19',
+            background: '#55423d',
+            text: '#fff3ec',
+            border: '#ffc0ad',
         },
         footer: {
             background: '#55423d',

@@ -1,12 +1,12 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { SEO } from '@codinators/gatsby-shared-library';
-import Wrapper from '../01-elements/Wrapper';
 import Hero from '../03-composites/Hero';
 import PostsList from '../03-composites/PostsList';
 import Layout from '../04-layouts/layout';
 import useSiteMetadata from '../hooks/use-site-config';
 import { BlogListQuery } from '../graphqlTypes';
+import Main from '../02-components/Main';
 
 const Articles = () => {
     const siteMetaData = useSiteMetadata();
@@ -45,9 +45,9 @@ const Articles = () => {
         <Layout>
             <SEO title={title} description={title} url={`${siteUrl}/${path}`} isBlog={false} />
             <Hero title={title} />
-            <main css={Wrapper}>
+            <Main>
                 <PostsList posts={posts} />
-            </main>
+            </Main>
         </Layout>
     );
 };

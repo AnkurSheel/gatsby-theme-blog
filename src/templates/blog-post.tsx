@@ -4,13 +4,13 @@ import { graphql } from 'gatsby';
 import { IFluidObject } from 'gatsby-background-image';
 import { oc } from 'ts-optchain';
 import { SEO } from '@codinators/gatsby-shared-library';
-import Wrapper from '../01-elements/Wrapper';
 import Article from '../03-composites/Article';
 import Hero from '../03-composites/Hero';
 import Layout from '../04-layouts/layout';
 import { BlogPostBySlugQuery } from '../graphqlTypes';
 import useSiteMetadata from '../hooks/use-site-config';
 import RelatedPosts from '../03-composites/RelatedPosts';
+import Main from '../02-components/Main';
 
 interface BlogPostTemplateProps {
     data: Pick<BlogPostBySlugQuery, 'post'>;
@@ -53,17 +53,13 @@ const BlogPostTemplate = (props: BlogPostTemplateProps) => {
 
             <Hero image={fluid} title={title} imageStyles={css({ backgroundPosition: featuredImagePosition })} />
 
-            <main css={Wrapper}>
+            <Main>
                 {!published && <h1>Draft Post</h1>}
 
                 <Article body={body} tags={tags} date={date} path={slug} />
-            </main>
+            </Main>
 
-            <main css={Wrapper}>
-                {/* <Disqus slug={slug} title={title} /> */}
-                {/* <PrevNextPost previous={previous} next={next} /> */}
-                {slug && <RelatedPosts tags={tags} date={date} slug={slug} />}
-            </main>
+            <Main>{slug && <RelatedPosts tags={tags} date={date} slug={slug} />}</Main>
         </Layout>
     );
 };

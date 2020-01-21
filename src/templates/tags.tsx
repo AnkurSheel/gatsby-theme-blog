@@ -2,12 +2,12 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { oc } from 'ts-optchain';
 import { SEO } from '@codinators/gatsby-shared-library';
-import Wrapper from '../01-elements/Wrapper';
 import Hero from '../03-composites/Hero';
 import PostsList from '../03-composites/PostsList';
 import Layout from '../04-layouts/layout';
 import { PostsByTagQuery } from '../graphqlTypes';
 import useSiteMetadata from '../hooks/use-site-config';
+import Main from '../02-components/Main';
 
 interface TagsProps {
     data: Pick<PostsByTagQuery, 'posts'>;
@@ -36,10 +36,10 @@ const Tags = (props: TagsProps) => {
             <SEO title={pageTitle} description={description} url={`${siteUrl}${path}`} isBlog={false} />
             <Hero title={pageTitle} />
 
-            <main css={Wrapper}>
+            <Main>
                 <h1>Posts tagged as &quot;{tag}&quot;</h1>
                 <PostsList posts={posts} />
-            </main>
+            </Main>
         </Layout>
     );
 };

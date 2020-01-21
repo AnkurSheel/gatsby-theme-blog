@@ -4,12 +4,12 @@ import { IFluidObject } from 'gatsby-background-image';
 import React from 'react';
 import { oc } from 'ts-optchain';
 import { SEO } from '@codinators/gatsby-shared-library';
-import Wrapper from '../01-elements/Wrapper';
 import Content from '../03-composites/Content';
 import Hero from '../03-composites/Hero';
 import Layout from '../04-layouts/layout';
 import { PageBySlugQuery } from '../graphqlTypes';
 import useSiteMetadata from '../hooks/use-site-config';
+import Main from '../02-components/Main';
 
 interface PageProps {
     data: Pick<PageBySlugQuery, 'page'>;
@@ -34,11 +34,11 @@ export const Page = ({ path, data }: PageProps) => {
 
             <Hero image={fluid} title={title} imageStyles={css({ backgroundPosition: `${featuredImagePosition}` })} />
 
-            <main css={Wrapper}>
+            <Main>
                 <article>
                     <Content content={oc(page).body('')} path={slug} />
                 </article>
-            </main>
+            </Main>
         </Layout>
     );
 };
