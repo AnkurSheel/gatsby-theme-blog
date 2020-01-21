@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.3.1...v1.4.0) (2020-01-21)
+
+
+### Features
+
+* update colors and use theme ([d8c196c](https://github.com/AnkurSheel/gatsby-theme-blog/commit/d8c196cc7e7f5953fb05dbdea3495100dc4a95d7))
+
 ## [1.3.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.3.0...v1.3.1) (2020-01-19)
 
 
