@@ -1,19 +1,18 @@
-import { css } from '@emotion/core';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import ContentHeader from '../02-components/ContentHeader';
-import { colors } from '../tokens';
+import { Styles, theme } from '../tokens';
 
-const styles = {
-    body: css({
+const styles: Styles = {
+    body: {
         '& > h2': {
-            color: colors.subTitle,
+            color: theme.colors.subTitle,
             paddingTop: '2rem',
             marginTop: '2rem',
-            borderTop: `2px solid ${colors.subTitle}`,
+            borderTop: `2px solid ${theme.colors.subTitle}`,
         },
         '& > h3': {
-            borderTop: `1px dashed ${colors.subTitle}`,
+            borderTop: `1px dashed ${theme.colors.subTitle}`,
             marginTop: '1rem',
             paddingTop: '2rem',
         },
@@ -26,14 +25,14 @@ const styles = {
             fontStyle: 'italic',
         },
         '.gatsby-highlight-code-line': {
-            backgroundColor: colors.codeHighlight.background,
+            backgroundColor: theme.colors.codeHighlight.background,
             display: 'block',
             alignItems: 'center',
             marginLeft: '-1em',
             marginRight: '-1em',
             paddingLeft: '0.75em',
             paddingRight: '1em',
-            borderLeft: `0.25em solid ${colors.codeHighlight.border}`,
+            borderLeft: `0.25em solid ${theme.colors.codeHighlight.border}`,
         },
         /**
          * Add back the container background-color, border-radius, padding, margin
@@ -62,7 +61,7 @@ const styles = {
         ".gatsby-highlight pre[class*='language-'].line-numbers": {
             paddingLeft: '2.8em',
         },
-    }),
+    },
 };
 
 interface ContentProps {

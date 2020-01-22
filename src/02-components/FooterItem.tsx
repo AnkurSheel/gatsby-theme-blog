@@ -1,23 +1,22 @@
-import { css } from '@emotion/core';
 import { Link } from 'gatsby';
 import React from 'react';
 import { SiteSiteMetadataFooterLinksLinks } from '../graphqlTypes';
-import { colors } from '../tokens';
+import { Styles, theme } from '../tokens';
 
-const styles = {
-    item: css({
+const styles: Styles = {
+    item: {
         padding: '0.25rem 0',
-    }),
-    link: css({
+    },
+    link: {
         textDecoration: 'none',
         padding: '0.25rem 0',
         fontWeight: 'bold',
-        color: `${colors.footer.link}`,
-        ':hover': {
-            color: colors.footer.background,
-            background: colors.footer.link,
+        color: `${theme.colors.footer.link}`,
+        '&:hover': {
+            color: theme.colors.footer.background,
+            background: theme.colors.footer.link,
         },
-    }),
+    },
 };
 
 interface FooterItemProps {

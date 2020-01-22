@@ -1,14 +1,14 @@
-import { css } from '@emotion/core';
 import { Link } from 'gatsby';
 import React from 'react';
 import { SiteSiteMetadataHeaderLinks } from '../graphqlTypes';
+import { Styles } from '../tokens';
 
-const styles = {
-    link: css({
+const styles: Styles = {
+    link: {
         color: 'inherit',
         padding: '0.5rem',
         textDecoration: 'none',
-    }),
+    },
 };
 export type HeaderLinkData = Pick<SiteSiteMetadataHeaderLinks, 'label' | 'url'>;
 

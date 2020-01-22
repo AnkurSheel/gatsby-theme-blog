@@ -1,12 +1,11 @@
-import { css } from '@emotion/core';
 import Img from 'gatsby-image';
 import React, { useEffect } from 'react';
 import { ImageSharpFluid } from '../graphqlTypes';
-import { colors } from '../tokens';
+import { Styles, theme } from '../tokens';
 
-const styles = {
-    overlay: css({
-        background: colors.overlay,
+const styles: Styles = {
+    overlay: {
+        background: theme.colors.overlay,
         height: '100vh',
         position: 'fixed',
         top: 0,
@@ -17,9 +16,9 @@ const styles = {
         justifyItems: 'center',
         alignItems: 'center',
         zIndex: 1,
-    }),
-    modal: css({
-        background: colors.modal.background,
+    },
+    modal: {
+        background: theme.colors.modal.background,
         borderRadius: '10px',
         minWidth: '300px',
         width: '50vw',
@@ -27,26 +26,26 @@ const styles = {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-    }),
-    container: css({
-        border: `5px solid ${colors.modal.border}`,
-    }),
-    button: css({
-        background: colors.modal.button.background,
-        border: `1px solid ${colors.modal.button.border}`,
-        color: colors.modal.button.color,
+    },
+    container: {
+        border: `5px solid ${theme.colors.modal.border}`,
+    },
+    button: {
+        background: theme.colors.modal.button.background,
+        border: `1px solid ${theme.colors.modal.button.border}`,
+        color: theme.colors.modal.button.color,
         textAlign: 'center',
         padding: '0.5rem 1rem',
         margin: '0.5rem 1rem',
         cursor: 'pointer',
-    }),
-    caption: css({
+    },
+    caption: {
         margin: '0.5rem auto 1rem auto',
         textAlign: 'center',
         fontSize: '0.8em',
         fontStyle: 'italic',
-        color: colors.modal.text,
-    }),
+        color: theme.colors.modal.text,
+    },
 };
 
 export type LightBoxModalImage = {

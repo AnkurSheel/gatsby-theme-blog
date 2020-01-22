@@ -1,11 +1,10 @@
-import { css } from '@emotion/core';
 import { graphql } from 'gatsby';
 import React from 'react';
 import GlobalStyle from '../01-elements/GlobalStyles';
 import { BlogPostShareImageQuery } from '../graphqlTypes';
-import { colors } from '../tokens';
+import { StyleWithOptions, theme } from '../tokens';
 
-const stylesWithProps = (props: BlogPostShareImageProps) => {
+const styles: StyleWithOptions<BlogPostShareImageProps> = (props: BlogPostShareImageProps) => {
     const image =
         props.data.post &&
         props.data.post.frontmatter &&
@@ -13,10 +12,10 @@ const stylesWithProps = (props: BlogPostShareImageProps) => {
         props.data.post.frontmatter.featuredImage.publicURL;
 
     return {
-        preview: css({
+        preview: {
             width: `${props.pageContext.width}px`,
             height: `${props.pageContext.height}px`,
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(${image})`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.5, rgba(0,0,0,0.5),url(${image})`,
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             display: 'flex',
@@ -24,25 +23,25 @@ const stylesWithProps = (props: BlogPostShareImageProps) => {
             justifyContent: 'center',
             textAlign: 'center',
             verticalAlign: 'middle',
-        }),
-        title: css({
+        },
+        title: {
             fontWeight: 'bold',
             fontSize: `${props.pageContext.type === 'twitter' ? '2rem' : '3rem'}`,
             margin: '1rem 2rem',
-            color: `${colors.title}`,
-            textShadow: `1px 2px 0px ${colors.title}`,
+            color: `${theme.colors.title}`,
+            textShadow: `1px 2px 0px ${theme.colors.title}`,
             textAlign: 'center',
-        }),
-        readTime: css({
+        },
+        readTime: {
             verticalAlign: 'center',
             fontSize: `${props.pageContext.type === 'twitter' ? '1.5rem' : '2rem'}`,
             textAlign: 'center',
-            color: `${colors.paragraph}`,
+            color: `${theme.colors.paragraph}`,
             ':before': {
                 padding: '0.4em',
                 content: `'👁'`,
             },
-        }),
+        },
     };
 };
 
@@ -56,7 +55,6 @@ interface BlogPostShareImageProps {
 }
 
 const BlogPostShareImage = (props: BlogPostShareImageProps) => {
-    const styles = stylesWithProps(props);
     const {
         data: { post },
     } = props;
@@ -65,10 +63,10 @@ const BlogPostShareImage = (props: BlogPostShareImageProps) => {
     const title = (post && post.frontmatter && post.frontmatter.title) || '';
 
     return (
-        <div css={styles.preview}>
+        <div css={styles(props).preview}>
             <GlobalStyle />
-            <h1 css={styles.title}>{title}</h1>
-            {minutes && <h2 css={styles.readTime}>{minutes}</h2>}
+            <h1 css={styles(props).title}>{title}</h1>
+            {minutes && <h2 css={styles(props).readTime}>{minutes}</h2>}
         </div>
     );
 };

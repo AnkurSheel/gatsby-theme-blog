@@ -1,19 +1,19 @@
-import { css } from '@emotion/core';
 import React from 'react';
 import { SiteSiteMetadataFooterLinks, SiteSiteMetadataFooterLinksLinks } from '../graphqlTypes';
+import { Styles } from '../tokens';
 import FooterItem from './FooterItem';
 
-const styles = {
-    column: css({
+const styles: Styles = {
+    column: {
         flex: '1 auto',
         flexDirection: 'column',
         marginBottom: '1em',
         display: 'flex',
         paddingRight: '1em',
-    }),
-    title: css({
+    },
+    title: {
         margin: '0 0 1rem',
-    }),
+    },
 };
 
 export type FooterLinkData = Pick<SiteSiteMetadataFooterLinksLinks, 'label' | 'url'>;

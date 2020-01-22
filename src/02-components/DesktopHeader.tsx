@@ -1,14 +1,14 @@
-import { css } from '@emotion/core';
 import React from 'react';
 import { ImageSharpFluid, SiteSiteMetadataHeaderLinks } from '../graphqlTypes';
+import { Styles } from '../tokens';
 import HeaderLinks from './HeaderLinks';
 import HomeLink from './HomeLink';
 
-export const styles = {
-    header: css({
+const styles: Styles = {
+    header: {
         WebkitBoxAlign: 'center',
         display: 'flex',
-    }),
+    },
 };
 
 interface DesktopHeaderProps {
@@ -18,7 +18,7 @@ interface DesktopHeaderProps {
     headerTitle?: string;
 }
 
-export const DesktopHeader = ({ headerLinks, icon, siteTitle, headerTitle }: DesktopHeaderProps) => {
+const DesktopHeader = ({ headerLinks, icon, siteTitle, headerTitle }: DesktopHeaderProps) => {
     return (
         <>
             <HomeLink icon={icon} iconTitle={siteTitle} headerTitle={headerTitle} />
@@ -30,3 +30,5 @@ export const DesktopHeader = ({ headerLinks, icon, siteTitle, headerTitle }: Des
         </>
     );
 };
+
+export default DesktopHeader;

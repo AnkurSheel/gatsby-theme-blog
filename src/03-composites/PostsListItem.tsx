@@ -1,30 +1,29 @@
-import { css } from '@emotion/core';
 import { Link } from 'gatsby';
 import React from 'react';
-import { colors } from '../tokens';
+import { Styles, theme } from '../tokens';
 
-const styles = {
-    post: css({
+const styles: Styles = {
+    post: {
         marginBottom: '1.25rem',
-        background: colors.card.background,
+        background: theme.colors.card.background,
         borderRadius: '5px',
-    }),
-    linkContainer: css({
+    },
+    linkContainer: {
         textDecoration: 'none',
-    }),
-    section: css({
+    },
+    section: {
         padding: '1em',
-    }),
-    header: css({
+    },
+    header: {
         paddingBottom: '1em',
-        color: colors.card.title,
-    }),
-    excerpt: css({
+        color: theme.colors.card.title,
+    },
+    excerpt: {
         paddingBottom: '0.5em',
-        color: colors.card.paragraph,
-    }),
-    readPostLink: css({
-        color: `${colors.card.link}`,
+        color: theme.colors.card.paragraph,
+    },
+    readPostLink: {
+        color: `${theme.colors.card.link}`,
         width: '100%',
         margin: '1rem auto 0 auto',
         fontWeight: 'bold',
@@ -35,22 +34,21 @@ const styles = {
         letterSpacing: '0.05em',
         border: 'none',
         '&:hover': {
-            backgroundColor: `${colors.card.link}`,
+            backgroundColor: `${theme.colors.card.link}`,
             borderRadius: '0.25rem',
-            color: `${colors.card.background}`,
+            color: `${theme.colors.card.background}`,
         },
-    }),
+    },
 };
 
 interface PostListItemProps {
     title: string;
     excerpt: string;
     slug: string;
-    tags: string[];
 }
 
 const PostsListItem = (props: PostListItemProps) => {
-    const { title, excerpt, slug, tags } = props;
+    const { title, excerpt, slug } = props;
 
     const articleLink = `/blog/${slug}`;
     return (

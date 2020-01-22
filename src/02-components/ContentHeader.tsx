@@ -1,12 +1,12 @@
-import { css } from '@emotion/core';
 import React from 'react';
+import { Styles } from '../tokens';
 import TagList, { Tag } from './TagList';
 
-const styles = {
-    header: css({
+const styles: Styles = {
+    header: {
         marginBottom: '2rem',
         fontSize: '0.8rem',
-    }),
+    },
 };
 interface ContentIntroProps {
     date: string;
@@ -24,7 +24,7 @@ const ContentIntro = (props: ContentIntroProps) => {
                         This entry was posted on <time>{date}</time>
                     </span>
                 )}
-                {tags.length > 0 && <TagList tags={tags.map(tag => ({ name: tag }))} />}
+                {tags.length > 0 && <TagList tags={tags} />}
             </span>
         </header>
     );

@@ -1,15 +1,15 @@
-import { css } from '@emotion/core';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { RecentPostsQuery } from '../graphqlTypes';
+import { Styles } from '../tokens';
 
-const styles = {
-    recentPosts: css({
+const styles: Styles = {
+    recentPosts: {
         listStyle: 'none',
-    }),
-    recentPostItem: css({
+    },
+    recentPostItem: {
         marginTop: '0.5em',
-    }),
+    },
 };
 
 const RecentPosts = () => {

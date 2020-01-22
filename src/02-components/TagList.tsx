@@ -1,37 +1,36 @@
-import { css } from '@emotion/core';
 import slugify from '@sindresorhus/slugify';
 import { Link } from 'gatsby';
 import React from 'react';
-import { colors } from '../tokens';
+import { Styles, theme } from '../tokens';
 
-const styles = {
-    tagsList: css({
+const styles: Styles = {
+    tagsList: {
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
         alignItems: 'center',
-    }),
-    tag: css({
-        background: colors.tag.background,
-        color: colors.tag.link,
+    },
+    tag: {
+        background: theme.colors.tag.background,
+        color: theme.colors.tag.link,
         margin: '1rem 1rem 0 0',
         listStyle: 'none',
         borderRadius: '1.5em',
         padding: '0.25em 1em',
         ':hover': {
             cursor: 'pointer',
-            background: colors.tag.link,
-            color: colors.tag.background,
+            background: theme.colors.tag.link,
+            color: theme.colors.tag.background,
         },
-    }),
-    link: css({
+    },
+    link: {
         textDecoration: 'none',
         color: 'inherit',
         border: 'none',
         ':hover': {
             border: 'none',
         },
-    }),
+    },
 };
 
 export type Tag = {

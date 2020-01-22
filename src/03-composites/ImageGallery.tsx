@@ -1,17 +1,17 @@
-import { css } from '@emotion/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { useState } from 'react';
 import ImageWithOverlay from '../02-components/ImageWithOverlay';
 import LightBoxModal, { LightBoxModalImage } from '../02-components/LightboxModal';
 import { GetImagesQuery } from '../graphqlTypes';
+import { Styles } from '../tokens';
 
-const styles = {
-    container: css({
+const styles: Styles = {
+    container: {
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
         gridGap: '1.5rem',
         margin: '3rem 0',
-    }),
+    },
 };
 
 interface ImageGalleryProps {

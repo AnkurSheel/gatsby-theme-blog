@@ -1,44 +1,43 @@
-import { css } from '@emotion/core';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { oc } from 'ts-optchain';
 import { GetRelatedPostsQuery } from '../graphqlTypes';
-import { colors } from '../tokens';
+import { Styles, theme } from '../tokens';
 
-export const styles = {
-    container: css({
-        background: colors.card.background,
+const styles: Styles = {
+    container: {
+        background: theme.colors.card.background,
         padding: '1rem',
         borderRadius: '10px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignContent: 'center',
-    }),
-    header: css({
+    },
+    header: {
         paddingBottom: '0.5rem',
-        color: colors.card.title,
+        color: theme.colors.card.title,
         alignSelf: 'center',
         fontSize: '2.5rem',
-    }),
-    list: css({
+    },
+    list: {
         margin: 0,
         listStyle: 'none',
-    }),
-    listItem: css({
+    },
+    listItem: {
         padding: '0.25em',
-    }),
-    link: css({
+    },
+    link: {
         padding: '0 0.25em',
         textDecoration: 'none',
-        color: colors.card.link,
+        color: theme.colors.card.link,
         ':hover': {
-            backgroundColor: colors.card.link,
-            color: colors.card.background,
+            backgroundColor: theme.colors.card.link,
+            color: theme.colors.card.background,
         },
         fontSize: '1.5rem',
         lineHeight: '2rem',
-    }),
+    },
 };
 
 type Dictionary<T> = { [key: string]: T };

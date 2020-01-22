@@ -1,21 +1,20 @@
-import { css } from '@emotion/core';
 import React from 'react';
 import FooterColumn, { FooterColumnData, FooterLinkData } from '../02-components/FooterColumn';
 import useSiteMetadata from '../hooks/use-site-config';
-import { colors } from '../tokens';
+import { Styles, theme } from '../tokens';
 
-const styles = {
-    footer: css({
-        backgroundColor: `${colors.footer.background}`,
-        color: `${colors.footer.paragraph}`,
+const styles: Styles = {
+    footer: {
+        backgroundColor: `${theme.colors.footer.background}`,
+        color: `${theme.colors.footer.paragraph}`,
         display: 'flex',
         flexFlow: 'wrap',
         alignItems: 'flex-start',
         borderRadius: '10px',
         margin: '1rem',
         padding: '1rem',
-    }),
-    nav: css({}),
+    },
+    nav: {},
 };
 
 const Footer = () => {

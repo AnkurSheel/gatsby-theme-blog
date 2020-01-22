@@ -1,4 +1,2 @@
-import theme from './theme';
-
-export const colors = { ...theme.colors };
-export const media = { ...theme.media };
+export { default as theme } from './theme';
+export { Styles, StyleWithOptions } from './types';

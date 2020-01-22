@@ -1,24 +1,24 @@
-import { css } from '@emotion/core';
 import { Link } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
 import React from 'react';
 import { ImageSharpFluid } from '../graphqlTypes';
+import { Styles } from '../tokens';
 
-const styles = {
-    home: css({
+const styles: Styles = {
+    home: {
         zIndex: 10,
         color: 'inherit',
         padding: '0.5rem 0.5rem 0.5rem 0',
         display: 'flex',
         alignItems: 'center',
         textDecoration: 'none',
-    }),
-    icon: css({
+    },
+    icon: {
         width: '3rem',
         height: '3rem',
         marginRight: '1rem',
-    }),
-    title: css({}),
+    },
+    title: {},
 };
 
 interface HomeLinkProps {

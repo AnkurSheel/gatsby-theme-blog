@@ -5,7 +5,7 @@ import PostsListItem from './PostsListItem';
 interface PostListProps {
     posts: Array<{
         node: Pick<Mdx, 'excerpt'> & {
-            frontmatter: Maybe<Pick<MdxFrontmatter, 'date' | 'title' | 'tags' | 'slug'>>;
+            frontmatter: Maybe<Pick<MdxFrontmatter, 'date' | 'title' | 'slug'>>;
         };
     }>;
 }
@@ -20,8 +20,7 @@ const PostsList = (props: PostListProps) => {
                 const title = (frontmatter && frontmatter.title) || '';
                 const excerpt = (frontmatter && post.node.excerpt) || '';
                 const slug = (frontmatter && frontmatter.slug) || '';
-                const tags = (frontmatter && (frontmatter.tags as string[])) || [];
-                return <PostsListItem key={`${slug}`} title={title} excerpt={excerpt} slug={slug} tags={tags} />;
+                return <PostsListItem key={`${slug}`} title={title} excerpt={excerpt} slug={slug} />;
             })}
         </>
     );

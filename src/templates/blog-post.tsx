@@ -1,16 +1,15 @@
-import React from 'react';
-import { css } from '@emotion/core';
+import { SEO } from '@codinators/gatsby-shared-library';
 import { graphql } from 'gatsby';
 import { IFluidObject } from 'gatsby-background-image';
+import React from 'react';
 import { oc } from 'ts-optchain';
-import { SEO } from '@codinators/gatsby-shared-library';
+import Main from '../02-components/Main';
 import Article from '../03-composites/Article';
 import Hero from '../03-composites/Hero';
+import RelatedPosts from '../03-composites/RelatedPosts';
 import Layout from '../04-layouts/layout';
 import { BlogPostBySlugQuery } from '../graphqlTypes';
 import useSiteMetadata from '../hooks/use-site-config';
-import RelatedPosts from '../03-composites/RelatedPosts';
-import Main from '../02-components/Main';
 
 interface BlogPostTemplateProps {
     data: Pick<BlogPostBySlugQuery, 'post'>;
@@ -37,7 +36,7 @@ const BlogPostTemplate = (props: BlogPostTemplateProps) => {
     const fluid = oc(post).frontmatter.featuredImage.sharp.fluid() as IFluidObject;
     const imageFacebookUrl = oc(post).frontmatter.imageFacebook.publicURL();
     const imageTwitterUrl = oc(post).frontmatter.imageTwitter.publicURL();
-    const featuredImagePosition = oc(post).frontmatter.featuredImagePosition();
+    const featuredImagePosition = oc(post).frontmatter.featuredImagePosition('');
 
     return (
         <Layout>
@@ -51,7 +50,7 @@ const BlogPostTemplate = (props: BlogPostTemplateProps) => {
                 isBlog
             />
 
-            <Hero image={fluid} title={title} imageStyles={css({ backgroundPosition: featuredImagePosition })} />
+            <Hero image={fluid} title={title} imageStyles={{ backgroundPosition: featuredImagePosition }} />
 
             <Main>
                 {!published && <h1>Draft Post</h1>}

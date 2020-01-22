@@ -1,17 +1,16 @@
 import React, { ReactNode } from 'react';
-import { css } from '@emotion/core';
-import { colors } from '../tokens';
+import { Styles, theme } from '../tokens';
 
-const styles = {
-    main: css({
+const styles: Styles = {
+    main: {
         borderRadius: '20px',
         maxWidth: '770px',
         minHeight: '50vh',
         wordWrap: 'break-word',
-        backgroundColor: `${colors.backgroundArticle}`,
+        backgroundColor: `${theme.colors.backgroundArticle}`,
         margin: '0px auto 2rem auto',
         padding: '1.5rem',
-    }),
+    },
 };
 
 interface MainProps {

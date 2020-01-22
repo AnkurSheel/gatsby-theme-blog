@@ -1,19 +1,18 @@
-import { css } from '@emotion/core';
 import Img from 'gatsby-image';
 import React from 'react';
 import { ImageSharpFluid } from '../graphqlTypes';
-import { colors } from '../tokens';
+import { Styles, theme } from '../tokens';
 
-const styles = {
-    container: css({
+const styles: Styles = {
+    container: {
         display: 'grid',
-    }),
+    },
     image: {
-        border: `2px solid ${colors.imageGallery.imageBorder}`,
+        border: `2px solid ${theme.colors.imageGallery.imageBorder}`,
         gridColumn: '1 / -1',
         gridRow: '1 / -1',
     },
-    overlay: css({
+    overlay: {
         position: 'relative',
         gridColumn: '1 / -1',
         gridRow: '1 / -1',
@@ -22,14 +21,14 @@ const styles = {
         display: 'grid',
         justifyItems: 'center',
         alignItems: 'center',
-    }),
-    button: css({
-        background: colors.imageGallery.button.background,
-        border: `2px solid ${colors.imageGallery.button.border}`,
-        color: colors.imageGallery.button.text,
+    },
+    button: {
+        background: theme.colors.imageGallery.button.background,
+        border: `2px solid ${theme.colors.imageGallery.button.border}`,
+        color: theme.colors.imageGallery.button.text,
         textAlign: 'center',
         padding: '0.5rem',
-    }),
+    },
 };
 
 interface ImageWithOverlayProps {
