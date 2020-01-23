@@ -1,3 +1,11 @@
+## [1.5.2](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.5.1...v1.5.2) (2020-01-23)
+
+
+### Bug Fixes
+
+* crash on viewing blog post ([f3ed0ff](https://github.com/AnkurSheel/gatsby-theme-blog/commit/f3ed0ff0f0c270b3bc66e8fffc78d09ebb144fd5))
+* title wraps correctly now ([cbd0a2d](https://github.com/AnkurSheel/gatsby-theme-blog/commit/cbd0a2d28646546d68dd8679cd3c1cd08152776f))
+
 ## [1.5.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.5.0...v1.5.1) (2020-01-23)
 
 
