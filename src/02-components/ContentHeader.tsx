@@ -24,7 +24,7 @@ const ContentIntro = (props: ContentIntroProps) => {
                         This entry was posted on <time>{date}</time>
                     </span>
                 )}
-                {tags.length > 0 && <TagList tags={tags} />}
+                {tags.length > 0 && <TagList tags={tags.map(t => ({ name: t }))} />}
             </span>
         </header>
     );
