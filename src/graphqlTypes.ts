@@ -756,7 +756,6 @@ export enum FileFieldsEnum {
     ChildMdxFrontmatterImageTwitterId = 'childMdx___frontmatter___imageTwitter___id',
     ChildMdxFrontmatterImageTwitterChildren = 'childMdx___frontmatter___imageTwitter___children',
     ChildMdxFrontmatterTags = 'childMdx___frontmatter___tags',
-    ChildMdxFrontmatterCategories = 'childMdx___frontmatter___categories',
     ChildMdxBody = 'childMdx___body',
     ChildMdxExcerpt = 'childMdx___excerpt',
     ChildMdxHeadings = 'childMdx___headings',
@@ -2198,7 +2197,6 @@ export enum MdxFieldsEnum {
     FrontmatterImageTwitterChildImagesJsonChildren = 'frontmatter___imageTwitter___childImagesJson___children',
     FrontmatterImageTwitterChildImagesJsonGallery = 'frontmatter___imageTwitter___childImagesJson___gallery',
     FrontmatterTags = 'frontmatter___tags',
-    FrontmatterCategories = 'frontmatter___categories',
     Body = 'body',
     Excerpt = 'excerpt',
     Headings = 'headings',
@@ -2329,7 +2327,6 @@ export type MdxFrontmatter = {
     imageFacebook?: Maybe<File>;
     imageTwitter?: Maybe<File>;
     tags?: Maybe<Array<Maybe<Scalars['String']>>>;
-    categories?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type MdxFrontmatterDateArgs = {
@@ -2351,7 +2348,6 @@ export type MdxFrontmatterFilterInput = {
     imageFacebook?: Maybe<FileFilterInput>;
     imageTwitter?: Maybe<FileFilterInput>;
     tags?: Maybe<StringQueryOperatorInput>;
-    categories?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MdxGroupConnection = {
@@ -3968,6 +3964,10 @@ export type BlogListQuery = {
         }>;
     };
 };
+
+export type TagsQueryVariables = {};
+
+export type TagsQuery = { posts: { group: Array<Pick<MdxGroupConnection, 'fieldValue' | 'totalCount'>> } };
 
 export type BlogPostShareImageQueryVariables = {
     slug: Scalars['String'];

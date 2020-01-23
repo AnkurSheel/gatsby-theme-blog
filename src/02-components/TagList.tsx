@@ -34,8 +34,13 @@ const styles = {
     }),
 };
 
+export type Tag = {
+    display?: string;
+    name: string;
+};
+
 interface TagListProps {
-    tags: string[];
+    tags: Tag[];
 }
 
 export const TagList = (props: TagListProps) => {
@@ -44,11 +49,11 @@ export const TagList = (props: TagListProps) => {
     return (
         <ul css={styles.tagsList}>
             {tags.map(t => {
-                const tag = slugify(t);
+                const tag = slugify(t.name);
                 return (
                     <li css={styles.tag} key={`tag-list-${tag}`}>
                         <Link css={styles.link} to={`/tags/${tag}`}>
-                            {t}
+                            {t.display ?? t.name}
                         </Link>
                     </li>
                 );

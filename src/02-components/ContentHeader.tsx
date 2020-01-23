@@ -1,6 +1,6 @@
 import { css } from '@emotion/core';
 import React from 'react';
-import TagList from './TagList';
+import TagList, { Tag } from './TagList';
 
 const styles = {
     header: css({
@@ -24,7 +24,7 @@ const ContentIntro = (props: ContentIntroProps) => {
                         This entry was posted on <time>{date}</time>
                     </span>
                 )}
-                {tags.length > 0 && <TagList tags={tags} />}
+                {tags.length > 0 && <TagList tags={tags.map(tag => ({ name: tag }))} />}
             </span>
         </header>
     );
