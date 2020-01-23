@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.5.0...v1.5.1) (2020-01-23)
+
+
+### Bug Fixes
+
+* fix title on tag pages ([7efed5f](https://github.com/AnkurSheel/gatsby-theme-blog/commit/7efed5fc51559927f36ba37ba3d23ad21d536f5d))
+
 # [1.5.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.4.1...v1.5.0) (2020-01-23)
 
 
