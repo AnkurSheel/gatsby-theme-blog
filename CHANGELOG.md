@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.4.1...v1.5.0) (2020-01-23)
+
+
+### Features
+
+* add tags page ([3b2bddf](https://github.com/AnkurSheel/gatsby-theme-blog/commit/3b2bddf0f5e4f5058652ebabaca2ff3a3375ee28))
+
 ## [1.4.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.4.0...v1.4.1) (2020-01-21)
 
 
