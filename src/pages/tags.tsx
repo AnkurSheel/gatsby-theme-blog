@@ -25,7 +25,7 @@ const Articles = () => {
     `);
     const todaysDate = new Date();
 
-    const group = data.posts.group;
+    const { group } = data.posts;
 
     const title = `All Tags`;
     const siteUrl = siteMetaData?.siteUrl || '';

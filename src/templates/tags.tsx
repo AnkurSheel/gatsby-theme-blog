@@ -29,15 +29,13 @@ const Tags = (props: TagsProps) => {
 
     const siteUrl = oc(siteMetaData).siteUrl('');
 
-    const pageTitle = `#${tag}`;
-    const description = `Posts tagged as '${tag}'`;
+    const title = `Posts tagged as '${tag}'`;
     return (
         <Layout>
-            <SEO title={pageTitle} description={description} url={`${siteUrl}${path}`} isBlog={false} />
-            <Hero title={pageTitle} />
+            <SEO title={title} description={title} url={`${siteUrl}${path}`} isBlog={false} />
+            <Hero title={title} />
 
             <Main>
-                <h1>Posts tagged as &quot;{tag}&quot;</h1>
                 <PostsList posts={posts} />
             </Main>
         </Layout>
