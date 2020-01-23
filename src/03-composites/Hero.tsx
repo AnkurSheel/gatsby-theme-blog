@@ -6,11 +6,10 @@ import { StyleWithOptions, theme } from '../tokens';
 const styles: StyleWithOptions<HeroProps> = props => {
     return {
         container: {
-            position: 'relative',
-            width: '100vw',
-            height: '30vh',
-            textAlign: 'center',
-            marginBottom: '2rem',
+            minHeight: '30vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
         },
         image: {
             width: '100%',
@@ -20,16 +19,11 @@ const styles: StyleWithOptions<HeroProps> = props => {
             backgroundImage: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5))',
             ...props.imageStyles,
         },
-        textContainer: {
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-        },
         title: {
             color: theme.colors.title,
             fontWeight: 'bold',
             fontSize: '2.5rem',
+            textAlign: 'center',
         },
     };
 };
@@ -53,9 +47,7 @@ const Hero = (props: HeroProps) => {
                     preserveStackingContext
                 />
             )}
-            <div css={styles(props).textContainer}>
-                <h1 css={styles(props).title}>{title}</h1>
-            </div>
+            <h1 css={styles(props).title}>{title}</h1>
         </div>
     );
 };

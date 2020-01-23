@@ -9,7 +9,7 @@ import { Styles, theme } from '../tokens';
 
 const styles: Styles = {
     wrapper: {
-        position: 'fixed',
+        position: 'sticky',
         top: 0,
         left: 0,
         margin: '0 auto',

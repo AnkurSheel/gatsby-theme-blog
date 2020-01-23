@@ -7,12 +7,7 @@ import Header from '../03-composites/Header';
 import { Styles } from '../tokens';
 
 const styles: Styles = {
-    siteContent: {
-        margin: 0,
-        '@media (min-width: 700px)': {
-            margin: '60px 0',
-        },
-    },
+    siteContent: {},
 };
 
 interface LayoutProps {
