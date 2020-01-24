@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.5.2...v1.5.3) (2020-01-24)
+
+
+### Bug Fixes
+
+* hero image not showing ([c2302bf](https://github.com/AnkurSheel/gatsby-theme-blog/commit/c2302bf75c041fe31eccea415eeb4e69113cff44))
+
 ## [1.5.2](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.5.1...v1.5.2) (2020-01-23)
 
 
