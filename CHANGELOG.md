@@ -1,3 +1,10 @@
+## [1.5.4](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.5.3...v1.5.4) (2020-01-26)
+
+
+### Bug Fixes
+
+* related posts show latest posts first ([00d8ca2](https://github.com/AnkurSheel/gatsby-theme-blog/commit/00d8ca2e27d3d39ea06b614ba5951a8a4dfc0067))
+
 ## [1.5.3](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.5.2...v1.5.3) (2020-01-24)
 
 
