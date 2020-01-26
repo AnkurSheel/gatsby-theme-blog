@@ -106,7 +106,7 @@ const RelatedPosts = (props: RelatedPostsComponentProps) => {
         .map(s => identityMap[s])
         .sort((a, b) => {
             if (a && b) {
-                return a.points <= b.points ? 1 : -1;
+                return a.points < b.points ? 1 : -1;
             }
             return 0;
         })
