@@ -44,16 +44,15 @@ const styles: Styles = {
 interface PostListItemProps {
     title: string;
     excerpt: string;
-    slug: string;
+    path: string;
 }
 
 const PostsListItem = (props: PostListItemProps) => {
-    const { title, excerpt, slug } = props;
+    const { title, excerpt, path } = props;
 
-    const articleLink = `/blog/${slug}`;
     return (
         <div css={styles.post}>
-            <Link css={styles.linkContainer} to={articleLink} aria-label={`View ${title} article`}>
+            <Link css={styles.linkContainer} to={path} aria-label={`View ${title} article`}>
                 <section css={styles.section}>
                     <h2 css={styles.header}>{title}</h2>
                     <p css={styles.excerpt}>{excerpt}</p>

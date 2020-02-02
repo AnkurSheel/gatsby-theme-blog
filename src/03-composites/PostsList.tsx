@@ -1,26 +1,16 @@
 import React from 'react';
-import { Maybe, Mdx, MdxFrontmatter } from '../graphqlTypes';
+import { Post } from '../graphqlTypes';
 import PostsListItem from './PostsListItem';
 
 interface PostListProps {
-    posts: Array<{
-        node: Pick<Mdx, 'excerpt'> & {
-            frontmatter: Maybe<Pick<MdxFrontmatter, 'date' | 'title' | 'slug'>>;
-        };
-    }>;
+    posts: Pick<Post, 'title' | 'path' | 'excerpt' | 'date' | 'tags'>[];
 }
 
-const PostsList = (props: PostListProps) => {
-    const { posts } = props;
-
+const PostsList = ({ posts }: PostListProps) => {
     return (
         <>
             {posts.map(post => {
-                const { frontmatter } = post.node;
-                const title = (frontmatter && frontmatter.title) || '';
-                const excerpt = (frontmatter && post.node.excerpt) || '';
-                const slug = (frontmatter && frontmatter.slug) || '';
-                return <PostsListItem key={`${slug}`} title={title} excerpt={excerpt} slug={slug} />;
+                return <PostsListItem key={post.path} title={post.title} excerpt={post.excerpt} path={post.path} />;
             })}
         </>
     );

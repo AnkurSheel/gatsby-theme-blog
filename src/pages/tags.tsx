@@ -4,7 +4,7 @@ import { SEO } from '@codinators/gatsby-shared-library';
 import Hero from '../03-composites/Hero';
 import Layout from '../04-layouts/layout';
 import useSiteMetadata from '../hooks/use-site-config';
-import { BlogListQuery, TagsQuery } from '../graphqlTypes';
+import { TagsQuery } from '../graphqlTypes';
 import Main from '../02-components/Main';
 import TagList, { Tag } from '../02-components/TagList';
 
@@ -12,20 +12,16 @@ const Articles = () => {
     const siteMetaData = useSiteMetadata();
     const data: TagsQuery = useStaticQuery(graphql`
         query Tags {
-            posts: allMdx(
-                sort: { fields: [frontmatter___date], order: DESC }
-                filter: { fileAbsolutePath: { regex: "//content/posts//" }, frontmatter: { published: { eq: true } } }
-            ) {
-                group(field: frontmatter___tags) {
+            allPost(sort: { fields: date, order: DESC }, filter: { draft: { eq: false } }) {
+                group(field: tags) {
                     fieldValue
                     totalCount
                 }
             }
         }
     `);
-    const todaysDate = new Date();
 
-    const { group } = data.posts;
+    const { group } = data.allPost;
 
     const title = `All Tags`;
     const siteUrl = siteMetaData?.siteUrl || '';

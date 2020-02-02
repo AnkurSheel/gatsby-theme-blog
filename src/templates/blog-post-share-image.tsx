@@ -5,38 +5,36 @@ import { BlogPostShareImageQuery } from '../graphqlTypes';
 import { StyleWithOptions, theme } from '../tokens';
 
 const styles: StyleWithOptions<BlogPostShareImageProps> = (props: BlogPostShareImageProps) => {
-    const image =
-        props.data.post &&
-        props.data.post.frontmatter &&
-        props.data.post.frontmatter.featuredImage &&
-        props.data.post.frontmatter.featuredImage.publicURL;
-
+    const image = props.data.post?.featuredImage?.publicURL;
+    console.log({ image });
     return {
         preview: {
+            position: 'relative',
             width: `${props.pageContext.width}px`,
             height: `${props.pageContext.height}px`,
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.5, rgba(0,0,0,0.5),url(${image})`,
+            backgroundImage: image && `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${image})`,
             backgroundPosition: 'center',
             backgroundSize: 'cover',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            textAlign: 'center',
-            verticalAlign: 'middle',
+        },
+        textContainer: {
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '100%',
+            padding: '0 2rem',
         },
         title: {
             fontWeight: 'bold',
-            fontSize: `${props.pageContext.type === 'twitter' ? '2rem' : '3rem'}`,
-            margin: '1rem 2rem',
+            fontSize: `${props.pageContext.type === 'twitter' ? '1.5rem' : '2rem'}`,
             color: `${theme.colors.title}`,
-            textShadow: `1px 2px 0px ${theme.colors.title}`,
             textAlign: 'center',
         },
         readTime: {
             verticalAlign: 'center',
-            fontSize: `${props.pageContext.type === 'twitter' ? '1.5rem' : '2rem'}`,
-            textAlign: 'center',
+            fontSize: `${props.pageContext.type === 'twitter' ? '1rem' : '1.5rem'}`,
             color: `${theme.colors.paragraph}`,
+            textAlign: 'center',
             ':before': {
                 padding: '0.4em',
                 content: `'👁'`,
@@ -58,15 +56,18 @@ const BlogPostShareImage = (props: BlogPostShareImageProps) => {
     const {
         data: { post },
     } = props;
-    const timeToRead = post && post.timeToRead && post.timeToRead;
-    const minutes = timeToRead && timeToRead === 1 ? `${timeToRead} min` : `${timeToRead} mins`;
-    const title = (post && post.frontmatter && post.frontmatter.title) || '';
+    if (!post) {
+        return <></>;
+    }
+    const minutes = post.timeToRead === 1 ? `${post.timeToRead} min` : `${post.timeToRead} mins`;
 
     return (
         <div css={styles(props).preview}>
             <GlobalStyle />
-            <h1 css={styles(props).title}>{title}</h1>
-            {minutes && <h2 css={styles(props).readTime}>{minutes}</h2>}
+            <div css={styles(props).textContainer}>
+                <h1 css={styles(props).title}>{post.title}</h1>
+                {minutes && <h2 css={styles(props).readTime}>{minutes}</h2>}
+            </div>
         </div>
     );
 };
@@ -74,14 +75,12 @@ const BlogPostShareImage = (props: BlogPostShareImageProps) => {
 export default BlogPostShareImage;
 
 export const pageQuery = graphql`
-    query BlogPostShareImage($slug: String!) {
-        post: mdx(frontmatter: { slug: { eq: $slug } }) {
+    query BlogPostShareImage($id: String!) {
+        post(id: { eq: $id }) {
+            title
             timeToRead
-            frontmatter {
-                title
-                featuredImage {
-                    publicURL
-                }
+            featuredImage {
+                publicURL
             }
         }
     }
