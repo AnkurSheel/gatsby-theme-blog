@@ -8,11 +8,6 @@ module.exports = {
             resolve: `gatsby-plugin-mdx`,
             options: pluginOptions.mdx,
         },
-        // Reminder (https://github.com/gatsbyjs/gatsby/issues/15486#issuecomment-509405867)
-        {
-            resolve: `gatsby-transformer-remark`,
-            options: pluginOptions.transformerRemark,
-        },
         `gatsby-plugin-typescript`,
         {
             resolve: `gatsby-transformer-json`,

@@ -12,7 +12,7 @@
         "type": "git",
         "url": "https://github.com/AnkurSheel/gatsby-theme-blog.git"
     },
-    "main": "index.js",
+    "main": "gatsby-config.js",
     "license": "MIT",
     "author": "Ankur Sheel <ankur.sheel@gmail.com>",
     "scripts": {
@@ -57,8 +57,8 @@
         "gatsby-remark-smartypants": "^2.1.19",
         "gatsby-source-filesystem": "^2.1.42",
         "gatsby-transformer-json": "^2.2.22",
-        "gatsby-transformer-remark": "^2.6.42",
         "gatsby-transformer-sharp": "^2.3.9",
+        "mkdirp": "^1.0.3",
         "prismjs": "^1.16.0",
         "react-helmet": "^5.2.1",
         "react-kawaii": "^0.14.4",
