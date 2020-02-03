@@ -1,4 +1,5 @@
 const slugify = require('@sindresorhus/slugify');
+const { todaysDate } = require('./utils/helpers');
 
 const buildPages = async (graphql, isDevelop, reporter, createPage) => {
     const pagesResult = await graphql(`
@@ -30,7 +31,11 @@ const buildPages = async (graphql, isDevelop, reporter, createPage) => {
 const getPosts = async (graphql, isDevelop, reporter) => {
     const postsResult = await graphql(`
         query {
-            allPost ${isDevelop ? '' : '(filter: { draft: { eq: false } })'}
+            allPost ${
+                isDevelop
+                    ? ''
+                    : `filter: {draft: {eq: false}, date: {lte: "${todaysDate}"}}, sort: {order: DESC, fields: date}`
+            }
             {
                 nodes {
                     id
