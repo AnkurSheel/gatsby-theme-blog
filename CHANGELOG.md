@@ -1,3 +1,16 @@
+# [2.0.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.5.4...v2.0.0) (2020-02-03)
+
+
+### Features
+
+* use explicit page and post type ([a630735](https://github.com/AnkurSheel/gatsby-theme-blog/commit/a630735427eb5d94fbee3027a602dcb405f8596d))
+
+
+### BREAKING CHANGES
+
+* The date and slug is automatically calculated from the folder name. Some other
+frontmatter values are not required.
+
 ## [1.5.4](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.5.3...v1.5.4) (2020-01-26)
 
 

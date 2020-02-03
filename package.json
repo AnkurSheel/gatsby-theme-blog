@@ -1,7 +1,7 @@
 {
     "name": "@codinators/gatsby-theme-blog",
     "private": false,
-    "version": "1.5.4",
+    "version": "2.0.0",
     "description": "Reusable Theme for Gatsby Blogs",
     "keywords": [
         "blog",
