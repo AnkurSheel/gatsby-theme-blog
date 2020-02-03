@@ -26,6 +26,7 @@ const createPostNode = (parent, createNode, createNodeId, node, blogBasePath) =>
         path: postDetails.slug,
         date: postDetails.date,
         tags: node.frontmatter.tags,
+        excerpt: node.frontmatter.excerpt,
         draft: node.frontmatter.draft || false,
         featuredImage: node.frontmatter.featuredImage || null,
         imageFacebook: './image-facebook.png',

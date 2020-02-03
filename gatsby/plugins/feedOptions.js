@@ -3,7 +3,7 @@ const formatDate = d => `${d.getFullYear()}-${padLeft0(d.getMonth() + 1)}-${padL
 const todaysDate = formatDate(new Date());
 
 module.exports = options => {
-    const { rssFile, rssTitle } = options;
+    const { rss } = options;
     return {
         feeds: [
             {
@@ -50,8 +50,8 @@ module.exports = options => {
               }
             }
             `,
-                output: rssFile,
-                title: rssTitle,
+                output: rss.file,
+                title: rss.title,
             },
         ],
     };

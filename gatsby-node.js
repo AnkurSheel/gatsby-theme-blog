@@ -4,12 +4,7 @@ const mkdirp = require('mkdirp');
 const withDefaults = require('./gatsby/utils/defaultThemeOptions');
 const { createPageType, createPostType } = require('./gatsby/createTypes');
 const { createPageNode, createPostNode } = require('./gatsby/createNodes');
-const {
-    createBodyResolver,
-    createTimeToReadResolver,
-    createExcerptResolver,
-    createHtmlResolver,
-} = require('./gatsby/createResolvers');
+const { createBodyResolver, createTimeToReadResolver, createHtmlResolver } = require('./gatsby/createResolvers');
 const { buildPages, buildPosts, buildTags, buildShareImages } = require('./gatsby/createPages');
 
 let blogBasePath = '';
@@ -70,10 +65,6 @@ exports.createResolvers = ({ createResolvers }) => {
             html: {
                 type: 'String!',
                 resolve: createHtmlResolver(),
-            },
-            excerpt: {
-                type: 'String!',
-                resolve: createExcerptResolver(),
             },
         },
     });
