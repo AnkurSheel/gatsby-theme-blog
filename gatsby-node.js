@@ -1,30 +1,16 @@
-const path = require('path');
-const fs = require('fs');
-const mkdirp = require('mkdirp');
 const withDefaults = require('./gatsby/utils/defaultThemeOptions');
+const { createDir } = require('./gatsby/createDir');
 const { createPageType, createPostType } = require('./gatsby/createTypes');
 const { createPageNode, createPostNode } = require('./gatsby/createNodes');
 const { createBodyResolver, createTimeToReadResolver, createHtmlResolver } = require('./gatsby/createResolvers');
 const { buildPages, buildPosts, buildTags, buildShareImages } = require('./gatsby/createPages');
 
-let blogBasePath = '';
-
 exports.onPreBootstrap = ({ store }, options) => {
     const { program } = store.getState();
-    const { contentDir, postsBasePath } = withDefaults(options);
-    blogBasePath = postsBasePath;
-    const pagesPath = path.join(program.directory, contentDir.pages);
-    if (!fs.existsSync(pagesPath)) {
-        mkdirp.sync(pagesPath);
-    }
-    const postsPath = path.join(program.directory, contentDir.posts);
-    if (!fs.existsSync(postsPath)) {
-        mkdirp.sync(postsPath);
-    }
-    const imagesPath = path.join(program.directory, contentDir.images);
-    if (!fs.existsSync(imagesPath)) {
-        mkdirp.sync(imagesPath);
-    }
+    const { contentDir } = withDefaults(options);
+    createDir(program, contentDir.pages);
+    createDir(program, contentDir.posts);
+    createDir(program, contentDir.images);
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -33,7 +19,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 };
 
 exports.onCreateNode = async ({ node, actions: { createNode }, getNode, createNodeId }, options) => {
-    const { basePath } = withDefaults(options);
+    const { basePath, postsBasePath } = withDefaults(options);
     const parent = getNode(node.parent);
 
     if (node.internal.type !== 'Mdx') {
@@ -45,7 +31,7 @@ exports.onCreateNode = async ({ node, actions: { createNode }, getNode, createNo
     }
 
     if (parent.sourceInstanceName === 'posts') {
-        createPostNode(parent, createNode, createNodeId, node, blogBasePath);
+        createPostNode(parent, createNode, createNodeId, node, postsBasePath);
     }
 };
 
