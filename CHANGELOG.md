@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.0.0...v2.0.1) (2020-02-03)
+
+
+### Bug Fixes
+
+* rss feed generation errors ([310cd72](https://github.com/AnkurSheel/gatsby-theme-blog/commit/310cd7262a5c7fe92261d0ed05635171a6f3909c))
+
 # [2.0.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v1.5.4...v2.0.0) (2020-02-03)
 
 
