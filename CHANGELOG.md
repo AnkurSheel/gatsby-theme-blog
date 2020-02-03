@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.0.2...v2.0.3) (2020-02-03)
+
+
+### Bug Fixes
+
+* createPost crash because of missing () ([78186b9](https://github.com/AnkurSheel/gatsby-theme-blog/commit/78186b9a24245b874d25db2251e4b825fc4f43ce))
+
 ## [2.0.2](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.0.1...v2.0.2) (2020-02-03)
 
 
