@@ -21,6 +21,10 @@ exports.onPreBootstrap = ({ store }, options) => {
     if (!fs.existsSync(postsPath)) {
         mkdirp.sync(postsPath);
     }
+    const imagesPath = path.join(program.directory, contentDir.images);
+    if (!fs.existsSync(imagesPath)) {
+        mkdirp.sync(imagesPath);
+    }
 };
 
 exports.createSchemaCustomization = ({ actions }) => {

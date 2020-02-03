@@ -35,7 +35,7 @@ module.exports = options => {
                 resolve: `gatsby-source-filesystem`,
                 options: {
                     name: 'images',
-                    path: 'content/images',
+                    path: contentDir.images,
                 },
             },
             `gatsby-plugin-emotion`,
