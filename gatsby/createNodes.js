@@ -24,7 +24,6 @@ const createPostNode = (parent, createNode, createNodeId, node, blogBasePath) =>
         id: createNodeId(`Post-${node.id}`),
         title: node.frontmatter.title || parent.name,
         path: postDetails.slug,
-        excerpt: node.frontmatter.excerpt,
         date: postDetails.date,
         tags: node.frontmatter.tags,
         draft: node.frontmatter.draft || false,

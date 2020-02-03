@@ -22,6 +22,7 @@ const createPostType = actions => {
         body:String!
         tags: [String!]!
         timeToRead: Int!
+        html: String!
         draft: Boolean
         featuredImage: File @fileByRelativePath
         featuredImagePosition: String

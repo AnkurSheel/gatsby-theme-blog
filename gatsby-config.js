@@ -43,7 +43,7 @@ module.exports = options => {
             { resolve: `gatsby-plugin-catch-links` },
             {
                 resolve: `gatsby-plugin-feed`,
-                options: pluginOptions.rssFeed,
+                options: pluginOptions.rssFeed(options),
             },
             { resolve: `gatsby-plugin-sitemap` },
             {
