@@ -1,3 +1,13 @@
+## [2.0.2](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.0.1...v2.0.2) (2020-02-03)
+
+
+### Bug Fixes
+
+* create image dir if it does not exist ([5959cb8](https://github.com/AnkurSheel/gatsby-theme-blog/commit/5959cb8f0f2cfa72bb527e1bec5cd0840565b228))
+* do not create pages for posts with a future date ([bec0066](https://github.com/AnkurSheel/gatsby-theme-blog/commit/bec00661f7e513bb6ab8307ed5d56c7e35f87346))
+* move content dir into an object ([e809b62](https://github.com/AnkurSheel/gatsby-theme-blog/commit/e809b62b8a08b4e16f92d657491b7b659462f59e))
+* move rss options into an object ([66cc318](https://github.com/AnkurSheel/gatsby-theme-blog/commit/66cc318338e923e0bf43ba33fb25cd30af3aecd7))
+
 ## [2.0.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.0.0...v2.0.1) (2020-02-03)
 
 
