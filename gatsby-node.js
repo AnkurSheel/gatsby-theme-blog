@@ -11,13 +11,13 @@ let blogBasePath = '';
 
 exports.onPreBootstrap = ({ store }, options) => {
     const { program } = store.getState();
-    const { pagesDir, postsDir, postsBasePath } = withDefaults(options);
+    const { contentDir, postsBasePath } = withDefaults(options);
     blogBasePath = postsBasePath;
-    const pagesPath = path.join(program.directory, pagesDir);
+    const pagesPath = path.join(program.directory, contentDir.pages);
     if (!fs.existsSync(pagesPath)) {
         mkdirp.sync(pagesPath);
     }
-    const postsPath = path.join(program.directory, postsDir);
+    const postsPath = path.join(program.directory, contentDir.posts);
     if (!fs.existsSync(postsPath)) {
         mkdirp.sync(postsPath);
     }

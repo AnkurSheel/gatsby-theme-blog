@@ -1,14 +1,12 @@
 module.exports = ({
     basePath = '/',
-    pagesDir = 'content/pages',
-    postsDir = 'content/posts',
+    contentDir = { pages: 'content/pages', posts: 'content/posts' },
     postsBasePath = '/blog',
     useExternalMDX = false,
     rss = { file: 'rss.xml', title: 'RSS' },
 }) => ({
     basePath,
-    pagesDir,
-    postsDir,
+    contentDir,
     postsBasePath,
     useExternalMDX,
     rss,

@@ -2,7 +2,7 @@ const pluginOptions = require('./gatsby/plugins');
 const withDefaults = require('./gatsby/utils/defaultThemeOptions');
 
 module.exports = options => {
-    const { pagesDir, postsDir, useExternalMDX } = withDefaults(options);
+    const { contentDir, useExternalMDX } = withDefaults(options);
 
     return {
         plugins: [
@@ -21,14 +21,14 @@ module.exports = options => {
                 resolve: `gatsby-source-filesystem`,
                 options: {
                     name: 'posts',
-                    path: postsDir,
+                    path: contentDir.posts,
                 },
             },
             {
                 resolve: `gatsby-source-filesystem`,
                 options: {
                     name: 'pages',
-                    path: pagesDir,
+                    path: contentDir.pages,
                 },
             },
             {
