@@ -31,10 +31,11 @@ const buildPages = async (graphql, isDevelop, reporter, createPage) => {
 const getPosts = async (graphql, isDevelop, reporter) => {
     const postsResult = await graphql(`
         query {
+
             allPost ${
                 isDevelop
                     ? ''
-                    : `filter: {draft: {eq: false}, date: {lte: "${todaysDate}"}}, sort: {order: DESC, fields: date}`
+                    : `(filter: {draft: {eq: false}, date: {lte: "${todaysDate}"}}, sort: {order: DESC, fields: date})`
             }
             {
                 nodes {
