@@ -1,5 +1,5 @@
-const pluginOptions = require('./config/gatsby/plugins');
-const withDefaults = require('./utils/defaultThemeOptions');
+const pluginOptions = require('./gatsby/plugins');
+const withDefaults = require('./gatsby/utils/defaultThemeOptions');
 
 module.exports = options => {
     const { pagesDir, postsDir, useExternalMDX } = withDefaults(options);
