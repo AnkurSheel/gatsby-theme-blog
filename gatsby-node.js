@@ -1,149 +1,80 @@
-const { createFilePath } = require('gatsby-source-filesystem');
-const slugify = require('@sindresorhus/slugify');
+const path = require('path');
+const fs = require('fs');
+const mkdirp = require('mkdirp');
+const withDefaults = require('./gatsby/utils/defaultThemeOptions');
+const { createPageType, createPostType } = require('./gatsby/createTypes');
+const { createPageNode, createPostNode } = require('./gatsby/createNodes');
+const { createBodyResolver, createTimeToReadResolver } = require('./gatsby/createResolvers');
+const { buildPages, buildPosts, buildTags, buildShareImages } = require('./gatsby/createPages');
 
-const padLeft0 = n => n.toString().padStart(2, '0');
-const formatDate = d => `${d.getFullYear()}-${padLeft0(d.getMonth() + 1)}-${padLeft0(d.getDate())}`;
-const date = formatDate(new Date());
+let blogBasePath = '';
+
+exports.onPreBootstrap = ({ store }, options) => {
+    const { program } = store.getState();
+    const { pagesDir, postsDir, postsBasePath } = withDefaults(options);
+    blogBasePath = postsBasePath;
+    const pagesPath = path.join(program.directory, pagesDir);
+    if (!fs.existsSync(pagesPath)) {
+        mkdirp.sync(pagesPath);
+    }
+    const postsPath = path.join(program.directory, postsDir);
+    if (!fs.existsSync(postsPath)) {
+        mkdirp.sync(postsPath);
+    }
+};
+
+exports.createSchemaCustomization = ({ actions }) => {
+    createPageType(actions);
+    createPostType(actions);
+};
+
+exports.onCreateNode = async ({ node, actions: { createNode }, getNode, createNodeId }, options) => {
+    const { basePath } = withDefaults(options);
+    const parent = getNode(node.parent);
+
+    if (node.internal.type !== 'Mdx') {
+        return;
+    }
+
+    if (parent.sourceInstanceName === 'pages') {
+        createPageNode(parent, createNode, createNodeId, node, basePath);
+    }
+
+    if (parent.sourceInstanceName === 'posts') {
+        createPostNode(parent, createNode, createNodeId, node, blogBasePath);
+    }
+};
+
+exports.createResolvers = ({ createResolvers }) => {
+    createResolvers({
+        Page: {
+            body: {
+                type: 'String!',
+                resolve: createBodyResolver(),
+            },
+        },
+        Post: {
+            body: {
+                type: 'String!',
+                resolve: createBodyResolver(),
+            },
+            timeToRead: {
+                type: 'Int!',
+                resolve: createTimeToReadResolver(),
+            },
+        },
+    });
+};
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
     const { createPage } = actions;
-
-    const BlogPostTemplate = require.resolve('./src/templates/blog-post.tsx');
-    const BlogPostShareImage = require.resolve('./src/templates/blog-post-share-image.tsx');
-    const PageTemplate = require.resolve('./src/templates/page.tsx');
-    const PostsByTagTemplate = require.resolve('./src/templates/tags.tsx');
-
     const isDevelop = process.env.gatsby_executing_command.includes('develop');
 
-    const allPostsQuery = await graphql(`
-        {
-            allMarkdown: allMdx(
-                sort: { fields: [frontmatter___date], order: DESC }
-                limit: 1000
-                ${
-                    isDevelop
-                        ? 'filter:{fileAbsolutePath: {regex: "/content/posts/"}}'
-                        : `filter: { frontmatter: { published: { eq: true }, date: { lte: "${date}" } }, fileAbsolutePath: {regex: "/content/posts/"} }`
-                }
-            ) {
-                edges {
-                    node {
-                        fileAbsolutePath
-                        frontmatter {
-                            title
-                            slug
-                            tags
-                        }
-                    }
-                }
-            }
-        }
-    `);
+    await buildPages(graphql, isDevelop, reporter, createPage);
 
-    if (allPostsQuery.errors) {
-        reporter.panic(allPostsQuery.errors);
-    }
+    await buildPosts(graphql, isDevelop, reporter, createPage);
 
-    const allPagesQuery = await graphql(`
-        {
-            allMarkdown: allMdx
-                ${
-                    isDevelop
-                        ? '(filter: { fileAbsolutePath: {regex: "/content/pages/"} })'
-                        : '(filter: { frontmatter: { published: { eq: true } }, fileAbsolutePath: {regex: "/content/pages/"} })'
-                }
-            {
-                edges {
-                    node {
-                        fileAbsolutePath
-                        frontmatter {
-                            title
-                            slug
-                        }
-                    }
-                }
-            }
-        }
-    `);
+    await buildTags(graphql, isDevelop, reporter, createPage);
 
-    if (allPagesQuery.errors) {
-        reporter.panic(allPagesQuery.errors);
-    }
-
-    const posts = allPostsQuery.data.allMarkdown.edges;
-
-    // generate blog posts
-    posts.forEach(post => {
-        createPage({
-            path: `/blog/${post.node.frontmatter.slug}`,
-            component: BlogPostTemplate,
-            context: {
-                slug: post.node.frontmatter.slug,
-            },
-        });
-
-        // generate post share images (dev only)
-        if (isDevelop) {
-            createPage({
-                path: `/blog/${post.node.frontmatter.slug}/image_tw`,
-                component: BlogPostShareImage,
-                context: {
-                    slug: post.node.frontmatter.slug,
-                    width: 440,
-                    height: 220,
-                    type: 'twitter',
-                },
-            });
-            createPage({
-                path: `blog/${post.node.frontmatter.slug}/image_fb`,
-                component: BlogPostShareImage,
-                context: {
-                    slug: post.node.frontmatter.slug,
-                    width: 1200,
-                    height: 630,
-                    type: 'facebook',
-                },
-            });
-        }
-    });
-
-    // generate pages
-    allPagesQuery.data.allMarkdown.edges.forEach(page => {
-        createPage({
-            path: page.node.frontmatter.slug,
-            component: PageTemplate,
-            context: {
-                slug: page.node.frontmatter.slug,
-            },
-        });
-    });
-
-    // generate tags
-    posts
-        .filter(item => item.node.frontmatter.tags !== null)
-        .reduce((acc, cur) => [...new Set([...acc, ...cur.node.frontmatter.tags])], [])
-        .forEach(uniqTag => {
-            const tag = slugify(uniqTag);
-            createPage({
-                path: `tags/${tag}`,
-                component: PostsByTagTemplate,
-                context: {
-                    tagRegex: `/^${uniqTag}$/i`,
-                    tag: uniqTag,
-                },
-            });
-        });
-};
-
-exports.onCreateNode = ({ node, actions, getNode }) => {
-    const { createNodeField } = actions;
-
-    if (node.internal.type === `MarkdownRemark`) {
-        const value = createFilePath({ node, getNode });
-        createNodeField({
-            name: `slug`,
-            node,
-            value,
-        });
-    }
+    await buildShareImages(graphql, isDevelop, reporter, createPage);
 };

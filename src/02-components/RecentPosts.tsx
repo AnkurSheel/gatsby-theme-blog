@@ -15,38 +15,24 @@ const styles: Styles = {
 const RecentPosts = () => {
     const data: RecentPostsQuery = useStaticQuery(graphql`
         query RecentPosts {
-            posts: allMdx(
-                sort: { fields: [frontmatter___date], order: DESC }
-                filter: { fileAbsolutePath: { regex: "//content/posts//" }, frontmatter: { published: { eq: true } } }
-                limit: 5
-            ) {
-                edges {
-                    node {
-                        frontmatter {
-                            title
-                            slug
-                        }
-                    }
+            allPost(sort: { fields: date, order: DESC }, filter: { draft: { eq: false } }, limit: 5) {
+                nodes {
+                    title
+                    path
                 }
             }
         }
     `);
 
-    const posts = data.posts.edges;
+    const posts = data.allPost.nodes;
 
     return (
         <ul css={styles.recentPosts}>
             {posts.map(post => {
-                const { frontmatter } = post.node;
-                const title = frontmatter && frontmatter.title;
-                const slug = frontmatter && frontmatter.slug;
                 return (
-                    slug &&
-                    title && (
-                        <li key={slug} css={styles.recentPostItem}>
-                            <Link to={`/blog/${slug}`}>{title}</Link>
-                        </li>
-                    )
+                    <li key={post.path} css={styles.recentPostItem}>
+                        <Link to={post.path}>{post.title}</Link>
+                    </li>
                 );
             })}
         </ul>

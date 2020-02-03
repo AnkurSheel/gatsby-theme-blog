@@ -1,6 +1,5 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import { oc } from 'ts-optchain';
 import { SEO } from '@codinators/gatsby-shared-library';
 import Hero from '../03-composites/Hero';
 import PostsList from '../03-composites/PostsList';
@@ -10,7 +9,7 @@ import useSiteMetadata from '../hooks/use-site-config';
 import Main from '../02-components/Main';
 
 interface TagsProps {
-    data: Pick<PostsByTagQuery, 'posts'>;
+    data: PostsByTagQuery;
     pageContext: {
         tag: string;
     };
@@ -20,15 +19,16 @@ interface TagsProps {
 const Tags = (props: TagsProps) => {
     const siteMetaData = useSiteMetadata();
     const {
-        path,
+        data,
         pageContext: { tag },
-        data: {
-            posts: { edges: posts },
-        },
+        path,
     } = props;
 
-    const siteUrl = oc(siteMetaData).siteUrl('');
+    if (!siteMetaData || !tag) {
+        return <></>;
+    }
 
+    const siteUrl = siteMetaData.siteUrl || '';
     const title = `Posts tagged as '${tag}'`;
     return (
         <Layout>
@@ -36,7 +36,7 @@ const Tags = (props: TagsProps) => {
             <Hero title={title} />
 
             <Main>
-                <PostsList posts={posts} />
+                <PostsList posts={data.allPost.nodes} />
             </Main>
         </Layout>
     );
@@ -46,20 +46,13 @@ export default Tags;
 
 export const pageQuery = graphql`
     query PostsByTag($tagRegex: String!) {
-        posts: allMdx(
-            sort: { fields: [frontmatter___date], order: DESC }
-            filter: { frontmatter: { tags: { regex: $tagRegex }, published: { eq: true } } }
-        ) {
-            edges {
-                node {
-                    excerpt
-                    frontmatter {
-                        date(formatString: "DD MMMM, YYYY")
-                        title
-                        tags
-                        slug
-                    }
-                }
+        allPost(sort: { fields: date, order: DESC }, filter: { tags: { regex: $tagRegex }, draft: { eq: false } }) {
+            nodes {
+                date(formatString: "DD MMMM, YYYY")
+                title
+                tags
+                path
+                excerpt
             }
         }
     }

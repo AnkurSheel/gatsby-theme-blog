@@ -1,7 +1,6 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { oc } from 'ts-optchain';
-import { GetRelatedPostsQuery } from '../graphqlTypes';
+import { GetRelatedPostsQuery, Post } from '../graphqlTypes';
 import { Styles, theme } from '../tokens';
 
 const styles: Styles = {
@@ -41,7 +40,7 @@ const styles: Styles = {
 };
 
 type Dictionary<T> = { [key: string]: T };
-type IdentityMap = Dictionary<{ article: { title: string; slug: string }; points: number }>;
+type IdentityMap = Dictionary<{ article: Pick<Post, 'tags' | 'title' | 'path' | 'date'>; points: number }>;
 
 type RelatedPostsComponentProps = {
     date: string;
@@ -51,45 +50,27 @@ type RelatedPostsComponentProps = {
 
 const RelatedPosts = (props: RelatedPostsComponentProps) => {
     const { slug, tags } = props;
-    const {
-        allMdx: { edges },
-    }: GetRelatedPostsQuery = useStaticQuery(
+    const data: GetRelatedPostsQuery = useStaticQuery(
         graphql`
             query GetRelatedPosts {
-                allMdx(
-                    sort: { order: DESC, fields: frontmatter___date }
-                    filter: { frontmatter: { published: { eq: true } }, fileAbsolutePath: { regex: "/content/posts/" } }
-                    limit: 1000
-                ) {
-                    edges {
-                        node {
-                            frontmatter {
-                                slug
-                                title
-                                date
-                                tags
-                            }
-                        }
+                allPost(sort: { fields: date, order: DESC }, filter: { draft: { eq: false } }) {
+                    nodes {
+                        title
+                        path
+                        date
+                        tags
                     }
                 }
             }
         `
     );
-    const articles = edges
-        .map(edge => {
-            const title = oc(edge).node.frontmatter.title('');
-            const t = oc(edge).node.frontmatter.tags([]) as string[];
-            const date = oc(edge).node.frontmatter.date('');
-            const s = oc(edge).node.frontmatter.slug('');
-            return { title, tags: t, slug: s, date };
-        })
-        .filter(article => article.slug !== slug);
+    const articles = data.allPost.nodes.filter(article => article.path !== slug);
 
     const identityMap: IdentityMap = {};
 
     articles.forEach(article => {
-        if (!Object.prototype.hasOwnProperty.call(identityMap, article.slug)) {
-            identityMap[article.slug] = {
+        if (!Object.prototype.hasOwnProperty.call(identityMap, article.path)) {
+            identityMap[article.path] = {
                 article,
                 points: 0,
             };
@@ -97,7 +78,7 @@ const RelatedPosts = (props: RelatedPostsComponentProps) => {
 
         article.tags.forEach(tag => {
             if (tags.indexOf(tag) > -1) {
-                identityMap[article.slug].points += 1;
+                identityMap[article.path].points += 1;
             }
         });
     });
@@ -118,10 +99,10 @@ const RelatedPosts = (props: RelatedPostsComponentProps) => {
             <h1 css={styles.header}>More like this</h1>
             <ul css={styles.list}>
                 {arrayIdentityMap.map(identity => {
-                    const { title, slug: path } = identity.article;
+                    const { title, path } = identity.article;
                     return (
                         <li key={title} css={styles.listItem}>
-                            <Link css={styles.link} to={`/blog/${path}`}>
+                            <Link css={styles.link} to={path}>
                                 {title}&rarr;
                             </Link>
                         </li>

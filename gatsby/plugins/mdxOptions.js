@@ -1,7 +1,7 @@
 module.exports = {
     extensions: [`.mdx`, `.md`],
     defaultLayouts: {
-        default: require.resolve('../../../src/templates/page.tsx'),
+        default: require.resolve('../../src/templates/page.tsx'),
     },
     gatsbyRemarkPlugins: [
         {
@@ -21,7 +21,13 @@ module.exports = {
             },
         },
         { resolve: 'gatsby-remark-responsive-iframe' },
-        { resolve: 'gatsby-remark-copy-linked-files' },
+        {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+                destinationDir: f => `downloads/${f.name}`,
+                ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
+            },
+        },
         { resolve: 'gatsby-remark-smartypants' },
     ],
 };

@@ -12,35 +12,27 @@ const Articles = () => {
     const siteMetaData = useSiteMetadata();
     const data: BlogListQuery = useStaticQuery(graphql`
         query BlogList {
-            posts: allMdx(
-                sort: { fields: [frontmatter___date], order: DESC }
-                filter: { fileAbsolutePath: { regex: "//content/posts//" }, frontmatter: { published: { eq: true } } }
-            ) {
-                edges {
-                    node {
-                        excerpt
-                        frontmatter {
-                            date(formatString: "DD MMMM, YYYY")
-                            title
-                            tags
-                            slug
-                        }
-                    }
+            allPost(sort: { fields: date, order: DESC }, filter: { draft: { eq: false } }) {
+                nodes {
+                    excerpt
+                    date(formatString: "DD MMMM, YYYY")
+                    title
+                    path
+                    tags
                 }
             }
         }
     `);
     const todaysDate = new Date();
 
-    const posts = data.posts.edges.filter(p => {
-        const date: string = p.node.frontmatter?.date || todaysDate.toDateString();
+    const posts = data.allPost.nodes.filter(p => {
+        const { date } = p;
         return new Date(date) <= todaysDate;
     });
 
     const title = `All Articles`;
     const siteUrl = siteMetaData?.siteUrl || '';
-    const path = 'blog';
-
+    const path = 'blog/';
     return (
         <Layout>
             <SEO title={title} description={title} url={`${siteUrl}/${path}`} isBlog={false} />
