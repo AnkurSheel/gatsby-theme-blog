@@ -7,7 +7,7 @@ module.exports = {
         {
             resolve: 'gatsby-remark-images',
             options: {
-                maxWidth: 590,
+                maxWidth: 800,
                 linkImagesToOriginal: false,
                 withWebp: true,
                 markdownCaptions: true,
@@ -30,4 +30,5 @@ module.exports = {
         },
         { resolve: 'gatsby-remark-smartypants' },
     ],
+    plugins: [`gatsby-remark-images`],
 };
