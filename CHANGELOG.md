@@ -3,7 +3,7 @@
 
 ### Bug Fixes
 
-*  chnage maxWidth of image in mdx to 800 ([4694a7b](https://github.com/AnkurSheel/gatsby-theme-blog/commit/4694a7b0c971a14b96006470b6ec5d922ec705ad))
+*  change maxWidth of image in mdx to 800 ([4694a7b](https://github.com/AnkurSheel/gatsby-theme-blog/commit/4694a7b0c971a14b96006470b6ec5d922ec705ad))
 
 
 ### Features
