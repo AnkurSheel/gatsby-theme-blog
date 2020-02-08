@@ -1,3 +1,15 @@
+# [2.1.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.0.3...v2.1.0) (2020-02-08)
+
+
+### Bug Fixes
+
+*  chnage maxWidth of image in mdx to 800 ([4694a7b](https://github.com/AnkurSheel/gatsby-theme-blog/commit/4694a7b0c971a14b96006470b6ec5d922ec705ad))
+
+
+### Features
+
+* add random post page ([d69b829](https://github.com/AnkurSheel/gatsby-theme-blog/commit/d69b8293258bd442c4000cb5879e2bb63c9cf5af))
+
 ## [2.0.3](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.0.2...v2.0.3) (2020-02-03)
 
 
