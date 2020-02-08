@@ -696,6 +696,7 @@ export enum FileFieldsEnum {
     ChildMdxFrontmatterFeaturedImageId = 'childMdx___frontmatter___featuredImage___id',
     ChildMdxFrontmatterFeaturedImageChildren = 'childMdx___frontmatter___featuredImage___children',
     ChildMdxFrontmatterFeaturedImagePosition = 'childMdx___frontmatter___featuredImagePosition',
+    ChildMdxFrontmatterDraft = 'childMdx___frontmatter___draft',
     ChildMdxBody = 'childMdx___body',
     ChildMdxExcerpt = 'childMdx___excerpt',
     ChildMdxHeadings = 'childMdx___headings',
@@ -1784,6 +1785,7 @@ export enum MdxFieldsEnum {
     FrontmatterFeaturedImageChildImagesJsonChildren = 'frontmatter___featuredImage___childImagesJson___children',
     FrontmatterFeaturedImageChildImagesJsonGallery = 'frontmatter___featuredImage___childImagesJson___gallery',
     FrontmatterFeaturedImagePosition = 'frontmatter___featuredImagePosition',
+    FrontmatterDraft = 'frontmatter___draft',
     Body = 'body',
     Excerpt = 'excerpt',
     Headings = 'headings',
@@ -1908,6 +1910,7 @@ export type MdxFrontmatter = {
     tags?: Maybe<Array<Maybe<Scalars['String']>>>;
     featuredImage?: Maybe<File>;
     featuredImagePosition?: Maybe<Scalars['String']>;
+    draft?: Maybe<Scalars['Boolean']>;
 };
 
 export type MdxFrontmatterFilterInput = {
@@ -1916,6 +1919,7 @@ export type MdxFrontmatterFilterInput = {
     tags?: Maybe<StringQueryOperatorInput>;
     featuredImage?: Maybe<FileFilterInput>;
     featuredImagePosition?: Maybe<StringQueryOperatorInput>;
+    draft?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type MdxGroupConnection = {
@@ -2165,6 +2169,7 @@ export enum PageFieldsEnum {
     FeaturedImageChildMdxFrontmatterExcerpt = 'featuredImage___childMdx___frontmatter___excerpt',
     FeaturedImageChildMdxFrontmatterTags = 'featuredImage___childMdx___frontmatter___tags',
     FeaturedImageChildMdxFrontmatterFeaturedImagePosition = 'featuredImage___childMdx___frontmatter___featuredImagePosition',
+    FeaturedImageChildMdxFrontmatterDraft = 'featuredImage___childMdx___frontmatter___draft',
     FeaturedImageChildMdxBody = 'featuredImage___childMdx___body',
     FeaturedImageChildMdxExcerpt = 'featuredImage___childMdx___excerpt',
     FeaturedImageChildMdxHeadings = 'featuredImage___childMdx___headings',
@@ -2340,6 +2345,7 @@ export type Post = Node & {
     body: Scalars['String'];
     tags: Array<Scalars['String']>;
     timeToRead: Scalars['Int'];
+    html: Scalars['String'];
     draft?: Maybe<Scalars['Boolean']>;
     featuredImage?: Maybe<File>;
     featuredImagePosition?: Maybe<Scalars['String']>;
@@ -2391,6 +2397,7 @@ export enum PostFieldsEnum {
     Body = 'body',
     Tags = 'tags',
     TimeToRead = 'timeToRead',
+    Html = 'html',
     Draft = 'draft',
     FeaturedImageSourceInstanceName = 'featuredImage___sourceInstanceName',
     FeaturedImageAbsolutePath = 'featuredImage___absolutePath',
@@ -2537,6 +2544,7 @@ export enum PostFieldsEnum {
     FeaturedImageChildMdxFrontmatterExcerpt = 'featuredImage___childMdx___frontmatter___excerpt',
     FeaturedImageChildMdxFrontmatterTags = 'featuredImage___childMdx___frontmatter___tags',
     FeaturedImageChildMdxFrontmatterFeaturedImagePosition = 'featuredImage___childMdx___frontmatter___featuredImagePosition',
+    FeaturedImageChildMdxFrontmatterDraft = 'featuredImage___childMdx___frontmatter___draft',
     FeaturedImageChildMdxBody = 'featuredImage___childMdx___body',
     FeaturedImageChildMdxExcerpt = 'featuredImage___childMdx___excerpt',
     FeaturedImageChildMdxHeadings = 'featuredImage___childMdx___headings',
@@ -2725,6 +2733,7 @@ export enum PostFieldsEnum {
     ImageFacebookChildMdxFrontmatterExcerpt = 'imageFacebook___childMdx___frontmatter___excerpt',
     ImageFacebookChildMdxFrontmatterTags = 'imageFacebook___childMdx___frontmatter___tags',
     ImageFacebookChildMdxFrontmatterFeaturedImagePosition = 'imageFacebook___childMdx___frontmatter___featuredImagePosition',
+    ImageFacebookChildMdxFrontmatterDraft = 'imageFacebook___childMdx___frontmatter___draft',
     ImageFacebookChildMdxBody = 'imageFacebook___childMdx___body',
     ImageFacebookChildMdxExcerpt = 'imageFacebook___childMdx___excerpt',
     ImageFacebookChildMdxHeadings = 'imageFacebook___childMdx___headings',
@@ -2912,6 +2921,7 @@ export enum PostFieldsEnum {
     ImageTwitterChildMdxFrontmatterExcerpt = 'imageTwitter___childMdx___frontmatter___excerpt',
     ImageTwitterChildMdxFrontmatterTags = 'imageTwitter___childMdx___frontmatter___tags',
     ImageTwitterChildMdxFrontmatterFeaturedImagePosition = 'imageTwitter___childMdx___frontmatter___featuredImagePosition',
+    ImageTwitterChildMdxFrontmatterDraft = 'imageTwitter___childMdx___frontmatter___draft',
     ImageTwitterChildMdxBody = 'imageTwitter___childMdx___body',
     ImageTwitterChildMdxExcerpt = 'imageTwitter___childMdx___excerpt',
     ImageTwitterChildMdxHeadings = 'imageTwitter___childMdx___headings',
@@ -3050,6 +3060,7 @@ export type PostFilterInput = {
     body?: Maybe<StringQueryOperatorInput>;
     tags?: Maybe<StringQueryOperatorInput>;
     timeToRead?: Maybe<IntQueryOperatorInput>;
+    html?: Maybe<StringQueryOperatorInput>;
     draft?: Maybe<BooleanQueryOperatorInput>;
     featuredImage?: Maybe<FileFilterInput>;
     featuredImagePosition?: Maybe<StringQueryOperatorInput>;
@@ -3100,6 +3111,8 @@ export type Query = {
     allFile: FileConnection;
     directory?: Maybe<Directory>;
     allDirectory: DirectoryConnection;
+    sitePage?: Maybe<SitePage>;
+    allSitePage: SitePageConnection;
     imageSharp?: Maybe<ImageSharp>;
     allImageSharp: ImageSharpConnection;
     page?: Maybe<Page>;
@@ -3114,8 +3127,6 @@ export type Query = {
     allSite: SiteConnection;
     sitePlugin?: Maybe<SitePlugin>;
     allSitePlugin: SitePluginConnection;
-    sitePage?: Maybe<SitePage>;
-    allSitePage: SitePageConnection;
 };
 
 export type QueryFileArgs = {
@@ -3216,6 +3227,30 @@ export type QueryAllDirectoryArgs = {
     limit?: Maybe<Scalars['Int']>;
 };
 
+export type QuerySitePageArgs = {
+    path?: Maybe<StringQueryOperatorInput>;
+    component?: Maybe<StringQueryOperatorInput>;
+    internalComponentName?: Maybe<StringQueryOperatorInput>;
+    componentChunkName?: Maybe<StringQueryOperatorInput>;
+    matchPath?: Maybe<StringQueryOperatorInput>;
+    id?: Maybe<StringQueryOperatorInput>;
+    parent?: Maybe<NodeFilterInput>;
+    children?: Maybe<NodeFilterListInput>;
+    internal?: Maybe<InternalFilterInput>;
+    isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
+    context?: Maybe<SitePageContextFilterInput>;
+    pluginCreator?: Maybe<SitePluginFilterInput>;
+    pluginCreatorId?: Maybe<StringQueryOperatorInput>;
+    componentPath?: Maybe<StringQueryOperatorInput>;
+};
+
+export type QueryAllSitePageArgs = {
+    filter?: Maybe<SitePageFilterInput>;
+    sort?: Maybe<SitePageSortInput>;
+    skip?: Maybe<Scalars['Int']>;
+    limit?: Maybe<Scalars['Int']>;
+};
+
 export type QueryImageSharpArgs = {
     fixed?: Maybe<ImageSharpFixedFilterInput>;
     resolutions?: Maybe<ImageSharpResolutionsFilterInput>;
@@ -3265,6 +3300,7 @@ export type QueryPostArgs = {
     body?: Maybe<StringQueryOperatorInput>;
     tags?: Maybe<StringQueryOperatorInput>;
     timeToRead?: Maybe<IntQueryOperatorInput>;
+    html?: Maybe<StringQueryOperatorInput>;
     draft?: Maybe<BooleanQueryOperatorInput>;
     featuredImage?: Maybe<FileFilterInput>;
     featuredImagePosition?: Maybe<StringQueryOperatorInput>;
@@ -3361,29 +3397,6 @@ export type QuerySitePluginArgs = {
 export type QueryAllSitePluginArgs = {
     filter?: Maybe<SitePluginFilterInput>;
     sort?: Maybe<SitePluginSortInput>;
-    skip?: Maybe<Scalars['Int']>;
-    limit?: Maybe<Scalars['Int']>;
-};
-
-export type QuerySitePageArgs = {
-    id?: Maybe<StringQueryOperatorInput>;
-    parent?: Maybe<NodeFilterInput>;
-    children?: Maybe<NodeFilterListInput>;
-    internal?: Maybe<InternalFilterInput>;
-    path?: Maybe<StringQueryOperatorInput>;
-    internalComponentName?: Maybe<StringQueryOperatorInput>;
-    component?: Maybe<StringQueryOperatorInput>;
-    componentChunkName?: Maybe<StringQueryOperatorInput>;
-    isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
-    context?: Maybe<SitePageContextFilterInput>;
-    pluginCreator?: Maybe<SitePluginFilterInput>;
-    pluginCreatorId?: Maybe<StringQueryOperatorInput>;
-    componentPath?: Maybe<StringQueryOperatorInput>;
-};
-
-export type QueryAllSitePageArgs = {
-    filter?: Maybe<SitePageFilterInput>;
-    sort?: Maybe<SitePageSortInput>;
     skip?: Maybe<Scalars['Int']>;
     limit?: Maybe<Scalars['Int']>;
 };
@@ -3572,14 +3585,15 @@ export type SiteGroupConnection = {
 };
 
 export type SitePage = Node & {
+    path: Scalars['String'];
+    component: Scalars['String'];
+    internalComponentName: Scalars['String'];
+    componentChunkName: Scalars['String'];
+    matchPath?: Maybe<Scalars['String']>;
     id: Scalars['ID'];
     parent?: Maybe<Node>;
     children: Array<Node>;
     internal: Internal;
-    path?: Maybe<Scalars['String']>;
-    internalComponentName?: Maybe<Scalars['String']>;
-    component?: Maybe<Scalars['String']>;
-    componentChunkName?: Maybe<Scalars['String']>;
     isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
     context?: Maybe<SitePageContext>;
     pluginCreator?: Maybe<SitePlugin>;
@@ -3613,6 +3627,107 @@ export type SitePageContext = {
     width?: Maybe<Scalars['Int']>;
     height?: Maybe<Scalars['Int']>;
     type?: Maybe<Scalars['String']>;
+    allPosts?: Maybe<SitePageContextAllPosts>;
+};
+
+export type SitePageContextAllPosts = {
+    allPost?: Maybe<SitePageContextAllPostsAllPost>;
+};
+
+export type SitePageContextAllPostsAllPost = {
+    nodes?: Maybe<Array<Maybe<SitePageContextAllPostsAllPostNodes>>>;
+};
+
+export type SitePageContextAllPostsAllPostFilterInput = {
+    nodes?: Maybe<SitePageContextAllPostsAllPostNodesFilterListInput>;
+};
+
+export type SitePageContextAllPostsAllPostNodes = {
+    id?: Maybe<Scalars['String']>;
+    path?: Maybe<Scalars['String']>;
+    title?: Maybe<Scalars['String']>;
+    tags?: Maybe<Array<Maybe<Scalars['String']>>>;
+    excerpt?: Maybe<Scalars['String']>;
+    draft?: Maybe<Scalars['Boolean']>;
+    date?: Maybe<Scalars['String']>;
+    body?: Maybe<Scalars['String']>;
+    featuredImage?: Maybe<SitePageContextAllPostsAllPostNodesFeaturedImage>;
+    featuredImagePosition?: Maybe<Scalars['String']>;
+    imageTwitter?: Maybe<SitePageContextAllPostsAllPostNodesImageTwitter>;
+    imageFacebook?: Maybe<SitePageContextAllPostsAllPostNodesImageFacebook>;
+};
+
+export type SitePageContextAllPostsAllPostNodesFeaturedImage = {
+    publicURL?: Maybe<Scalars['String']>;
+    sharp?: Maybe<SitePageContextAllPostsAllPostNodesFeaturedImageSharp>;
+};
+
+export type SitePageContextAllPostsAllPostNodesFeaturedImageFilterInput = {
+    publicURL?: Maybe<StringQueryOperatorInput>;
+    sharp?: Maybe<SitePageContextAllPostsAllPostNodesFeaturedImageSharpFilterInput>;
+};
+
+export type SitePageContextAllPostsAllPostNodesFeaturedImageSharp = {
+    fluid?: Maybe<SitePageContextAllPostsAllPostNodesFeaturedImageSharpFluid>;
+};
+
+export type SitePageContextAllPostsAllPostNodesFeaturedImageSharpFilterInput = {
+    fluid?: Maybe<SitePageContextAllPostsAllPostNodesFeaturedImageSharpFluidFilterInput>;
+};
+
+export type SitePageContextAllPostsAllPostNodesFeaturedImageSharpFluid = {
+    aspectRatio?: Maybe<Scalars['Float']>;
+    src?: Maybe<Scalars['String']>;
+    srcSet?: Maybe<Scalars['String']>;
+    sizes?: Maybe<Scalars['String']>;
+    originalName?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextAllPostsAllPostNodesFeaturedImageSharpFluidFilterInput = {
+    aspectRatio?: Maybe<FloatQueryOperatorInput>;
+    src?: Maybe<StringQueryOperatorInput>;
+    srcSet?: Maybe<StringQueryOperatorInput>;
+    sizes?: Maybe<StringQueryOperatorInput>;
+    originalName?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextAllPostsAllPostNodesFilterInput = {
+    id?: Maybe<StringQueryOperatorInput>;
+    path?: Maybe<StringQueryOperatorInput>;
+    title?: Maybe<StringQueryOperatorInput>;
+    tags?: Maybe<StringQueryOperatorInput>;
+    excerpt?: Maybe<StringQueryOperatorInput>;
+    draft?: Maybe<BooleanQueryOperatorInput>;
+    date?: Maybe<StringQueryOperatorInput>;
+    body?: Maybe<StringQueryOperatorInput>;
+    featuredImage?: Maybe<SitePageContextAllPostsAllPostNodesFeaturedImageFilterInput>;
+    featuredImagePosition?: Maybe<StringQueryOperatorInput>;
+    imageTwitter?: Maybe<SitePageContextAllPostsAllPostNodesImageTwitterFilterInput>;
+    imageFacebook?: Maybe<SitePageContextAllPostsAllPostNodesImageFacebookFilterInput>;
+};
+
+export type SitePageContextAllPostsAllPostNodesFilterListInput = {
+    elemMatch?: Maybe<SitePageContextAllPostsAllPostNodesFilterInput>;
+};
+
+export type SitePageContextAllPostsAllPostNodesImageFacebook = {
+    publicURL?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextAllPostsAllPostNodesImageFacebookFilterInput = {
+    publicURL?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextAllPostsAllPostNodesImageTwitter = {
+    publicURL?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextAllPostsAllPostNodesImageTwitterFilterInput = {
+    publicURL?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextAllPostsFilterInput = {
+    allPost?: Maybe<SitePageContextAllPostsAllPostFilterInput>;
 };
 
 export type SitePageContextFilterInput = {
@@ -3622,6 +3737,7 @@ export type SitePageContextFilterInput = {
     width?: Maybe<IntQueryOperatorInput>;
     height?: Maybe<IntQueryOperatorInput>;
     type?: Maybe<StringQueryOperatorInput>;
+    allPosts?: Maybe<SitePageContextAllPostsFilterInput>;
 };
 
 export type SitePageEdge = {
@@ -3631,6 +3747,11 @@ export type SitePageEdge = {
 };
 
 export enum SitePageFieldsEnum {
+    Path = 'path',
+    Component = 'component',
+    InternalComponentName = 'internalComponentName',
+    ComponentChunkName = 'componentChunkName',
+    MatchPath = 'matchPath',
     Id = 'id',
     ParentId = 'parent___id',
     ParentParentId = 'parent___parent___id',
@@ -3717,10 +3838,6 @@ export enum SitePageFieldsEnum {
     InternalMediaType = 'internal___mediaType',
     InternalOwner = 'internal___owner',
     InternalType = 'internal___type',
-    Path = 'path',
-    InternalComponentName = 'internalComponentName',
-    Component = 'component',
-    ComponentChunkName = 'componentChunkName',
     IsCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
     ContextId = 'context___id',
     ContextTagRegex = 'context___tagRegex',
@@ -3728,6 +3845,7 @@ export enum SitePageFieldsEnum {
     ContextWidth = 'context___width',
     ContextHeight = 'context___height',
     ContextType = 'context___type',
+    ContextAllPostsAllPostNodes = 'context___allPosts___allPost___nodes',
     PluginCreatorId = 'pluginCreator___id',
     PluginCreatorParentId = 'pluginCreator___parent___id',
     PluginCreatorParentParentId = 'pluginCreator___parent___parent___id',
@@ -3769,6 +3887,13 @@ export enum SitePageFieldsEnum {
     PluginCreatorResolve = 'pluginCreator___resolve',
     PluginCreatorName = 'pluginCreator___name',
     PluginCreatorVersion = 'pluginCreator___version',
+    PluginCreatorPluginOptionsPlugins = 'pluginCreator___pluginOptions___plugins',
+    PluginCreatorPluginOptionsPluginsResolve = 'pluginCreator___pluginOptions___plugins___resolve',
+    PluginCreatorPluginOptionsPluginsId = 'pluginCreator___pluginOptions___plugins___id',
+    PluginCreatorPluginOptionsPluginsName = 'pluginCreator___pluginOptions___plugins___name',
+    PluginCreatorPluginOptionsPluginsVersion = 'pluginCreator___pluginOptions___plugins___version',
+    PluginCreatorPluginOptionsPluginsBrowserApIs = 'pluginCreator___pluginOptions___plugins___browserAPIs',
+    PluginCreatorPluginOptionsPluginsPluginFilepath = 'pluginCreator___pluginOptions___plugins___pluginFilepath',
     PluginCreatorPluginOptionsExtensions = 'pluginCreator___pluginOptions___extensions',
     PluginCreatorPluginOptionsDefaultLayoutsDefault = 'pluginCreator___pluginOptions___defaultLayouts___default',
     PluginCreatorPluginOptionsGatsbyRemarkPlugins = 'pluginCreator___pluginOptions___gatsbyRemarkPlugins',
@@ -3784,6 +3909,8 @@ export enum SitePageFieldsEnum {
     PluginCreatorPluginOptionsPolicy = 'pluginCreator___pluginOptions___policy',
     PluginCreatorPluginOptionsPolicyUserAgent = 'pluginCreator___pluginOptions___policy___userAgent',
     PluginCreatorPluginOptionsPolicyAllow = 'pluginCreator___pluginOptions___policy___allow',
+    PluginCreatorPluginOptionsRssFile = 'pluginCreator___pluginOptions___rss___file',
+    PluginCreatorPluginOptionsRssTitle = 'pluginCreator___pluginOptions___rss___title',
     PluginCreatorPluginOptionsId = 'pluginCreator___pluginOptions___id',
     PluginCreatorPluginOptionsShortName = 'pluginCreator___pluginOptions___short_name',
     PluginCreatorPluginOptionsStartUrl = 'pluginCreator___pluginOptions___start_url',
@@ -3817,14 +3944,15 @@ export enum SitePageFieldsEnum {
 }
 
 export type SitePageFilterInput = {
+    path?: Maybe<StringQueryOperatorInput>;
+    component?: Maybe<StringQueryOperatorInput>;
+    internalComponentName?: Maybe<StringQueryOperatorInput>;
+    componentChunkName?: Maybe<StringQueryOperatorInput>;
+    matchPath?: Maybe<StringQueryOperatorInput>;
     id?: Maybe<StringQueryOperatorInput>;
     parent?: Maybe<NodeFilterInput>;
     children?: Maybe<NodeFilterListInput>;
     internal?: Maybe<InternalFilterInput>;
-    path?: Maybe<StringQueryOperatorInput>;
-    internalComponentName?: Maybe<StringQueryOperatorInput>;
-    component?: Maybe<StringQueryOperatorInput>;
-    componentChunkName?: Maybe<StringQueryOperatorInput>;
     isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
     context?: Maybe<SitePageContextFilterInput>;
     pluginCreator?: Maybe<SitePluginFilterInput>;
@@ -3977,6 +4105,13 @@ export enum SitePluginFieldsEnum {
     Resolve = 'resolve',
     Name = 'name',
     Version = 'version',
+    PluginOptionsPlugins = 'pluginOptions___plugins',
+    PluginOptionsPluginsResolve = 'pluginOptions___plugins___resolve',
+    PluginOptionsPluginsId = 'pluginOptions___plugins___id',
+    PluginOptionsPluginsName = 'pluginOptions___plugins___name',
+    PluginOptionsPluginsVersion = 'pluginOptions___plugins___version',
+    PluginOptionsPluginsBrowserApIs = 'pluginOptions___plugins___browserAPIs',
+    PluginOptionsPluginsPluginFilepath = 'pluginOptions___plugins___pluginFilepath',
     PluginOptionsExtensions = 'pluginOptions___extensions',
     PluginOptionsDefaultLayoutsDefault = 'pluginOptions___defaultLayouts___default',
     PluginOptionsGatsbyRemarkPlugins = 'pluginOptions___gatsbyRemarkPlugins',
@@ -3984,11 +4119,11 @@ export enum SitePluginFieldsEnum {
     PluginOptionsGatsbyRemarkPluginsOptionsMaxWidth = 'pluginOptions___gatsbyRemarkPlugins___options___maxWidth',
     PluginOptionsGatsbyRemarkPluginsOptionsLinkImagesToOriginal = 'pluginOptions___gatsbyRemarkPlugins___options___linkImagesToOriginal',
     PluginOptionsGatsbyRemarkPluginsOptionsWithWebp = 'pluginOptions___gatsbyRemarkPlugins___options___withWebp',
-    PluginOptionsGatsbyRemarkPluginsOptionsMarkdownCaptions = 'pluginOptions___gatsbyRemarkPlugins___options___markdownCaptions',
     PluginOptionsGatsbyRemarkPluginsOptionsShowCaptions = 'pluginOptions___gatsbyRemarkPlugins___options___showCaptions',
     PluginOptionsGatsbyRemarkPluginsOptionsPathPrefix = 'pluginOptions___gatsbyRemarkPlugins___options___pathPrefix',
     PluginOptionsGatsbyRemarkPluginsOptionsWrapperStyle = 'pluginOptions___gatsbyRemarkPlugins___options___wrapperStyle',
     PluginOptionsGatsbyRemarkPluginsOptionsBackgroundColor = 'pluginOptions___gatsbyRemarkPlugins___options___backgroundColor',
+    PluginOptionsGatsbyRemarkPluginsOptionsMarkdownCaptions = 'pluginOptions___gatsbyRemarkPlugins___options___markdownCaptions',
     PluginOptionsGatsbyRemarkPluginsOptionsTracedSvg = 'pluginOptions___gatsbyRemarkPlugins___options___tracedSVG',
     PluginOptionsGatsbyRemarkPluginsOptionsLoading = 'pluginOptions___gatsbyRemarkPlugins___options___loading',
     PluginOptionsGatsbyRemarkPluginsOptionsDisableBgImageOnAlpha = 'pluginOptions___gatsbyRemarkPlugins___options___disableBgImageOnAlpha',
@@ -4006,6 +4141,8 @@ export enum SitePluginFieldsEnum {
     PluginOptionsPolicy = 'pluginOptions___policy',
     PluginOptionsPolicyUserAgent = 'pluginOptions___policy___userAgent',
     PluginOptionsPolicyAllow = 'pluginOptions___policy___allow',
+    PluginOptionsRssFile = 'pluginOptions___rss___file',
+    PluginOptionsRssTitle = 'pluginOptions___rss___title',
     PluginOptionsId = 'pluginOptions___id',
     PluginOptionsShortName = 'pluginOptions___short_name',
     PluginOptionsStartUrl = 'pluginOptions___start_url',
@@ -4130,6 +4267,7 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 export type SitePluginPluginOptions = {
+    plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
     extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
     defaultLayouts?: Maybe<SitePluginPluginOptionsDefaultLayouts>;
     gatsbyRemarkPlugins?: Maybe<Array<Maybe<SitePluginPluginOptionsGatsbyRemarkPlugins>>>;
@@ -4139,6 +4277,7 @@ export type SitePluginPluginOptions = {
     path?: Maybe<Scalars['String']>;
     feeds?: Maybe<Array<Maybe<SitePluginPluginOptionsFeeds>>>;
     policy?: Maybe<Array<Maybe<SitePluginPluginOptionsPolicy>>>;
+    rss?: Maybe<SitePluginPluginOptionsRss>;
     id?: Maybe<Scalars['String']>;
     short_name?: Maybe<Scalars['String']>;
     start_url?: Maybe<Scalars['String']>;
@@ -4174,6 +4313,7 @@ export type SitePluginPluginOptionsFeedsFilterListInput = {
 };
 
 export type SitePluginPluginOptionsFilterInput = {
+    plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
     extensions?: Maybe<StringQueryOperatorInput>;
     defaultLayouts?: Maybe<SitePluginPluginOptionsDefaultLayoutsFilterInput>;
     gatsbyRemarkPlugins?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput>;
@@ -4183,6 +4323,7 @@ export type SitePluginPluginOptionsFilterInput = {
     path?: Maybe<StringQueryOperatorInput>;
     feeds?: Maybe<SitePluginPluginOptionsFeedsFilterListInput>;
     policy?: Maybe<SitePluginPluginOptionsPolicyFilterListInput>;
+    rss?: Maybe<SitePluginPluginOptionsRssFilterInput>;
     id?: Maybe<StringQueryOperatorInput>;
     short_name?: Maybe<StringQueryOperatorInput>;
     start_url?: Maybe<StringQueryOperatorInput>;
@@ -4211,11 +4352,11 @@ export type SitePluginPluginOptionsGatsbyRemarkPluginsOptions = {
     maxWidth?: Maybe<Scalars['Int']>;
     linkImagesToOriginal?: Maybe<Scalars['Boolean']>;
     withWebp?: Maybe<Scalars['Boolean']>;
-    markdownCaptions?: Maybe<Scalars['Boolean']>;
     showCaptions?: Maybe<Array<Maybe<Scalars['String']>>>;
     pathPrefix?: Maybe<Scalars['String']>;
     wrapperStyle?: Maybe<Scalars['String']>;
     backgroundColor?: Maybe<Scalars['String']>;
+    markdownCaptions?: Maybe<Scalars['Boolean']>;
     tracedSVG?: Maybe<Scalars['Boolean']>;
     loading?: Maybe<Scalars['String']>;
     disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>;
@@ -4228,11 +4369,11 @@ export type SitePluginPluginOptionsGatsbyRemarkPluginsOptionsFilterInput = {
     maxWidth?: Maybe<IntQueryOperatorInput>;
     linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
     withWebp?: Maybe<BooleanQueryOperatorInput>;
-    markdownCaptions?: Maybe<BooleanQueryOperatorInput>;
     showCaptions?: Maybe<StringQueryOperatorInput>;
     pathPrefix?: Maybe<StringQueryOperatorInput>;
     wrapperStyle?: Maybe<StringQueryOperatorInput>;
     backgroundColor?: Maybe<StringQueryOperatorInput>;
+    markdownCaptions?: Maybe<BooleanQueryOperatorInput>;
     tracedSVG?: Maybe<BooleanQueryOperatorInput>;
     loading?: Maybe<StringQueryOperatorInput>;
     disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>;
@@ -4249,6 +4390,28 @@ export type SitePluginPluginOptionsOptionsFilterInput = {
     path?: Maybe<StringQueryOperatorInput>;
 };
 
+export type SitePluginPluginOptionsPlugins = {
+    resolve?: Maybe<Scalars['String']>;
+    id?: Maybe<Scalars['String']>;
+    name?: Maybe<Scalars['String']>;
+    version?: Maybe<Scalars['String']>;
+    browserAPIs?: Maybe<Array<Maybe<Scalars['String']>>>;
+    pluginFilepath?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsPluginsFilterInput = {
+    resolve?: Maybe<StringQueryOperatorInput>;
+    id?: Maybe<StringQueryOperatorInput>;
+    name?: Maybe<StringQueryOperatorInput>;
+    version?: Maybe<StringQueryOperatorInput>;
+    browserAPIs?: Maybe<StringQueryOperatorInput>;
+    pluginFilepath?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsPluginsFilterListInput = {
+    elemMatch?: Maybe<SitePluginPluginOptionsPluginsFilterInput>;
+};
+
 export type SitePluginPluginOptionsPolicy = {
     userAgent?: Maybe<Scalars['String']>;
     allow?: Maybe<Scalars['String']>;
@@ -4261,6 +4424,16 @@ export type SitePluginPluginOptionsPolicyFilterInput = {
 
 export type SitePluginPluginOptionsPolicyFilterListInput = {
     elemMatch?: Maybe<SitePluginPluginOptionsPolicyFilterInput>;
+};
+
+export type SitePluginPluginOptionsRss = {
+    file?: Maybe<Scalars['String']>;
+    title?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsRssFilterInput = {
+    file?: Maybe<StringQueryOperatorInput>;
+    title?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginSortInput = {
@@ -4365,6 +4538,39 @@ export type StringQueryOperatorInput = {
     nin?: Maybe<Array<Maybe<Scalars['String']>>>;
     regex?: Maybe<Scalars['String']>;
     glob?: Maybe<Scalars['String']>;
+};
+
+export type PagesQueryVariables = {};
+
+export type PagesQuery = { allPage: { nodes: Array<Pick<Page, 'id' | 'path'>> } };
+
+export type BlogPostQueryVariables = {};
+
+export type BlogPostQuery = { allPost: { nodes: Array<Pick<Post, 'id' | 'path' | 'tags'>> } };
+
+export type RandomPostQueryVariables = {};
+
+export type RandomPostQuery = {
+    allPost: {
+        nodes: Array<
+            Pick<
+                Post,
+                'id' | 'path' | 'title' | 'tags' | 'excerpt' | 'draft' | 'date' | 'body' | 'featuredImagePosition'
+            > & {
+                featuredImage: Maybe<
+                    Pick<File, 'publicURL'> & {
+                        sharp: Maybe<{
+                            fluid: Maybe<
+                                Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes' | 'originalName'>
+                            >;
+                        }>;
+                    }
+                >;
+                imageTwitter: Pick<File, 'publicURL'>;
+                imageFacebook: Pick<File, 'publicURL'>;
+            }
+        >;
+    };
 };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
@@ -4474,6 +4680,10 @@ export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = Pick<
     ImageSharpSizes,
     'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'
 >;
+
+export type PagesQueryQueryVariables = {};
+
+export type PagesQueryQuery = { allSitePage: { nodes: Array<Pick<SitePage, 'path'>> } };
 
 export type RecentPostsQueryVariables = {};
 

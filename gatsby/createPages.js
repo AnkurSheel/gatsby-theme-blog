@@ -2,10 +2,11 @@ const slugify = require('@sindresorhus/slugify');
 const { todaysDate } = require('./utils/helpers');
 
 const buildPages = async (graphql, isDevelop, reporter, createPage) => {
+    const pagesFilter = `(filter: { draft: { eq: false }})`;
+
     const pagesResult = await graphql(`
-        query {
-            allPage ${isDevelop ? '' : '(filter: { draft: { eq: false } })'}
-            {
+        query Pages {
+            allPage ${isDevelop ? '' : pagesFilter} {
                 nodes {
                     id
                     path
@@ -28,16 +29,15 @@ const buildPages = async (graphql, isDevelop, reporter, createPage) => {
     });
 };
 
+const postsFilter = `(
+                filter: { draft: { eq: false }, date: { lte: "${todaysDate}" } }
+                sort: { fields: date, order: DESC }
+            )`;
+
 const getPosts = async (graphql, isDevelop, reporter) => {
     const postsResult = await graphql(`
-        query {
-
-            allPost ${
-                isDevelop
-                    ? ''
-                    : `(filter: {draft: {eq: false}, date: {lte: "${todaysDate}"}}, sort: {order: DESC, fields: date})`
-            }
-            {
+        query BlogPost {
+            allPost${isDevelop ? '' : postsFilter} {
                 nodes {
                     id
                     path
@@ -114,7 +114,54 @@ const buildShareImages = async (graphql, isDevelop, reporter, createPage) => {
     }
 };
 
+const buildRandomPostPage = async (graphql, isDevelop, reporter, createPage) => {
+    const postsResult = await graphql(`
+        query RandomPost {
+            allPost${postsFilter} {
+                nodes {
+                    id
+                    path
+                    title
+                    tags
+                    excerpt
+                    draft
+                    date(formatString: "DD MMMM, YYYY")
+                    body
+                    featuredImage {
+                        publicURL
+                        sharp: childImageSharp {
+                            fluid {
+                                aspectRatio
+                                src
+                                srcSet
+                                sizes
+                                originalName
+                            }
+                        }
+                    }
+                    featuredImagePosition
+                    imageTwitter {
+                        publicURL
+                    }
+                    imageFacebook {
+                        publicURL
+                    }
+                }
+            }
+        }
+    `);
+    if (postsResult.errors) {
+        reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query for posts');
+    }
+    createPage({
+        path: '/random-post/',
+        component: require.resolve(`../src/templates/random-post.tsx`),
+        context: { allPosts: postsResult.data },
+    });
+};
+
 exports.buildPages = buildPages;
 exports.buildPosts = buildPosts;
 exports.buildTags = buildTags;
 exports.buildShareImages = buildShareImages;
+exports.buildRandomPostPage = buildRandomPostPage;

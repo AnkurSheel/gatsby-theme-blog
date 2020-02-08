@@ -3,7 +3,7 @@ const { createDir } = require('./gatsby/createDir');
 const { createPageType, createPostType } = require('./gatsby/createTypes');
 const { createPageNode, createPostNode } = require('./gatsby/createNodes');
 const { createBodyResolver, createTimeToReadResolver, createHtmlResolver } = require('./gatsby/createResolvers');
-const { buildPages, buildPosts, buildTags, buildShareImages } = require('./gatsby/createPages');
+const { buildPages, buildPosts, buildTags, buildShareImages, buildRandomPostPage } = require('./gatsby/createPages');
 
 exports.onPreBootstrap = ({ store }, options) => {
     const { program } = store.getState();
@@ -71,4 +71,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     await buildTags(graphql, isDevelop, reporter, createPage);
 
     await buildShareImages(graphql, isDevelop, reporter, createPage);
+
+    await buildRandomPostPage(graphql, isDevelop, reporter, createPage);
 };
