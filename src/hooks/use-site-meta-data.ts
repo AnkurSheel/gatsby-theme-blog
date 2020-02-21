@@ -11,6 +11,10 @@ const useSiteMetadata = () => {
                     authorName
                     siteDescription
                     twitterUsername
+                    buyMeACoffee {
+                        altText
+                        link
+                    }
                     headerTitle
                     headerLinksIcon
                     headerLinks {

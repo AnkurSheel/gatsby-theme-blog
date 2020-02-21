@@ -2,6 +2,7 @@ import Img from 'gatsby-image';
 import React from 'react';
 import useSiteImages from '../hooks/use-site-images';
 import { Styles, theme } from '../tokens';
+import useSiteMetadata from '../hooks/use-site-meta-data';
 
 const styles: Styles = {
     container: {
@@ -22,12 +23,19 @@ const styles: Styles = {
 };
 
 const Donate = () => {
+    const siteMetaData = useSiteMetadata();
     const image = useSiteImages('coffee.png');
+    const buyMeACoffee = siteMetaData?.buyMeACoffee;
+
+    if (!buyMeACoffee) {
+        return <></>;
+    }
+
     return (
         <div css={styles.container}>
             <span css={styles.label}>Enjoy this Article?</span>
-            <a href="https://www.buymeacoffee.com/ankursheel" target="_blank" rel="noopener noreferrer">
-                <Img fluid={image?.fluid} alt="Buy Me A Coffee" style={styles.image} />
+            <a href={buyMeACoffee.link} target="_blank" rel="noopener noreferrer">
+                <Img fluid={image?.fluid} alt={buyMeACoffee.altText} style={styles.image} />
             </a>
         </div>
     );

@@ -658,7 +658,6 @@ export enum FileFieldsEnum {
     ChildMdxFileAbsolutePath = 'childMdx___fileAbsolutePath',
     ChildMdxFrontmatterTitle = 'childMdx___frontmatter___title',
     ChildMdxFrontmatterExcerpt = 'childMdx___frontmatter___excerpt',
-    ChildMdxFrontmatterTags = 'childMdx___frontmatter___tags',
     ChildMdxFrontmatterFeaturedImageSourceInstanceName = 'childMdx___frontmatter___featuredImage___sourceInstanceName',
     ChildMdxFrontmatterFeaturedImageAbsolutePath = 'childMdx___frontmatter___featuredImage___absolutePath',
     ChildMdxFrontmatterFeaturedImageRelativePath = 'childMdx___frontmatter___featuredImage___relativePath',
@@ -696,6 +695,7 @@ export enum FileFieldsEnum {
     ChildMdxFrontmatterFeaturedImageId = 'childMdx___frontmatter___featuredImage___id',
     ChildMdxFrontmatterFeaturedImageChildren = 'childMdx___frontmatter___featuredImage___children',
     ChildMdxFrontmatterFeaturedImagePosition = 'childMdx___frontmatter___featuredImagePosition',
+    ChildMdxFrontmatterTags = 'childMdx___frontmatter___tags',
     ChildMdxFrontmatterDraft = 'childMdx___frontmatter___draft',
     ChildMdxBody = 'childMdx___body',
     ChildMdxExcerpt = 'childMdx___excerpt',
@@ -1719,7 +1719,6 @@ export enum MdxFieldsEnum {
     FileAbsolutePath = 'fileAbsolutePath',
     FrontmatterTitle = 'frontmatter___title',
     FrontmatterExcerpt = 'frontmatter___excerpt',
-    FrontmatterTags = 'frontmatter___tags',
     FrontmatterFeaturedImageSourceInstanceName = 'frontmatter___featuredImage___sourceInstanceName',
     FrontmatterFeaturedImageAbsolutePath = 'frontmatter___featuredImage___absolutePath',
     FrontmatterFeaturedImageRelativePath = 'frontmatter___featuredImage___relativePath',
@@ -1785,6 +1784,7 @@ export enum MdxFieldsEnum {
     FrontmatterFeaturedImageChildImagesJsonChildren = 'frontmatter___featuredImage___childImagesJson___children',
     FrontmatterFeaturedImageChildImagesJsonGallery = 'frontmatter___featuredImage___childImagesJson___gallery',
     FrontmatterFeaturedImagePosition = 'frontmatter___featuredImagePosition',
+    FrontmatterTags = 'frontmatter___tags',
     FrontmatterDraft = 'frontmatter___draft',
     Body = 'body',
     Excerpt = 'excerpt',
@@ -1907,18 +1907,18 @@ export type MdxFilterInput = {
 export type MdxFrontmatter = {
     title: Scalars['String'];
     excerpt?: Maybe<Scalars['String']>;
-    tags?: Maybe<Array<Maybe<Scalars['String']>>>;
     featuredImage?: Maybe<File>;
     featuredImagePosition?: Maybe<Scalars['String']>;
+    tags?: Maybe<Array<Maybe<Scalars['String']>>>;
     draft?: Maybe<Scalars['Boolean']>;
 };
 
 export type MdxFrontmatterFilterInput = {
     title?: Maybe<StringQueryOperatorInput>;
     excerpt?: Maybe<StringQueryOperatorInput>;
-    tags?: Maybe<StringQueryOperatorInput>;
     featuredImage?: Maybe<FileFilterInput>;
     featuredImagePosition?: Maybe<StringQueryOperatorInput>;
+    tags?: Maybe<StringQueryOperatorInput>;
     draft?: Maybe<BooleanQueryOperatorInput>;
 };
 
@@ -2167,8 +2167,8 @@ export enum PageFieldsEnum {
     FeaturedImageChildMdxFileAbsolutePath = 'featuredImage___childMdx___fileAbsolutePath',
     FeaturedImageChildMdxFrontmatterTitle = 'featuredImage___childMdx___frontmatter___title',
     FeaturedImageChildMdxFrontmatterExcerpt = 'featuredImage___childMdx___frontmatter___excerpt',
-    FeaturedImageChildMdxFrontmatterTags = 'featuredImage___childMdx___frontmatter___tags',
     FeaturedImageChildMdxFrontmatterFeaturedImagePosition = 'featuredImage___childMdx___frontmatter___featuredImagePosition',
+    FeaturedImageChildMdxFrontmatterTags = 'featuredImage___childMdx___frontmatter___tags',
     FeaturedImageChildMdxFrontmatterDraft = 'featuredImage___childMdx___frontmatter___draft',
     FeaturedImageChildMdxBody = 'featuredImage___childMdx___body',
     FeaturedImageChildMdxExcerpt = 'featuredImage___childMdx___excerpt',
@@ -2542,8 +2542,8 @@ export enum PostFieldsEnum {
     FeaturedImageChildMdxFileAbsolutePath = 'featuredImage___childMdx___fileAbsolutePath',
     FeaturedImageChildMdxFrontmatterTitle = 'featuredImage___childMdx___frontmatter___title',
     FeaturedImageChildMdxFrontmatterExcerpt = 'featuredImage___childMdx___frontmatter___excerpt',
-    FeaturedImageChildMdxFrontmatterTags = 'featuredImage___childMdx___frontmatter___tags',
     FeaturedImageChildMdxFrontmatterFeaturedImagePosition = 'featuredImage___childMdx___frontmatter___featuredImagePosition',
+    FeaturedImageChildMdxFrontmatterTags = 'featuredImage___childMdx___frontmatter___tags',
     FeaturedImageChildMdxFrontmatterDraft = 'featuredImage___childMdx___frontmatter___draft',
     FeaturedImageChildMdxBody = 'featuredImage___childMdx___body',
     FeaturedImageChildMdxExcerpt = 'featuredImage___childMdx___excerpt',
@@ -2731,8 +2731,8 @@ export enum PostFieldsEnum {
     ImageFacebookChildMdxFileAbsolutePath = 'imageFacebook___childMdx___fileAbsolutePath',
     ImageFacebookChildMdxFrontmatterTitle = 'imageFacebook___childMdx___frontmatter___title',
     ImageFacebookChildMdxFrontmatterExcerpt = 'imageFacebook___childMdx___frontmatter___excerpt',
-    ImageFacebookChildMdxFrontmatterTags = 'imageFacebook___childMdx___frontmatter___tags',
     ImageFacebookChildMdxFrontmatterFeaturedImagePosition = 'imageFacebook___childMdx___frontmatter___featuredImagePosition',
+    ImageFacebookChildMdxFrontmatterTags = 'imageFacebook___childMdx___frontmatter___tags',
     ImageFacebookChildMdxFrontmatterDraft = 'imageFacebook___childMdx___frontmatter___draft',
     ImageFacebookChildMdxBody = 'imageFacebook___childMdx___body',
     ImageFacebookChildMdxExcerpt = 'imageFacebook___childMdx___excerpt',
@@ -2919,8 +2919,8 @@ export enum PostFieldsEnum {
     ImageTwitterChildMdxFileAbsolutePath = 'imageTwitter___childMdx___fileAbsolutePath',
     ImageTwitterChildMdxFrontmatterTitle = 'imageTwitter___childMdx___frontmatter___title',
     ImageTwitterChildMdxFrontmatterExcerpt = 'imageTwitter___childMdx___frontmatter___excerpt',
-    ImageTwitterChildMdxFrontmatterTags = 'imageTwitter___childMdx___frontmatter___tags',
     ImageTwitterChildMdxFrontmatterFeaturedImagePosition = 'imageTwitter___childMdx___frontmatter___featuredImagePosition',
+    ImageTwitterChildMdxFrontmatterTags = 'imageTwitter___childMdx___frontmatter___tags',
     ImageTwitterChildMdxFrontmatterDraft = 'imageTwitter___childMdx___frontmatter___draft',
     ImageTwitterChildMdxBody = 'imageTwitter___childMdx___body',
     ImageTwitterChildMdxExcerpt = 'imageTwitter___childMdx___excerpt',
@@ -3546,6 +3546,8 @@ export enum SiteFieldsEnum {
     SiteMetadataThemeColor = 'siteMetadata___themeColor',
     SiteMetadataIcon = 'siteMetadata___icon',
     SiteMetadataHeaderTitle = 'siteMetadata___headerTitle',
+    SiteMetadataBuyMeACoffeeLink = 'siteMetadata___buyMeACoffee___link',
+    SiteMetadataBuyMeACoffeeAltText = 'siteMetadata___buyMeACoffee___altText',
     SiteMetadataHeaderLinksIcon = 'siteMetadata___headerLinksIcon',
     SiteMetadataHeaderLinks = 'siteMetadata___headerLinks',
     SiteMetadataHeaderLinksLabel = 'siteMetadata___headerLinks___label',
@@ -4119,11 +4121,11 @@ export enum SitePluginFieldsEnum {
     PluginOptionsGatsbyRemarkPluginsOptionsMaxWidth = 'pluginOptions___gatsbyRemarkPlugins___options___maxWidth',
     PluginOptionsGatsbyRemarkPluginsOptionsLinkImagesToOriginal = 'pluginOptions___gatsbyRemarkPlugins___options___linkImagesToOriginal',
     PluginOptionsGatsbyRemarkPluginsOptionsWithWebp = 'pluginOptions___gatsbyRemarkPlugins___options___withWebp',
+    PluginOptionsGatsbyRemarkPluginsOptionsMarkdownCaptions = 'pluginOptions___gatsbyRemarkPlugins___options___markdownCaptions',
     PluginOptionsGatsbyRemarkPluginsOptionsShowCaptions = 'pluginOptions___gatsbyRemarkPlugins___options___showCaptions',
     PluginOptionsGatsbyRemarkPluginsOptionsPathPrefix = 'pluginOptions___gatsbyRemarkPlugins___options___pathPrefix',
     PluginOptionsGatsbyRemarkPluginsOptionsWrapperStyle = 'pluginOptions___gatsbyRemarkPlugins___options___wrapperStyle',
     PluginOptionsGatsbyRemarkPluginsOptionsBackgroundColor = 'pluginOptions___gatsbyRemarkPlugins___options___backgroundColor',
-    PluginOptionsGatsbyRemarkPluginsOptionsMarkdownCaptions = 'pluginOptions___gatsbyRemarkPlugins___options___markdownCaptions',
     PluginOptionsGatsbyRemarkPluginsOptionsTracedSvg = 'pluginOptions___gatsbyRemarkPlugins___options___tracedSVG',
     PluginOptionsGatsbyRemarkPluginsOptionsLoading = 'pluginOptions___gatsbyRemarkPlugins___options___loading',
     PluginOptionsGatsbyRemarkPluginsOptionsDisableBgImageOnAlpha = 'pluginOptions___gatsbyRemarkPlugins___options___disableBgImageOnAlpha',
@@ -4352,11 +4354,11 @@ export type SitePluginPluginOptionsGatsbyRemarkPluginsOptions = {
     maxWidth?: Maybe<Scalars['Int']>;
     linkImagesToOriginal?: Maybe<Scalars['Boolean']>;
     withWebp?: Maybe<Scalars['Boolean']>;
+    markdownCaptions?: Maybe<Scalars['Boolean']>;
     showCaptions?: Maybe<Array<Maybe<Scalars['String']>>>;
     pathPrefix?: Maybe<Scalars['String']>;
     wrapperStyle?: Maybe<Scalars['String']>;
     backgroundColor?: Maybe<Scalars['String']>;
-    markdownCaptions?: Maybe<Scalars['Boolean']>;
     tracedSVG?: Maybe<Scalars['Boolean']>;
     loading?: Maybe<Scalars['String']>;
     disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>;
@@ -4369,11 +4371,11 @@ export type SitePluginPluginOptionsGatsbyRemarkPluginsOptionsFilterInput = {
     maxWidth?: Maybe<IntQueryOperatorInput>;
     linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>;
     withWebp?: Maybe<BooleanQueryOperatorInput>;
+    markdownCaptions?: Maybe<BooleanQueryOperatorInput>;
     showCaptions?: Maybe<StringQueryOperatorInput>;
     pathPrefix?: Maybe<StringQueryOperatorInput>;
     wrapperStyle?: Maybe<StringQueryOperatorInput>;
     backgroundColor?: Maybe<StringQueryOperatorInput>;
-    markdownCaptions?: Maybe<BooleanQueryOperatorInput>;
     tracedSVG?: Maybe<BooleanQueryOperatorInput>;
     loading?: Maybe<StringQueryOperatorInput>;
     disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>;
@@ -4455,9 +4457,20 @@ export type SiteSiteMetadata = {
     themeColor?: Maybe<Scalars['String']>;
     icon?: Maybe<Scalars['String']>;
     headerTitle?: Maybe<Scalars['String']>;
+    buyMeACoffee?: Maybe<SiteSiteMetadataBuyMeACoffee>;
     headerLinksIcon?: Maybe<Scalars['String']>;
     headerLinks?: Maybe<Array<Maybe<SiteSiteMetadataHeaderLinks>>>;
     footerLinks?: Maybe<Array<Maybe<SiteSiteMetadataFooterLinks>>>;
+};
+
+export type SiteSiteMetadataBuyMeACoffee = {
+    link?: Maybe<Scalars['String']>;
+    altText?: Maybe<Scalars['String']>;
+};
+
+export type SiteSiteMetadataBuyMeACoffeeFilterInput = {
+    link?: Maybe<StringQueryOperatorInput>;
+    altText?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SiteSiteMetadataFilterInput = {
@@ -4474,6 +4487,7 @@ export type SiteSiteMetadataFilterInput = {
     themeColor?: Maybe<StringQueryOperatorInput>;
     icon?: Maybe<StringQueryOperatorInput>;
     headerTitle?: Maybe<StringQueryOperatorInput>;
+    buyMeACoffee?: Maybe<SiteSiteMetadataBuyMeACoffeeFilterInput>;
     headerLinksIcon?: Maybe<StringQueryOperatorInput>;
     headerLinks?: Maybe<SiteSiteMetadataHeaderLinksFilterListInput>;
     footerLinks?: Maybe<SiteSiteMetadataFooterLinksFilterListInput>;
@@ -4719,36 +4733,6 @@ export type GetRelatedPostsQueryVariables = {};
 
 export type GetRelatedPostsQuery = { allPost: { nodes: Array<Pick<Post, 'title' | 'path' | 'date' | 'tags'>> } };
 
-export type SiteMetaDataQueryVariables = {};
-
-export type SiteMetaDataQuery = {
-    site: Maybe<{
-        siteMetadata: Maybe<
-            Pick<
-                SiteSiteMetadata,
-                | 'siteTitle'
-                | 'siteUrl'
-                | 'authorName'
-                | 'siteDescription'
-                | 'twitterUsername'
-                | 'headerTitle'
-                | 'headerLinksIcon'
-            > & {
-                headerLinks: Maybe<Array<Maybe<Pick<SiteSiteMetadataHeaderLinks, 'label' | 'url'>>>>;
-                footerLinks: Maybe<
-                    Array<
-                        Maybe<
-                            Pick<SiteSiteMetadataFooterLinks, 'sectionName'> & {
-                                links: Maybe<Array<Maybe<Pick<SiteSiteMetadataFooterLinksLinks, 'label' | 'url'>>>>;
-                            }
-                        >
-                    >
-                >;
-            }
-        >;
-    }>;
-};
-
 export type SiteImagesQueryVariables = {};
 
 export type SiteImagesQuery = {
@@ -4792,6 +4776,37 @@ export type SiteImagesQuery = {
             };
         }>;
     };
+};
+
+export type SiteMetaDataQueryVariables = {};
+
+export type SiteMetaDataQuery = {
+    site: Maybe<{
+        siteMetadata: Maybe<
+            Pick<
+                SiteSiteMetadata,
+                | 'siteTitle'
+                | 'siteUrl'
+                | 'authorName'
+                | 'siteDescription'
+                | 'twitterUsername'
+                | 'headerTitle'
+                | 'headerLinksIcon'
+            > & {
+                buyMeACoffee: Maybe<Pick<SiteSiteMetadataBuyMeACoffee, 'altText' | 'link'>>;
+                headerLinks: Maybe<Array<Maybe<Pick<SiteSiteMetadataHeaderLinks, 'label' | 'url'>>>>;
+                footerLinks: Maybe<
+                    Array<
+                        Maybe<
+                            Pick<SiteSiteMetadataFooterLinks, 'sectionName'> & {
+                                links: Maybe<Array<Maybe<Pick<SiteSiteMetadataFooterLinksLinks, 'label' | 'url'>>>>;
+                            }
+                        >
+                    >
+                >;
+            }
+        >;
+    }>;
 };
 
 export type BlogListQueryVariables = {};
