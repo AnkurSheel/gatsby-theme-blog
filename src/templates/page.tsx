@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import { IFluidObject } from 'gatsby-background-image';
 import { SEO } from '@codinators/gatsby-shared-library';
 import { PageByIdQuery } from '../graphqlTypes';
-import useSiteMetadata from '../hooks/use-site-config';
+import useSiteMetadata from '../hooks/use-site-meta-data';
 import Layout from '../04-layouts/layout';
 import Hero from '../03-composites/Hero';
 import Main from '../02-components/Main';

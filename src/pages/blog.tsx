@@ -4,7 +4,7 @@ import { SEO } from '@codinators/gatsby-shared-library';
 import Hero from '../03-composites/Hero';
 import PostsList from '../03-composites/PostsList';
 import Layout from '../04-layouts/layout';
-import useSiteMetadata from '../hooks/use-site-config';
+import useSiteMetadata from '../hooks/use-site-meta-data';
 import { BlogListQuery } from '../graphqlTypes';
 import Main from '../02-components/Main';
 

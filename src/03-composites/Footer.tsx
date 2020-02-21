@@ -1,6 +1,6 @@
 import React from 'react';
 import FooterColumn, { FooterColumnData, FooterLinkData } from '../02-components/FooterColumn';
-import useSiteMetadata from '../hooks/use-site-config';
+import useSiteMetadata from '../hooks/use-site-meta-data';
 import { Styles, theme } from '../tokens';
 
 const styles: Styles = {
