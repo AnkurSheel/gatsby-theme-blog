@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.2.0...v2.2.1) (2020-02-21)
+
+
+### Bug Fixes
+
+* read coffee attributes from siteconfig ([21b4380](https://github.com/AnkurSheel/gatsby-theme-blog/commit/21b4380d765940c12bb5c9adacfaebe3c827ac9f))
+
 # [2.2.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.1.0...v2.2.0) (2020-02-21)
 
 
