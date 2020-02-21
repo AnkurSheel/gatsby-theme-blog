@@ -2,6 +2,7 @@ import { SEO } from '@codinators/gatsby-shared-library';
 import { graphql } from 'gatsby';
 import { IFluidObject } from 'gatsby-background-image';
 import React from 'react';
+import Donate from '../02-components/Donate';
 import Main from '../02-components/Main';
 import Article from '../03-composites/Article';
 import Hero from '../03-composites/Hero';
@@ -45,6 +46,7 @@ const BlogPostTemplate = ({ data: { post } }: BlogPostTemplateProps) => {
                 {draft && <h1>Draft Post</h1>}
 
                 <Article body={body} tags={tags} date={date} path={slug} />
+                <Donate />
             </Main>
 
             <Main>
