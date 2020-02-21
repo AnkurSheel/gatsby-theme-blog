@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.1.0...v2.2.0) (2020-02-21)
+
+
+### Features
+
+* add donate component ([0e15245](https://github.com/AnkurSheel/gatsby-theme-blog/commit/0e15245d8bec6308ae3381b2c74a8562e2bae635))
+
 # [2.1.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.0.3...v2.1.0) (2020-02-08)
 
 
