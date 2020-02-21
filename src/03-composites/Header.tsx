@@ -3,7 +3,7 @@ import DesktopHeader from '../02-components/DesktopHeader';
 import { HeaderLinkData } from '../02-components/HeaderLinks';
 import MobileHeader from '../02-components/MobileHeader';
 import useMedia from '../hooks/use-media';
-import useSiteMetadata from '../hooks/use-site-config';
+import useSiteMetadata from '../hooks/use-site-meta-data';
 import useSiteImages from '../hooks/use-site-images';
 import { Styles, theme } from '../tokens';
 

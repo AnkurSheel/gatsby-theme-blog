@@ -1,6 +1,6 @@
 import { DiscussionEmbed } from 'disqus-react';
 import React from 'react';
-import useSiteMetadata from '../hooks/use-site-config';
+import useSiteMetadata from '../hooks/use-site-meta-data';
 
 interface DisqusProps {
     slug?: string;

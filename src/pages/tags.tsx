@@ -3,7 +3,7 @@ import React from 'react';
 import { SEO } from '@codinators/gatsby-shared-library';
 import Hero from '../03-composites/Hero';
 import Layout from '../04-layouts/layout';
-import useSiteMetadata from '../hooks/use-site-config';
+import useSiteMetadata from '../hooks/use-site-meta-data';
 import { TagsQuery } from '../graphqlTypes';
 import Main from '../02-components/Main';
 import TagList, { Tag } from '../02-components/TagList';

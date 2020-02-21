@@ -5,7 +5,7 @@ import { oc } from 'ts-optchain';
 import Main from '../02-components/Main';
 import RecentPosts from '../02-components/RecentPosts';
 import Layout from '../04-layouts/layout';
-import useSiteMetadata from '../hooks/use-site-config';
+import useSiteMetadata from '../hooks/use-site-meta-data';
 import { Styles, theme } from '../tokens';
 
 const styles: Styles = {
