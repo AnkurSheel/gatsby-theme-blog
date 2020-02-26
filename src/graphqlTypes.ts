@@ -658,6 +658,7 @@ export enum FileFieldsEnum {
     ChildMdxFileAbsolutePath = 'childMdx___fileAbsolutePath',
     ChildMdxFrontmatterTitle = 'childMdx___frontmatter___title',
     ChildMdxFrontmatterExcerpt = 'childMdx___frontmatter___excerpt',
+    ChildMdxFrontmatterTags = 'childMdx___frontmatter___tags',
     ChildMdxFrontmatterFeaturedImageSourceInstanceName = 'childMdx___frontmatter___featuredImage___sourceInstanceName',
     ChildMdxFrontmatterFeaturedImageAbsolutePath = 'childMdx___frontmatter___featuredImage___absolutePath',
     ChildMdxFrontmatterFeaturedImageRelativePath = 'childMdx___frontmatter___featuredImage___relativePath',
@@ -695,7 +696,6 @@ export enum FileFieldsEnum {
     ChildMdxFrontmatterFeaturedImageId = 'childMdx___frontmatter___featuredImage___id',
     ChildMdxFrontmatterFeaturedImageChildren = 'childMdx___frontmatter___featuredImage___children',
     ChildMdxFrontmatterFeaturedImagePosition = 'childMdx___frontmatter___featuredImagePosition',
-    ChildMdxFrontmatterTags = 'childMdx___frontmatter___tags',
     ChildMdxFrontmatterDraft = 'childMdx___frontmatter___draft',
     ChildMdxBody = 'childMdx___body',
     ChildMdxExcerpt = 'childMdx___excerpt',
@@ -1719,6 +1719,7 @@ export enum MdxFieldsEnum {
     FileAbsolutePath = 'fileAbsolutePath',
     FrontmatterTitle = 'frontmatter___title',
     FrontmatterExcerpt = 'frontmatter___excerpt',
+    FrontmatterTags = 'frontmatter___tags',
     FrontmatterFeaturedImageSourceInstanceName = 'frontmatter___featuredImage___sourceInstanceName',
     FrontmatterFeaturedImageAbsolutePath = 'frontmatter___featuredImage___absolutePath',
     FrontmatterFeaturedImageRelativePath = 'frontmatter___featuredImage___relativePath',
@@ -1784,7 +1785,6 @@ export enum MdxFieldsEnum {
     FrontmatterFeaturedImageChildImagesJsonChildren = 'frontmatter___featuredImage___childImagesJson___children',
     FrontmatterFeaturedImageChildImagesJsonGallery = 'frontmatter___featuredImage___childImagesJson___gallery',
     FrontmatterFeaturedImagePosition = 'frontmatter___featuredImagePosition',
-    FrontmatterTags = 'frontmatter___tags',
     FrontmatterDraft = 'frontmatter___draft',
     Body = 'body',
     Excerpt = 'excerpt',
@@ -1907,18 +1907,18 @@ export type MdxFilterInput = {
 export type MdxFrontmatter = {
     title: Scalars['String'];
     excerpt?: Maybe<Scalars['String']>;
+    tags?: Maybe<Array<Maybe<Scalars['String']>>>;
     featuredImage?: Maybe<File>;
     featuredImagePosition?: Maybe<Scalars['String']>;
-    tags?: Maybe<Array<Maybe<Scalars['String']>>>;
     draft?: Maybe<Scalars['Boolean']>;
 };
 
 export type MdxFrontmatterFilterInput = {
     title?: Maybe<StringQueryOperatorInput>;
     excerpt?: Maybe<StringQueryOperatorInput>;
+    tags?: Maybe<StringQueryOperatorInput>;
     featuredImage?: Maybe<FileFilterInput>;
     featuredImagePosition?: Maybe<StringQueryOperatorInput>;
-    tags?: Maybe<StringQueryOperatorInput>;
     draft?: Maybe<BooleanQueryOperatorInput>;
 };
 
@@ -2167,8 +2167,8 @@ export enum PageFieldsEnum {
     FeaturedImageChildMdxFileAbsolutePath = 'featuredImage___childMdx___fileAbsolutePath',
     FeaturedImageChildMdxFrontmatterTitle = 'featuredImage___childMdx___frontmatter___title',
     FeaturedImageChildMdxFrontmatterExcerpt = 'featuredImage___childMdx___frontmatter___excerpt',
-    FeaturedImageChildMdxFrontmatterFeaturedImagePosition = 'featuredImage___childMdx___frontmatter___featuredImagePosition',
     FeaturedImageChildMdxFrontmatterTags = 'featuredImage___childMdx___frontmatter___tags',
+    FeaturedImageChildMdxFrontmatterFeaturedImagePosition = 'featuredImage___childMdx___frontmatter___featuredImagePosition',
     FeaturedImageChildMdxFrontmatterDraft = 'featuredImage___childMdx___frontmatter___draft',
     FeaturedImageChildMdxBody = 'featuredImage___childMdx___body',
     FeaturedImageChildMdxExcerpt = 'featuredImage___childMdx___excerpt',
@@ -2542,8 +2542,8 @@ export enum PostFieldsEnum {
     FeaturedImageChildMdxFileAbsolutePath = 'featuredImage___childMdx___fileAbsolutePath',
     FeaturedImageChildMdxFrontmatterTitle = 'featuredImage___childMdx___frontmatter___title',
     FeaturedImageChildMdxFrontmatterExcerpt = 'featuredImage___childMdx___frontmatter___excerpt',
-    FeaturedImageChildMdxFrontmatterFeaturedImagePosition = 'featuredImage___childMdx___frontmatter___featuredImagePosition',
     FeaturedImageChildMdxFrontmatterTags = 'featuredImage___childMdx___frontmatter___tags',
+    FeaturedImageChildMdxFrontmatterFeaturedImagePosition = 'featuredImage___childMdx___frontmatter___featuredImagePosition',
     FeaturedImageChildMdxFrontmatterDraft = 'featuredImage___childMdx___frontmatter___draft',
     FeaturedImageChildMdxBody = 'featuredImage___childMdx___body',
     FeaturedImageChildMdxExcerpt = 'featuredImage___childMdx___excerpt',
@@ -2731,8 +2731,8 @@ export enum PostFieldsEnum {
     ImageFacebookChildMdxFileAbsolutePath = 'imageFacebook___childMdx___fileAbsolutePath',
     ImageFacebookChildMdxFrontmatterTitle = 'imageFacebook___childMdx___frontmatter___title',
     ImageFacebookChildMdxFrontmatterExcerpt = 'imageFacebook___childMdx___frontmatter___excerpt',
-    ImageFacebookChildMdxFrontmatterFeaturedImagePosition = 'imageFacebook___childMdx___frontmatter___featuredImagePosition',
     ImageFacebookChildMdxFrontmatterTags = 'imageFacebook___childMdx___frontmatter___tags',
+    ImageFacebookChildMdxFrontmatterFeaturedImagePosition = 'imageFacebook___childMdx___frontmatter___featuredImagePosition',
     ImageFacebookChildMdxFrontmatterDraft = 'imageFacebook___childMdx___frontmatter___draft',
     ImageFacebookChildMdxBody = 'imageFacebook___childMdx___body',
     ImageFacebookChildMdxExcerpt = 'imageFacebook___childMdx___excerpt',
@@ -2919,8 +2919,8 @@ export enum PostFieldsEnum {
     ImageTwitterChildMdxFileAbsolutePath = 'imageTwitter___childMdx___fileAbsolutePath',
     ImageTwitterChildMdxFrontmatterTitle = 'imageTwitter___childMdx___frontmatter___title',
     ImageTwitterChildMdxFrontmatterExcerpt = 'imageTwitter___childMdx___frontmatter___excerpt',
-    ImageTwitterChildMdxFrontmatterFeaturedImagePosition = 'imageTwitter___childMdx___frontmatter___featuredImagePosition',
     ImageTwitterChildMdxFrontmatterTags = 'imageTwitter___childMdx___frontmatter___tags',
+    ImageTwitterChildMdxFrontmatterFeaturedImagePosition = 'imageTwitter___childMdx___frontmatter___featuredImagePosition',
     ImageTwitterChildMdxFrontmatterDraft = 'imageTwitter___childMdx___frontmatter___draft',
     ImageTwitterChildMdxBody = 'imageTwitter___childMdx___body',
     ImageTwitterChildMdxExcerpt = 'imageTwitter___childMdx___excerpt',
@@ -4560,11 +4560,7 @@ export type PagesQuery = { allPage: { nodes: Array<Pick<Page, 'id' | 'path'>> } 
 
 export type BlogPostQueryVariables = {};
 
-export type BlogPostQuery = { allPost: { nodes: Array<Pick<Post, 'id' | 'path' | 'tags'>> } };
-
-export type RandomPostQueryVariables = {};
-
-export type RandomPostQuery = {
+export type BlogPostQuery = {
     allPost: {
         nodes: Array<
             Pick<
@@ -4739,40 +4735,7 @@ export type SiteImagesQuery = {
     allFile: {
         edges: Array<{
             node: Pick<File, 'relativePath'> & {
-                childImageSharp: Maybe<{
-                    fixed: Maybe<
-                        Pick<
-                            ImageSharpFixed,
-                            | 'base64'
-                            | 'tracedSVG'
-                            | 'aspectRatio'
-                            | 'width'
-                            | 'height'
-                            | 'src'
-                            | 'srcSet'
-                            | 'srcWebp'
-                            | 'srcSetWebp'
-                            | 'originalName'
-                        >
-                    >;
-                    fluid: Maybe<
-                        Pick<
-                            ImageSharpFluid,
-                            | 'base64'
-                            | 'tracedSVG'
-                            | 'aspectRatio'
-                            | 'src'
-                            | 'srcSet'
-                            | 'srcWebp'
-                            | 'srcSetWebp'
-                            | 'sizes'
-                            | 'originalImg'
-                            | 'originalName'
-                            | 'presentationWidth'
-                            | 'presentationHeight'
-                        >
-                    >;
-                }>;
+                childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }>;
             };
         }>;
     };

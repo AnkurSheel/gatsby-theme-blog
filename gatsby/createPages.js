@@ -41,7 +41,31 @@ const getPosts = async (graphql, isDevelop, reporter) => {
                 nodes {
                     id
                     path
+                    title
                     tags
+                    excerpt
+                    draft
+                    date(formatString: "DD MMMM, YYYY")
+                    body
+                    featuredImage {
+                        publicURL
+                        sharp: childImageSharp {
+                            fluid(maxWidth: 800) {
+                                aspectRatio
+                                src
+                                srcSet
+                                sizes
+                                originalName
+                            }
+                        }
+                    }
+                    featuredImagePosition
+                    imageTwitter {
+                        publicURL
+                    }
+                    imageFacebook {
+                        publicURL
+                    }
                 }
             }
         }
@@ -50,12 +74,11 @@ const getPosts = async (graphql, isDevelop, reporter) => {
     if (postsResult.errors) {
         reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query for posts');
     }
-    const posts = postsResult.data.allPost.nodes;
-    return posts;
+    return { data: postsResult.data, posts: postsResult.data.allPost.nodes };
 };
 
 const buildPosts = async (graphql, isDevelop, reporter, createPage) => {
-    const posts = await getPosts(graphql, isDevelop, reporter);
+    const { posts } = await getPosts(graphql, isDevelop, reporter);
     posts.forEach(post => {
         createPage({
             path: post.path,
@@ -66,7 +89,7 @@ const buildPosts = async (graphql, isDevelop, reporter, createPage) => {
 };
 
 const buildTags = async (graphql, isDevelop, reporter, createPage) => {
-    const posts = await getPosts(graphql, isDevelop, reporter);
+    const { posts } = await getPosts(graphql, isDevelop, reporter);
 
     posts
         .reduce((acc, cur) => [...new Set([...acc, ...cur.tags])], [])
@@ -86,7 +109,7 @@ const buildTags = async (graphql, isDevelop, reporter, createPage) => {
 // generate post share images (dev only)
 const buildShareImages = async (graphql, isDevelop, reporter, createPage) => {
     if (isDevelop) {
-        const posts = await getPosts(graphql, isDevelop, reporter);
+        const { posts } = await getPosts(graphql, isDevelop, reporter);
 
         const BlogPostShareImage = require.resolve('../src/templates/blog-post-share-image.tsx');
         posts.forEach(post => {
@@ -115,48 +138,12 @@ const buildShareImages = async (graphql, isDevelop, reporter, createPage) => {
 };
 
 const buildRandomPostPage = async (graphql, isDevelop, reporter, createPage) => {
-    const postsResult = await graphql(`
-        query RandomPost {
-            allPost${postsFilter} {
-                nodes {
-                    id
-                    path
-                    title
-                    tags
-                    excerpt
-                    draft
-                    date(formatString: "DD MMMM, YYYY")
-                    body
-                    featuredImage {
-                        publicURL
-                        sharp: childImageSharp {
-                            fluid {
-                                aspectRatio
-                                src
-                                srcSet
-                                sizes
-                                originalName
-                            }
-                        }
-                    }
-                    featuredImagePosition
-                    imageTwitter {
-                        publicURL
-                    }
-                    imageFacebook {
-                        publicURL
-                    }
-                }
-            }
-        }
-    `);
-    if (postsResult.errors) {
-        reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query for posts');
-    }
+    const { data } = await getPosts(graphql, isDevelop, reporter);
+
     createPage({
         path: '/random-post/',
         component: require.resolve(`../src/templates/random-post.tsx`),
-        context: { allPosts: postsResult.data },
+        context: { allPosts: data },
     });
 };
 
