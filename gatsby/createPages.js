@@ -29,15 +29,19 @@ const buildPages = async (graphql, isDevelop, reporter, createPage) => {
     });
 };
 
-const postsFilter = `(
-                filter: { draft: { eq: false }, date: { lte: "${todaysDate}" } }
-                sort: { fields: date, order: DESC }
-            )`;
-
 const getPosts = async (graphql, isDevelop, reporter) => {
+    const postsFilter = isDevelop
+        ? `(
+            sort: { fields: date, order: DESC }
+        )`
+        : `(
+            filter: { draft: { eq: false }, date: { lte: "${todaysDate}" } }
+            sort: { fields: date, order: DESC }
+        )`;
+
     const postsResult = await graphql(`
         query BlogPost {
-            allPost${isDevelop ? '' : postsFilter} {
+            allPost${postsFilter} {
                 nodes {
                     id
                     path
@@ -76,6 +80,14 @@ const getPosts = async (graphql, isDevelop, reporter) => {
     }
     const allPosts = postsResult.data;
     return allPosts;
+};
+
+const buildBlogListPage = async (allPosts, path, createPage) => {
+    createPage({
+        path,
+        component: require.resolve(`../src/templates/blog-list.tsx`),
+        context: { allPosts },
+    });
 };
 
 const buildPosts = async (posts, createPage) => {
@@ -143,6 +155,7 @@ const buildRandomPostPage = async (allPosts, createPage) => {
 
 exports.getPosts = getPosts;
 exports.buildPages = buildPages;
+exports.buildBlogListPage = buildBlogListPage;
 exports.buildPosts = buildPosts;
 exports.buildTags = buildTags;
 exports.buildShareImages = buildShareImages;

@@ -5,6 +5,7 @@ const { createPageNode, createPostNode } = require('./gatsby/createNodes');
 const { createBodyResolver, createTimeToReadResolver, createHtmlResolver } = require('./gatsby/createResolvers');
 const {
     buildPages,
+    buildBlogListPage,
     buildPosts,
     buildTags,
     buildShareImages,
@@ -67,8 +68,9 @@ exports.createResolvers = ({ createResolvers }) => {
     });
 };
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPages = async ({ graphql, actions, reporter }, options) => {
     const { createPage } = actions;
+    const { allPostsPath } = withDefaults(options);
     const isDevelop = process.env.gatsby_executing_command.includes('develop');
 
     await buildPages(graphql, isDevelop, reporter, createPage);
@@ -76,6 +78,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const allPosts = await getPosts(graphql, isDevelop, reporter);
 
     await Promise.all([
+        buildBlogListPage(allPosts, allPostsPath, createPage),
         buildPosts(allPosts.allPost.nodes, createPage),
         buildTags(allPosts.allPost.nodes, createPage),
         buildShareImages(allPosts.allPost.nodes, isDevelop, createPage),

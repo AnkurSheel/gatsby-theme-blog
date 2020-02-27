@@ -3624,12 +3624,12 @@ export type SitePageConnectionGroupArgs = {
 
 export type SitePageContext = {
     id?: Maybe<Scalars['String']>;
+    allPosts?: Maybe<SitePageContextAllPosts>;
     tagRegex?: Maybe<Scalars['String']>;
     tag?: Maybe<Scalars['String']>;
     width?: Maybe<Scalars['Int']>;
     height?: Maybe<Scalars['Int']>;
     type?: Maybe<Scalars['String']>;
-    allPosts?: Maybe<SitePageContextAllPosts>;
 };
 
 export type SitePageContextAllPosts = {
@@ -3734,12 +3734,12 @@ export type SitePageContextAllPostsFilterInput = {
 
 export type SitePageContextFilterInput = {
     id?: Maybe<StringQueryOperatorInput>;
+    allPosts?: Maybe<SitePageContextAllPostsFilterInput>;
     tagRegex?: Maybe<StringQueryOperatorInput>;
     tag?: Maybe<StringQueryOperatorInput>;
     width?: Maybe<IntQueryOperatorInput>;
     height?: Maybe<IntQueryOperatorInput>;
     type?: Maybe<StringQueryOperatorInput>;
-    allPosts?: Maybe<SitePageContextAllPostsFilterInput>;
 };
 
 export type SitePageEdge = {
@@ -3842,12 +3842,12 @@ export enum SitePageFieldsEnum {
     InternalType = 'internal___type',
     IsCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
     ContextId = 'context___id',
+    ContextAllPostsAllPostNodes = 'context___allPosts___allPost___nodes',
     ContextTagRegex = 'context___tagRegex',
     ContextTag = 'context___tag',
     ContextWidth = 'context___width',
     ContextHeight = 'context___height',
     ContextType = 'context___type',
-    ContextAllPostsAllPostNodes = 'context___allPosts___allPost___nodes',
     PluginCreatorId = 'pluginCreator___id',
     PluginCreatorParentId = 'pluginCreator___parent___id',
     PluginCreatorParentParentId = 'pluginCreator___parent___parent___id',
@@ -4771,10 +4771,6 @@ export type SiteMetaDataQuery = {
         >;
     }>;
 };
-
-export type BlogListQueryVariables = {};
-
-export type BlogListQuery = { allPost: { nodes: Array<Pick<Post, 'excerpt' | 'date' | 'title' | 'path' | 'tags'>> } };
 
 export type TagsQueryVariables = {};
 

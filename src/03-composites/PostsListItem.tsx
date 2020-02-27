@@ -45,13 +45,15 @@ interface PostListItemProps {
     title: string;
     excerpt: string;
     path: string;
+    draft?: boolean;
 }
 
 const PostsListItem = (props: PostListItemProps) => {
-    const { title, excerpt, path } = props;
+    const { title, excerpt, path, draft } = props;
 
     return (
         <div css={styles.post}>
+            {draft && <h2 css={styles.header}>Draft Post</h2>}
             <Link css={styles.linkContainer} to={path} aria-label={`View ${title} article`}>
                 <section css={styles.section}>
                     <h2 css={styles.header}>{title}</h2>
