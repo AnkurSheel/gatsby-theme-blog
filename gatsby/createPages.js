@@ -74,11 +74,11 @@ const getPosts = async (graphql, isDevelop, reporter) => {
     if (postsResult.errors) {
         reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query for posts');
     }
-    return { data: postsResult.data, posts: postsResult.data.allPost.nodes };
+    const allPosts = postsResult.data;
+    return allPosts;
 };
 
-const buildPosts = async (graphql, isDevelop, reporter, createPage) => {
-    const { posts } = await getPosts(graphql, isDevelop, reporter);
+const buildPosts = async (posts, createPage) => {
     posts.forEach(post => {
         createPage({
             path: post.path,
@@ -88,9 +88,7 @@ const buildPosts = async (graphql, isDevelop, reporter, createPage) => {
     });
 };
 
-const buildTags = async (graphql, isDevelop, reporter, createPage) => {
-    const { posts } = await getPosts(graphql, isDevelop, reporter);
-
+const buildTags = async (posts, createPage) => {
     posts
         .reduce((acc, cur) => [...new Set([...acc, ...cur.tags])], [])
         .forEach(uniqTag => {
@@ -107,10 +105,8 @@ const buildTags = async (graphql, isDevelop, reporter, createPage) => {
 };
 
 // generate post share images (dev only)
-const buildShareImages = async (graphql, isDevelop, reporter, createPage) => {
+const buildShareImages = async (posts, isDevelop, createPage) => {
     if (isDevelop) {
-        const { posts } = await getPosts(graphql, isDevelop, reporter);
-
         const BlogPostShareImage = require.resolve('../src/templates/blog-post-share-image.tsx');
         posts.forEach(post => {
             createPage({
@@ -137,16 +133,15 @@ const buildShareImages = async (graphql, isDevelop, reporter, createPage) => {
     }
 };
 
-const buildRandomPostPage = async (graphql, isDevelop, reporter, createPage) => {
-    const { data } = await getPosts(graphql, isDevelop, reporter);
-
+const buildRandomPostPage = async (allPosts, createPage) => {
     createPage({
         path: '/random-post/',
         component: require.resolve(`../src/templates/random-post.tsx`),
-        context: { allPosts: data },
+        context: { allPosts },
     });
 };
 
+exports.getPosts = getPosts;
 exports.buildPages = buildPages;
 exports.buildPosts = buildPosts;
 exports.buildTags = buildTags;
