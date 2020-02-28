@@ -16,6 +16,13 @@ const GlobalStyle = () => (
             'ul,ol': {
                 marginLeft: '1em',
             },
+            ol: {
+                listStyleType: 'decimal-leading-zero',
+            },
+            li: {
+                paddingInlineStart: '0.5rem',
+                paddingBlockStart: '0.25rem',
+            },
             body: {
                 minHeight: '100vh',
                 scrollBehavior: 'smooth',
@@ -28,6 +35,9 @@ const GlobalStyle = () => (
                 '& > div': {
                     marginTop: 0,
                 },
+            },
+            'h2 + *': {
+                marginTop: '1rem',
             },
             a: {
                 color: theme.colors.link,
