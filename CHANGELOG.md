@@ -1,3 +1,22 @@
+# [2.3.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.2.1...v2.3.0) (2020-02-29)
+
+
+### Bug Fixes
+
+* add some whitespace ([d92f393](https://github.com/AnkurSheel/gatsby-theme-blog/commit/d92f3930f3587286e2018fb037658caad5f0cb21))
+* add width to fluid images ([5e436af](https://github.com/AnkurSheel/gatsby-theme-blog/commit/5e436afdf8a7e909281c462da1d1e5006823da2a))
+
+
+### Features
+
+* all posts path can be overriden ([2ef2ad0](https://github.com/AnkurSheel/gatsby-theme-blog/commit/2ef2ad06c9e9c21bdcb422c9422a249d551abb41))
+* change blog share image to contain instead of cover ([fee6262](https://github.com/AnkurSheel/gatsby-theme-blog/commit/fee62622ea86a46f8569af6370c3bcc035991b07))
+
+
+### Performance Improvements
+
+* build pages in parallel ([90cc854](https://github.com/AnkurSheel/gatsby-theme-blog/commit/90cc85405cdf601ef82bebbdff5b5ef1a8aa9d65))
+
 ## [2.2.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.2.0...v2.2.1) (2020-02-21)
 
 
