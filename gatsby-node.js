@@ -3,7 +3,15 @@ const { createDir } = require('./gatsby/createDir');
 const { createPageType, createPostType } = require('./gatsby/createTypes');
 const { createPageNode, createPostNode } = require('./gatsby/createNodes');
 const { createBodyResolver, createTimeToReadResolver, createHtmlResolver } = require('./gatsby/createResolvers');
-const { buildPages, buildPosts, buildTags, buildShareImages, buildRandomPostPage } = require('./gatsby/createPages');
+const {
+    buildPages,
+    buildBlogListPage,
+    buildPosts,
+    buildTags,
+    buildShareImages,
+    buildRandomPostPage,
+    getPosts,
+} = require('./gatsby/createPages');
 
 exports.onPreBootstrap = ({ store }, options) => {
     const { program } = store.getState();
@@ -60,17 +68,20 @@ exports.createResolvers = ({ createResolvers }) => {
     });
 };
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPages = async ({ graphql, actions, reporter }, options) => {
     const { createPage } = actions;
+    const { allPostsPath } = withDefaults(options);
     const isDevelop = process.env.gatsby_executing_command.includes('develop');
 
     await buildPages(graphql, isDevelop, reporter, createPage);
 
-    await buildPosts(graphql, isDevelop, reporter, createPage);
+    const allPosts = await getPosts(graphql, isDevelop, reporter);
 
-    await buildTags(graphql, isDevelop, reporter, createPage);
-
-    await buildShareImages(graphql, isDevelop, reporter, createPage);
-
-    await buildRandomPostPage(graphql, isDevelop, reporter, createPage);
+    await Promise.all([
+        buildBlogListPage(allPosts, allPostsPath, createPage),
+        buildPosts(allPosts.allPost.nodes, createPage),
+        buildTags(allPosts.allPost.nodes, createPage),
+        buildShareImages(allPosts.allPost.nodes, isDevelop, createPage),
+        buildRandomPostPage(allPosts, createPage),
+    ]);
 };

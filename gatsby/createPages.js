@@ -29,19 +29,47 @@ const buildPages = async (graphql, isDevelop, reporter, createPage) => {
     });
 };
 
-const postsFilter = `(
-                filter: { draft: { eq: false }, date: { lte: "${todaysDate}" } }
-                sort: { fields: date, order: DESC }
-            )`;
-
 const getPosts = async (graphql, isDevelop, reporter) => {
+    const postsFilter = isDevelop
+        ? `(
+            sort: { fields: date, order: DESC }
+        )`
+        : `(
+            filter: { draft: { eq: false }, date: { lte: "${todaysDate}" } }
+            sort: { fields: date, order: DESC }
+        )`;
+
     const postsResult = await graphql(`
         query BlogPost {
-            allPost${isDevelop ? '' : postsFilter} {
+            allPost${postsFilter} {
                 nodes {
                     id
                     path
+                    title
                     tags
+                    excerpt
+                    draft
+                    date(formatString: "DD MMMM, YYYY")
+                    body
+                    featuredImage {
+                        publicURL
+                        sharp: childImageSharp {
+                            fluid(maxWidth: 800) {
+                                aspectRatio
+                                src
+                                srcSet
+                                sizes
+                                originalName
+                            }
+                        }
+                    }
+                    featuredImagePosition
+                    imageTwitter {
+                        publicURL
+                    }
+                    imageFacebook {
+                        publicURL
+                    }
                 }
             }
         }
@@ -50,12 +78,19 @@ const getPosts = async (graphql, isDevelop, reporter) => {
     if (postsResult.errors) {
         reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query for posts');
     }
-    const posts = postsResult.data.allPost.nodes;
-    return posts;
+    const allPosts = postsResult.data;
+    return allPosts;
 };
 
-const buildPosts = async (graphql, isDevelop, reporter, createPage) => {
-    const posts = await getPosts(graphql, isDevelop, reporter);
+const buildBlogListPage = async (allPosts, path, createPage) => {
+    createPage({
+        path,
+        component: require.resolve(`../src/templates/blog-list.tsx`),
+        context: { allPosts },
+    });
+};
+
+const buildPosts = async (posts, createPage) => {
     posts.forEach(post => {
         createPage({
             path: post.path,
@@ -65,9 +100,7 @@ const buildPosts = async (graphql, isDevelop, reporter, createPage) => {
     });
 };
 
-const buildTags = async (graphql, isDevelop, reporter, createPage) => {
-    const posts = await getPosts(graphql, isDevelop, reporter);
-
+const buildTags = async (posts, createPage) => {
     posts
         .reduce((acc, cur) => [...new Set([...acc, ...cur.tags])], [])
         .forEach(uniqTag => {
@@ -84,10 +117,8 @@ const buildTags = async (graphql, isDevelop, reporter, createPage) => {
 };
 
 // generate post share images (dev only)
-const buildShareImages = async (graphql, isDevelop, reporter, createPage) => {
+const buildShareImages = async (posts, isDevelop, createPage) => {
     if (isDevelop) {
-        const posts = await getPosts(graphql, isDevelop, reporter);
-
         const BlogPostShareImage = require.resolve('../src/templates/blog-post-share-image.tsx');
         posts.forEach(post => {
             createPage({
@@ -114,53 +145,17 @@ const buildShareImages = async (graphql, isDevelop, reporter, createPage) => {
     }
 };
 
-const buildRandomPostPage = async (graphql, isDevelop, reporter, createPage) => {
-    const postsResult = await graphql(`
-        query RandomPost {
-            allPost${postsFilter} {
-                nodes {
-                    id
-                    path
-                    title
-                    tags
-                    excerpt
-                    draft
-                    date(formatString: "DD MMMM, YYYY")
-                    body
-                    featuredImage {
-                        publicURL
-                        sharp: childImageSharp {
-                            fluid {
-                                aspectRatio
-                                src
-                                srcSet
-                                sizes
-                                originalName
-                            }
-                        }
-                    }
-                    featuredImagePosition
-                    imageTwitter {
-                        publicURL
-                    }
-                    imageFacebook {
-                        publicURL
-                    }
-                }
-            }
-        }
-    `);
-    if (postsResult.errors) {
-        reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query for posts');
-    }
+const buildRandomPostPage = async (allPosts, createPage) => {
     createPage({
         path: '/random-post/',
         component: require.resolve(`../src/templates/random-post.tsx`),
-        context: { allPosts: postsResult.data },
+        context: { allPosts },
     });
 };
 
+exports.getPosts = getPosts;
 exports.buildPages = buildPages;
+exports.buildBlogListPage = buildBlogListPage;
 exports.buildPosts = buildPosts;
 exports.buildTags = buildTags;
 exports.buildShareImages = buildShareImages;

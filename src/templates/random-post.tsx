@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import React from 'react';
 import BlogPostTemplate from './blog-post';
-import { RandomPostQuery } from '../graphqlTypes';
+import { BlogPostQuery } from '../graphqlTypes';
 
 interface RandomPostProps {
     pageContext: {
-        allPosts: Pick<RandomPostQuery, 'allPost'>;
+        allPosts: Pick<BlogPostQuery, 'allPost'>;
     };
 }
 const RandomPostTemplate = ({ pageContext }: RandomPostProps) => {

@@ -14,7 +14,8 @@ const styles: StyleWithOptions<BlogPostShareImageProps> = (props: BlogPostShareI
             height: `${props.pageContext.height}px`,
             backgroundImage: image && `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${image})`,
             backgroundPosition: 'center',
-            backgroundSize: 'cover',
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
         },
         textContainer: {
             position: 'absolute',

@@ -9,31 +9,8 @@ const useSiteImages = (imageName: string) => {
                     node {
                         relativePath
                         childImageSharp {
-                            fixed {
-                                base64
-                                tracedSVG
-                                aspectRatio
-                                width
-                                height
-                                src
-                                srcSet
-                                srcWebp
-                                srcSetWebp
-                                originalName
-                            }
-                            fluid {
-                                base64
-                                tracedSVG
-                                aspectRatio
-                                src
-                                srcSet
-                                srcWebp
-                                srcSetWebp
-                                sizes
-                                originalImg
-                                originalName
-                                presentationWidth
-                                presentationHeight
+                            fluid(maxWidth: 600) {
+                                ...GatsbyImageSharpFluid_withWebp
                             }
                         }
                     }
