@@ -4,12 +4,12 @@ import { Styles, theme } from '../tokens';
 const styles: Styles = {
     main: {
         borderRadius: '20px',
-        maxWidth: '770px',
+        maxWidth: '70ch',
         minHeight: '50vh',
         wordWrap: 'break-word',
         backgroundColor: `${theme.colors.backgroundArticle}`,
         margin: '0px auto 2rem auto',
-        padding: '1.5rem',
+        padding: '2ch',
     },
 };
 

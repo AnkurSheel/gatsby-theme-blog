@@ -3,12 +3,7 @@ import { Styles } from '../tokens';
 import Content from './Content';
 
 const styles: Styles = {
-    article: {
-        padding: '0 30px 30px auto',
-        '@media only screen and (max-width: 500px)': {
-            padding: 0,
-        },
-    },
+    article: {},
 };
 
 interface ArticleProps {
