@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.3.0...v2.3.1) (2020-03-07)
+
+
+### Bug Fixes
+
+* random post shows blank page ([7e14946](https://github.com/AnkurSheel/gatsby-theme-blog/commit/7e149465e5a77425fd4a821202ef14afda3c3164))
+
 # [2.3.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.2.1...v2.3.0) (2020-02-29)
 
 
