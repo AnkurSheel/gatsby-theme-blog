@@ -19,7 +19,7 @@ const RandomPostTemplate = ({ pageContext }: RandomPostProps) => {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
 
-    const randomPosition = randomGenerator(0, posts.length);
+    const randomPosition = randomGenerator(0, posts.length - 1);
     const post = posts[randomPosition];
     const data = {
         post,
