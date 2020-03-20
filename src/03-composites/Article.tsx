@@ -1,26 +1,25 @@
-import React from 'react';
-import { Styles } from '../tokens';
-import Content from './Content';
+import React, { ReactNode } from 'react';
+import { Styles, theme } from '../tokens';
 
 const styles: Styles = {
-    article: {},
+    article: {
+        borderRadius: '20px',
+        maxWidth: '70ch',
+        // minHeight: '50vh',
+        wordWrap: 'break-word',
+        backgroundColor: `${theme.colors.backgroundArticle}`,
+        margin: '0px auto 2rem auto',
+        padding: '2ch',
+    },
 };
 
 interface ArticleProps {
-    body: string;
-    date: string;
-    tags: string[];
-
-    path?: string | undefined;
+    children: ReactNode;
 }
 
 const Article = (props: ArticleProps) => {
-    const { body, date, tags, path } = props;
-    return (
-        <article css={styles.article}>
-            <Content content={body} date={date} tags={tags} path={path} />
-        </article>
-    );
+    const { children } = props;
+    return <article css={styles.article}>{children}</article>;
 };
 
 export default Article;

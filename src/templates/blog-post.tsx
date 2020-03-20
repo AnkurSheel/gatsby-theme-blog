@@ -4,12 +4,13 @@ import { IFluidObject } from 'gatsby-background-image';
 import React from 'react';
 import Donate from '../02-components/Donate';
 import Main from '../02-components/Main';
-import Article from '../03-composites/Article';
 import Hero from '../03-composites/Hero';
 import RelatedPosts from '../03-composites/RelatedPosts';
 import Layout from '../04-layouts/layout';
 import { BlogPostByIdQuery } from '../graphqlTypes';
 import useSiteMetadata from '../hooks/use-site-meta-data';
+import Content from '../03-composites/Content';
+import Article from '../03-composites/Article';
 
 interface BlogPostTemplateProps {
     data: Pick<BlogPostByIdQuery, 'post'>;
@@ -26,8 +27,6 @@ const BlogPostTemplate = ({ data: { post } }: BlogPostTemplateProps) => {
     const { title, excerpt, draft, body, imageFacebook, imageTwitter, tags, date, path } = post;
     const fluid = (post.featuredImage?.sharp?.fluid || undefined) as IFluidObject | undefined;
     const featuredImagePosition = post.featuredImagePosition || '';
-    const pathSplit = path.split('/');
-    const slug = pathSplit[pathSplit.length - 1];
     return (
         <Layout>
             <SEO
@@ -45,13 +44,17 @@ const BlogPostTemplate = ({ data: { post } }: BlogPostTemplateProps) => {
             <Main>
                 {draft && <h1>Draft Post</h1>}
 
-                <Article body={body} tags={tags} date={date} path={slug} />
-                <Donate />
+                <article>
+                    <Content content={body} date={date} tags={tags} path={path} />
+                    <aside>
+                        <Donate />
+                    </aside>
+                </article>
             </Main>
 
-            <Main>
+            <Article>
                 <RelatedPosts tags={tags} date={date} slug={path} />
-            </Main>
+            </Article>
         </Layout>
     );
 };
