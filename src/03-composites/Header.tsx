@@ -3,8 +3,8 @@ import DesktopHeader from '../02-components/DesktopHeader';
 import { HeaderLinkData } from '../02-components/HeaderLinks';
 import MobileHeader from '../02-components/MobileHeader';
 import useMedia from '../hooks/use-media';
-import useSiteMetadata from '../hooks/use-site-meta-data';
 import useSiteImages from '../hooks/use-site-images';
+import useSiteMetadata from '../hooks/use-site-meta-data';
 import { Styles, theme } from '../tokens';
 
 const styles: Styles = {
@@ -24,8 +24,8 @@ const styles: Styles = {
         display: 'flex',
         justifyContent: 'space-between',
         margin: '0 auto',
-        maxWidth: '770px',
-        padding: '0 20px',
+        maxWidth: '70ch',
+        padding: '0 2ch',
         alignItems: 'center',
     },
     header: {

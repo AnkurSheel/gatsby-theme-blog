@@ -94,6 +94,9 @@ const RelatedPosts = (props: RelatedPostsComponentProps) => {
         .splice(0, 4)
         .filter(s => s.points > 0);
 
+    if (arrayIdentityMap.length === 0) {
+        return <></>;
+    }
     return (
         <section css={styles.container}>
             <h1 css={styles.header}>More like this</h1>
