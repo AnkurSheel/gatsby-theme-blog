@@ -1,3 +1,15 @@
+# [2.4.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.3.1...v2.4.0) (2020-03-23)
+
+
+### Bug Fixes
+
+* return empty fragment if no related posts can be found ([9ec62f5](https://github.com/AnkurSheel/gatsby-theme-blog/commit/9ec62f5d24d7fd2de09167e19b7ee731aecee69b))
+
+
+### Features
+
+* use relative units ([d69d848](https://github.com/AnkurSheel/gatsby-theme-blog/commit/d69d8482ba2fb334eea0d71bc03adf8e00ec28bf))
+
 ## [2.3.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.3.0...v2.3.1) (2020-03-07)
 
 
