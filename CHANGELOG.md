@@ -1,3 +1,12 @@
+## [2.4.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.4.0...v2.4.1) (2020-03-28)
+
+
+### Bug Fixes
+
+* make Main content take 100vh ([5cbcdbe](https://github.com/AnkurSheel/gatsby-theme-blog/commit/5cbcdbeaf280bab9219be47a4d4514d1b2f09e9b))
+* make title take whole width ([e32bf85](https://github.com/AnkurSheel/gatsby-theme-blog/commit/e32bf85ea01c5af57606474f763aa5193618da57))
+* remove block links from blog list cards ([9c67d1f](https://github.com/AnkurSheel/gatsby-theme-blog/commit/9c67d1fcbc2e094a925268f9d497b3b77547aa1c))
+
 # [2.4.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.3.1...v2.4.0) (2020-03-23)
 
 
