@@ -3,36 +3,35 @@ import React from 'react';
 import { Styles, theme } from '../tokens';
 
 const styles: Styles = {
+    section: {
+        padding: '1em',
+        display: 'flex',
+        flexDirection: 'column',
+    },
     post: {
         marginBottom: '1.25rem',
         background: theme.colors.card.background,
         borderRadius: '5px',
     },
-    linkContainer: {
+    linkHeader: {
         textDecoration: 'none',
-    },
-    section: {
-        padding: '1em',
+        color: 'inherit',
     },
     header: {
-        paddingBottom: '1em',
         color: theme.colors.card.title,
     },
     excerpt: {
-        paddingBottom: '0.5em',
         color: theme.colors.card.paragraph,
     },
     readPostLink: {
         color: `${theme.colors.card.link}`,
-        width: '100%',
-        margin: '1rem auto 0 auto',
+        marginTop: '0.5rem',
         fontWeight: 'bold',
         lineHeight: 2,
-        fontsize: '0.75rem',
         textAlign: 'center',
         textTransform: 'uppercase',
         letterSpacing: '0.05em',
-        border: 'none',
+        textDecoration: 'none',
         '&:hover': {
             backgroundColor: `${theme.colors.card.link}`,
             borderRadius: '0.25rem',
@@ -54,13 +53,18 @@ const PostsListItem = (props: PostListItemProps) => {
     return (
         <div css={styles.post}>
             {draft && <h2 css={styles.header}>Draft Post</h2>}
-            <Link css={styles.linkContainer} to={path} aria-label={`View ${title} article`}>
-                <section css={styles.section}>
-                    <h2 css={styles.header}>{title}</h2>
-                    <p css={styles.excerpt}>{excerpt}</p>
-                    <p css={styles.readPostLink}>Read post ›</p>
-                </section>
-            </Link>
+
+            <section css={styles.section}>
+                <h2 css={styles.header}>
+                    <Link css={styles.linkHeader} to={path} aria-label={`View ${title} article`}>
+                        {title}
+                    </Link>
+                </h2>
+                <p css={styles.excerpt}>{excerpt}</p>
+                <Link css={styles.readPostLink} to={path} aria-label={`View ${title} article`}>
+                    Read post ›
+                </Link>
+            </section>
         </div>
     );
 };
