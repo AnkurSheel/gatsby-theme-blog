@@ -7,7 +7,9 @@ import Header from '../03-composites/Header';
 import { Styles } from '../tokens';
 
 const styles: Styles = {
-    siteContent: {},
+    siteContent: {
+        minHeight: '100vh',
+    },
 };
 
 interface LayoutProps {
@@ -16,12 +18,12 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
     return (
-        <>
+        <div css={styles.siteContent}>
             <GlobalStyle />
             <Header />
             <div css={styles.siteContent}>{children}</div>
             <Footer />
-        </>
+        </div>
     );
 };
 
