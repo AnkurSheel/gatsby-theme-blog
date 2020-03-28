@@ -23,8 +23,8 @@ const styles: StyleWithOptions<HeroProps> = props => {
         textContainer: {
             position: 'absolute',
             top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
+            transform: 'translate(0%, -50%)',
+            width: '100%',
         },
         title: {
             color: theme.colors.title,
