@@ -14,6 +14,7 @@ module.exports = {
                 showCaptions: ['title', 'alt'],
             },
         },
+        { resolve: 'gatsby-remark-autolink-headers' },
         {
             resolve: 'gatsby-remark-prismjs',
             options: {
@@ -29,6 +30,7 @@ module.exports = {
             },
         },
         { resolve: 'gatsby-remark-smartypants' },
+        { resolve: 'gatsby-remark-external-links' },
     ],
     plugins: [`gatsby-remark-images`],
 };
