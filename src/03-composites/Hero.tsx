@@ -6,11 +6,11 @@ import { StyleWithOptions, theme } from '../tokens';
 const styles: StyleWithOptions<HeroProps> = props => {
     return {
         container: {
-            position: 'relative',
+            display: 'flex',
             width: '100vw',
             height: '30vh',
-            textAlign: 'center',
             marginBottom: '2rem',
+            justifyContent: 'center',
         },
         image: {
             width: '100%',
@@ -22,14 +22,18 @@ const styles: StyleWithOptions<HeroProps> = props => {
         },
         textContainer: {
             position: 'absolute',
-            top: '50%',
-            transform: 'translate(0%, -50%)',
-            width: '100%',
+            maxWidth: '140ch',
+            alignSelf: 'center',
+            background: theme.colors.background,
+            opacity: 0.8,
+            padding: '0 1em',
         },
         title: {
             color: theme.colors.title,
+            lineHeight: '1.5em',
             fontWeight: 'bold',
             fontSize: '2.5rem',
+            letterSpacing: '0.1em',
         },
     };
 };
