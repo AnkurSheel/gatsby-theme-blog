@@ -27,7 +27,7 @@ const GlobalStyle = () => (
                 minHeight: '100vh',
                 scrollBehavior: 'smooth',
                 textRendering: 'optimizeSpeed',
-                lineHeight: 1.5,
+                lineHeight: '1.6em',
                 color: theme.colors.paragraph,
                 background: theme.colors.background,
                 fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoue UI', Roboto, Arial, sans-serif",

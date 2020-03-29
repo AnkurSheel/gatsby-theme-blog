@@ -11,7 +11,6 @@ import { Styles, theme } from '../tokens';
 const styles: Styles = {
     mainTitle: {
         color: theme.colors.title,
-        lineHeight: '1.5',
         textAlign: 'center',
         fontSize: '3rem',
         marginBottom: '2.5rem',
@@ -21,7 +20,6 @@ const styles: Styles = {
         textAlign: 'center',
     },
     text: {
-        lineHeight: 1.6,
         margin: '1em 0',
     },
 };

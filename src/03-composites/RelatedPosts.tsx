@@ -34,8 +34,7 @@ const styles: Styles = {
             backgroundColor: theme.colors.card.link,
             color: theme.colors.card.background,
         },
-        fontSize: '1.5rem',
-        lineHeight: '2rem',
+        fontSize: '1.25rem',
     },
 };
 

@@ -27,7 +27,7 @@ const styles: Styles = {
         color: `${theme.colors.card.link}`,
         marginTop: '0.5rem',
         fontWeight: 'bold',
-        lineHeight: 2,
+        lineHeight: '2em',
         textAlign: 'center',
         textTransform: 'uppercase',
         letterSpacing: '0.05em',
