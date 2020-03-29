@@ -1,3 +1,16 @@
+# [2.5.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.4.1...v2.5.0) (2020-03-29)
+
+
+### Bug Fixes
+
+* make header use width of 140ch and some styling changes ([801977e](https://github.com/AnkurSheel/gatsby-theme-blog/commit/801977e6c83508e4bbb2503d7daf31f2fdf06190))
+* use em for lineheight ([44d957d](https://github.com/AnkurSheel/gatsby-theme-blog/commit/44d957dc7df087686a72bf65e733ab6dbc17c81b))
+
+
+### Features
+
+* add autolink-header and external-links plugins ([c9e5d95](https://github.com/AnkurSheel/gatsby-theme-blog/commit/c9e5d95e443a7e233b3c143c233e9fb9dfc8a576))
+
 ## [2.4.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.4.0...v2.4.1) (2020-03-28)
 
 
