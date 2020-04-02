@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.5.0...v2.6.0) (2020-04-02)
+
+
+### Features
+
+* version bump because of shared library ([d641b1e](https://github.com/AnkurSheel/gatsby-theme-blog/commit/d641b1efa5874c142641825818a7b4b7e6406b38))
+
 # [2.5.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.4.1...v2.5.0) (2020-03-29)
 
 
