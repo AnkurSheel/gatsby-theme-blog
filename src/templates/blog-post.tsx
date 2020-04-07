@@ -4,13 +4,13 @@ import { IFluidObject } from 'gatsby-background-image';
 import React from 'react';
 import Donate from '../02-components/Donate';
 import Main from '../02-components/Main';
+import Article from '../03-composites/Article';
+import Content from '../03-composites/Content';
 import Hero from '../03-composites/Hero';
 import RelatedPosts from '../03-composites/RelatedPosts';
 import Layout from '../04-layouts/layout';
 import { BlogPostByIdQuery } from '../graphqlTypes';
 import useSiteMetadata from '../hooks/use-site-meta-data';
-import Content from '../03-composites/Content';
-import Article from '../03-composites/Article';
 
 interface BlogPostTemplateProps {
     data: Pick<BlogPostByIdQuery, 'post'>;
