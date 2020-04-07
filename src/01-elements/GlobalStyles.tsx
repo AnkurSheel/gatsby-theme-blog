@@ -10,14 +10,18 @@ const GlobalStyle = () => (
                 margin: 0,
                 padding: 0,
             },
+            html: {
+                scrollBehavior: 'smooth',
+            },
             'body, h1, h2, h3, h4, p, li, figure, figcaption, blockquote, dl, dd': {
                 margin: 0,
             },
-            'ul,ol': {
-                marginLeft: '1em',
+            ul: {
+                marginLeft: '1rem',
             },
             ol: {
                 listStyleType: 'decimal-leading-zero',
+                marginBlockStart: '2rem',
             },
             li: {
                 paddingInlineStart: '0.5rem',
