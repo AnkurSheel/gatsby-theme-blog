@@ -1,3 +1,11 @@
+## [2.6.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.6.0...v2.6.1) (2020-04-07)
+
+
+### Bug Fixes
+
+* use smooth scroll behavior ([465cc3b](https://github.com/AnkurSheel/gatsby-theme-blog/commit/465cc3bbde5c43469895dff7fa0da2c7a2b26188))
+* use svg for buymeacoffee instead of png and make it a link ([8151545](https://github.com/AnkurSheel/gatsby-theme-blog/commit/8151545db02f03c0bff16acd6bc50e2f8b8d16ae))
+
 # [2.6.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.5.0...v2.6.0) (2020-04-02)
 
 
