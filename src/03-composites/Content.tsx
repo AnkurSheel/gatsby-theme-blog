@@ -11,10 +11,13 @@ const styles: Styles = {
             marginTop: '2rem',
             borderTop: `2px solid ${theme.colors.subTitle}`,
         },
+        'h2 + h3': {
+            borderTop: 'none',
+        },
         '& > h3': {
             borderTop: `1px dashed ${theme.colors.subTitle}`,
-            marginTop: '1rem',
-            paddingTop: '2rem',
+            margin: '1rem 0 0.5rem 0',
+            paddingTop: '1rem',
         },
         '& > p': {
             margin: '1em 0 0 0',
