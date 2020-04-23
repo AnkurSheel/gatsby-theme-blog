@@ -1,3 +1,10 @@
+## [2.7.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.7.0...v2.7.1) (2020-04-23)
+
+
+### Bug Fixes
+
+* styling for h3 ([1ba2cb6](https://github.com/AnkurSheel/gatsby-theme-blog/commit/1ba2cb6c2f9188104ad5256312f8f2219cf1a3cc))
+
 # [2.7.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.6.1...v2.7.0) (2020-04-23)
 
 
