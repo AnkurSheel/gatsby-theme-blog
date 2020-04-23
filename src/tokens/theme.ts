@@ -51,6 +51,11 @@ export default {
                 color: '#9656a1',
             },
         },
+        quote: {
+            quoteColor: '#ffc0ad',
+            borderColor: '#9656a1',
+            authorColor: '#e78fb3',
+        },
 
         overlay: 'rgba(0,0,0,0.5)',
     },

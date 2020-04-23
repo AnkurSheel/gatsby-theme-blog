@@ -1,6 +1,7 @@
-import React from 'react';
+import { SEO, Video } from '@codinators/gatsby-shared-library';
 import { MDXProvider } from '@mdx-js/react';
-import { Video, SEO, Quote } from '@codinators/gatsby-shared-library';
+import React from 'react';
+import Quote from './src/02-components/Quote';
 import ImageGallery from './src/03-composites/ImageGallery';
 
 const components = { Video, SEO, Quote, ImageGallery };
