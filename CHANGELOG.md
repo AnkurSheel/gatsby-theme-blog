@@ -1,3 +1,10 @@
+# [2.7.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.6.1...v2.7.0) (2020-04-23)
+
+
+### Features
+
+* Override quote colors ([81d0277](https://github.com/AnkurSheel/gatsby-theme-blog/commit/81d02773195fb04cc8c3886d2a33bb65d09f885b))
+
 ## [2.6.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.6.0...v2.6.1) (2020-04-07)
 
 
