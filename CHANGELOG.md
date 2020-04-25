@@ -1,3 +1,10 @@
+## [2.7.2](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.7.1...v2.7.2) (2020-04-25)
+
+
+### Bug Fixes
+
+* error on adding images to mdx file ([12d253c](https://github.com/AnkurSheel/gatsby-theme-blog/commit/12d253c1425cb6db59216fbd0ad57c1f642cae0a))
+
 ## [2.7.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.7.0...v2.7.1) (2020-04-23)
 
 
