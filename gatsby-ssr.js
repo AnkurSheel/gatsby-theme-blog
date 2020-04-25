@@ -1,10 +1,8 @@
-import { SEO, Video } from '@codinators/gatsby-shared-library';
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable react/jsx-filename-extension */
 import { MDXProvider } from '@mdx-js/react';
 import React from 'react';
-import Quote from './src/02-components/Quote';
-import ImageGallery from './src/03-composites/ImageGallery';
-
-const components = { Video, SEO, Quote, ImageGallery };
+import components from './src/mdx-provider-components';
 
 export const wrapRootElement = ({ element }) => {
     return <MDXProvider components={components}>{element}</MDXProvider>;
