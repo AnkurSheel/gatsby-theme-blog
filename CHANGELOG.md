@@ -1,3 +1,10 @@
+# [2.8.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.7.2...v2.8.0) (2020-04-25)
+
+
+### Features
+
+* allow overriding of components exposed to mdx ([d0c4b7a](https://github.com/AnkurSheel/gatsby-theme-blog/commit/d0c4b7acf73015405478735f1713bd534b1c2fe6))
+
 ## [2.7.2](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.7.1...v2.7.2) (2020-04-25)
 
 
