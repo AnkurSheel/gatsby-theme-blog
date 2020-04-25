@@ -10,7 +10,7 @@ module.exports = {
                 maxWidth: 800,
                 linkImagesToOriginal: false,
                 withWebp: true,
-                markdownCaptions: true,
+                markdownCaptions: false,
                 showCaptions: ['title', 'alt'],
             },
         },
@@ -25,7 +25,7 @@ module.exports = {
         {
             resolve: 'gatsby-remark-copy-linked-files',
             options: {
-                destinationDir: f => `downloads/${f.name}`,
+                destinationDir: (f) => `downloads/${f.name}`,
                 ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
             },
         },
