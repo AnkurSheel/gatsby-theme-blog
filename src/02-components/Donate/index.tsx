@@ -56,6 +56,7 @@ const styles: Styles = {
 const Donate = () => {
     const siteMetaData = useSiteMetadata();
     const buyMeACoffee = siteMetaData?.buyMeACoffee;
+    const donateText = siteMetaData?.donateText || 'Enjoy this Article?';
 
     if (!buyMeACoffee) {
         return <></>;
@@ -63,7 +64,7 @@ const Donate = () => {
 
     return (
         <div css={styles.container}>
-            <span css={styles.label}>Enjoy this Article?</span>
+            <span css={styles.label}>{donateText}</span>
             <a css={styles.button} target="_blank" rel="noopener noreferrer" href={buyMeACoffee.link}>
                 <img css={styles.image} src={coffee} alt={buyMeACoffee.altText} />
                 <span css={styles.text}>{buyMeACoffee.altText}</span>
