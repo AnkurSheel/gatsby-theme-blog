@@ -1,3 +1,10 @@
+# [2.9.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.8.0...v2.9.0) (2020-04-28)
+
+
+### Features
+
+* allow overriding of donate text ([e3409f1](https://github.com/AnkurSheel/gatsby-theme-blog/commit/e3409f1e951c474980670c127bc7b4cb74ed578d))
+
 # [2.8.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.7.2...v2.8.0) (2020-04-25)
 
 
