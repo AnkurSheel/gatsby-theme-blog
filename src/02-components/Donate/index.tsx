@@ -51,6 +51,9 @@ const styles: Styles = {
         marginLeft: 15,
         alignSelf: 'center',
     },
+    label: {
+        marginBottom: '1em',
+    },
 };
 
 const Donate = () => {
