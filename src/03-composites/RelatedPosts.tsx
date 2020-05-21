@@ -17,7 +17,6 @@ const styles: Styles = {
         paddingBottom: '0.5rem',
         color: theme.colors.card.title,
         alignSelf: 'center',
-        fontSize: '2.5rem',
     },
     list: {
         margin: 0,
@@ -63,11 +62,11 @@ const RelatedPosts = (props: RelatedPostsComponentProps) => {
             }
         `
     );
-    const articles = data.allPost.nodes.filter(article => article.path !== slug);
+    const articles = data.allPost.nodes.filter((article) => article.path !== slug);
 
     const identityMap: IdentityMap = {};
 
-    articles.forEach(article => {
+    articles.forEach((article) => {
         if (!Object.prototype.hasOwnProperty.call(identityMap, article.path)) {
             identityMap[article.path] = {
                 article,
@@ -75,7 +74,7 @@ const RelatedPosts = (props: RelatedPostsComponentProps) => {
             };
         }
 
-        article.tags.forEach(tag => {
+        article.tags.forEach((tag) => {
             if (tags.indexOf(tag) > -1) {
                 identityMap[article.path].points += 1;
             }
@@ -83,7 +82,7 @@ const RelatedPosts = (props: RelatedPostsComponentProps) => {
     });
 
     const arrayIdentityMap = Object.keys(identityMap)
-        .map(s => identityMap[s])
+        .map((s) => identityMap[s])
         .sort((a, b) => {
             if (a && b) {
                 return a.points < b.points ? 1 : -1;
@@ -91,7 +90,7 @@ const RelatedPosts = (props: RelatedPostsComponentProps) => {
             return 0;
         })
         .splice(0, 4)
-        .filter(s => s.points > 0);
+        .filter((s) => s.points > 0);
 
     if (arrayIdentityMap.length === 0) {
         return <></>;
@@ -100,7 +99,7 @@ const RelatedPosts = (props: RelatedPostsComponentProps) => {
         <section css={styles.container}>
             <h1 css={styles.header}>More like this</h1>
             <ul css={styles.list}>
-                {arrayIdentityMap.map(identity => {
+                {arrayIdentityMap.map((identity) => {
                     const { title, path } = identity.article;
                     return (
                         <li key={title} css={styles.listItem}>

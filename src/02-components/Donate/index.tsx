@@ -11,8 +11,8 @@ const styles: Styles = {
         borderTop: `solid 2px ${theme.colors.subTitle}`,
         marginTop: '2rem',
         paddingTop: '1em',
-        fontSize: '1.5rem',
         flexWrap: 'wrap',
+        flexDirection: 'column',
     },
     button: {
         padding: 7,
@@ -53,6 +53,7 @@ const styles: Styles = {
     },
     label: {
         marginBottom: '1em',
+        textAlign: 'center',
     },
 };
 
@@ -67,10 +68,10 @@ const Donate = () => {
 
     return (
         <div css={styles.container}>
-            <span css={styles.label}>{donateText}</span>
+            <h5 css={styles.label}>{donateText}</h5>
             <a css={styles.button} target="_blank" rel="noopener noreferrer" href={buyMeACoffee.link}>
                 <img css={styles.image} src={coffee} alt={buyMeACoffee.altText} />
-                <span css={styles.text}>{buyMeACoffee.altText}</span>
+                <p css={styles.text}>{buyMeACoffee.altText}</p>
             </a>
         </div>
     );

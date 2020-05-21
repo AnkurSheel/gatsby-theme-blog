@@ -3,7 +3,7 @@ import BackgroundImage, { IFluidObject } from 'gatsby-background-image';
 import React from 'react';
 import { StyleWithOptions, theme } from '../tokens';
 
-const styles: StyleWithOptions<HeroProps> = props => {
+const styles: StyleWithOptions<HeroProps> = (props) => {
     return {
         container: {
             display: 'flex',
@@ -30,10 +30,8 @@ const styles: StyleWithOptions<HeroProps> = props => {
         },
         title: {
             color: theme.colors.title,
-            lineHeight: '1.5em',
             fontWeight: 'bold',
-            fontSize: '2.5rem',
-            letterSpacing: '0.1em',
+            textAlign: 'center',
         },
     };
 };

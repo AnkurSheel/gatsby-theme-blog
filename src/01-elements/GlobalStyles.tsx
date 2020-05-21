@@ -19,8 +19,10 @@ const GlobalStyle = () => (
             },
             'h1, h2, h3, h4, h5': {
                 lineHeight: '1.15',
+                textAlign: 'center',
             },
             h1: {
+                letterSpacing: '0.1em',
                 fontSize: '3.052em',
             },
             h2: {
@@ -43,11 +45,16 @@ const GlobalStyle = () => (
             },
             ol: {
                 listStyleType: 'decimal-leading-zero',
-                marginBlockStart: '2rem',
+                marginLeft: '2rem',
             },
             li: {
                 paddingInlineStart: '0.5rem',
                 paddingBlockStart: '0.25rem',
+            },
+            figcaption: {
+                textAlign: 'center',
+                fontSize: '0.8em',
+                fontStyle: 'italic',
             },
             body: {
                 minHeight: '100vh',

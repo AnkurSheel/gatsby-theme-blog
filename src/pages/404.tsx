@@ -12,8 +12,6 @@ const styles: Styles = {
     mainTitle: {
         color: theme.colors.title,
         textAlign: 'center',
-        fontSize: '3rem',
-        marginBottom: '2.5rem',
     },
     cat: {
         margin: '2.5rem 0',

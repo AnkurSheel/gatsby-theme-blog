@@ -1,6 +1,6 @@
 import React from 'react';
 import { Styles } from '../tokens';
-import TagList, { Tag } from './TagList';
+import TagList from './TagList';
 
 const styles: Styles = {
     header: {
@@ -18,14 +18,12 @@ const ContentIntro = (props: ContentIntroProps) => {
 
     return (
         <header css={styles.header}>
-            <span>
-                {date && (
-                    <span>
-                        This entry was posted on <time>{date}</time>
-                    </span>
-                )}
-                {tags.length > 0 && <TagList tags={tags.map(t => ({ name: t }))} />}
-            </span>
+            {date && (
+                <p>
+                    This entry was posted on <time>{date}</time>
+                </p>
+            )}
+            {tags.length > 0 && <TagList tags={tags.map((t) => ({ name: t }))} />}
         </header>
     );
 };

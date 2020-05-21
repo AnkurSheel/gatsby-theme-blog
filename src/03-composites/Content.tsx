@@ -5,7 +5,7 @@ import { Styles, theme } from '../tokens';
 
 const styles: Styles = {
     body: {
-        '& > h2': {
+        h2: {
             color: theme.colors.subTitle,
             paddingTop: '2rem',
             marginTop: '2rem',
@@ -14,18 +14,13 @@ const styles: Styles = {
         'h2 + h3': {
             borderTop: 'none',
         },
-        '& > h3': {
+        h3: {
             borderTop: `1px dashed ${theme.colors.subTitle}`,
             margin: '1rem 0 0.5rem 0',
             paddingTop: '1rem',
         },
-        '& > p': {
+        p: {
             margin: '1em 0 0 0',
-        },
-        figcaption: {
-            textAlign: 'center',
-            fontSize: '0.8em',
-            fontStyle: 'italic',
         },
         '.gatsby-highlight-code-line': {
             backgroundColor: theme.colors.codeHighlight.background,
