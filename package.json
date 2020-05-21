@@ -65,7 +65,8 @@
         "react-helmet": "^5.2.1",
         "react-kawaii": "^0.16.0",
         "ts-optchain": "^0.1.8",
-        "typeface-cookie": "^0.0.71"
+        "typeface-cookie": "^0.0.71",
+        "typeface-fira-sans": "^0.0.75"
     },
     "devDependencies": {
         "@babel/core": "^7.9.0",

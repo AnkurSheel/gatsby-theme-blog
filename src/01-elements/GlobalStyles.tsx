@@ -1,5 +1,6 @@
 import { Global } from '@emotion/core';
 import React from 'react';
+import 'typeface-fira-sans';
 import { theme } from '../tokens';
 
 const GlobalStyle = () => (
@@ -13,8 +14,29 @@ const GlobalStyle = () => (
             html: {
                 scrollBehavior: 'smooth',
             },
-            'body, h1, h2, h3, h4, p, li, figure, figcaption, blockquote, dl, dd': {
+            'body, h1, h2, h3, h4, h5, p, li, figure, figcaption, blockquote, dl, dd': {
                 margin: 0,
+            },
+            'h1, h2, h3, h4, h5': {
+                lineHeight: '1.15',
+            },
+            h1: {
+                fontSize: '3.052em',
+            },
+            h2: {
+                fontSize: '2.441em',
+            },
+            h3: {
+                fontSize: '1.953em',
+            },
+            h4: {
+                fontSize: '1.563em',
+            },
+            h5: {
+                fontSize: '1.25em',
+            },
+            small: {
+                fontsize: '0.8em',
             },
             ul: {
                 marginLeft: '1rem',
@@ -29,12 +51,14 @@ const GlobalStyle = () => (
             },
             body: {
                 minHeight: '100vh',
+                letterSpacing: '0.02em',
                 scrollBehavior: 'smooth',
                 textRendering: 'optimizeSpeed',
-                lineHeight: '1.6em',
+                lineHeight: 1.65,
+                // fontWeight: 400,
                 color: theme.colors.paragraph,
                 background: theme.colors.background,
-                fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoue UI', Roboto, Arial, sans-serif",
+                fontFamily: "'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoue UI', Roboto, Arial, sans-serif",
                 fontSize: '16px',
                 '& > div': {
                     marginTop: 0,
