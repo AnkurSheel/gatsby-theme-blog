@@ -1,3 +1,10 @@
+## [2.11.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.11.0...v2.11.1) (2020-05-21)
+
+
+### Bug Fixes
+
+* use semantic html and consolidate some stying ([7405745](https://github.com/AnkurSheel/gatsby-theme-blog/commit/740574523901759cf8fff237eaa897b07cf8310a))
+
 # [2.11.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.10.0...v2.11.0) (2020-05-21)
 
 
