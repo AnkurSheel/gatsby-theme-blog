@@ -1,3 +1,10 @@
+# [2.11.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.10.0...v2.11.0) (2020-05-21)
+
+
+### Features
+
+* update font to Fira Sans and fontsizes ([6aaa1d6](https://github.com/AnkurSheel/gatsby-theme-blog/commit/6aaa1d67766eb75c0826489c9761a47407a42741))
+
 # [2.10.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.9.0...v2.10.0) (2020-05-19)
 
 
