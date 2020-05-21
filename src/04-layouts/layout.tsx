@@ -2,9 +2,10 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 import 'prismjs/themes/prism-okaidia.css';
 import React, { ReactNode } from 'react';
 import GlobalStyle from '../01-elements/GlobalStyles';
-import Footer from '../03-composites/Footer';
-import Header from '../03-composites/Header';
-import { Styles } from '../tokens';
+import useMedia from '../hooks/use-media';
+import { Styles, theme } from '../tokens';
+import DesktopLayout from './desktop-layout';
+import MobileLayout from './mobile-layout';
 
 const styles: Styles = {
     siteContent: {
@@ -17,12 +18,11 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
+    const isMobile = useMedia<boolean>([`${theme.media.medium}`], [false], true);
     return (
         <div css={styles.siteContent}>
             <GlobalStyle />
-            <Header />
-            <div css={styles.siteContent}>{children}</div>
-            <Footer />
+            {isMobile ? <MobileLayout>{children}</MobileLayout> : <DesktopLayout>{children}</DesktopLayout>}
         </div>
     );
 };

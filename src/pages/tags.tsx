@@ -1,12 +1,12 @@
+import { SEO } from '@codinators/gatsby-shared-library';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { SEO } from '@codinators/gatsby-shared-library';
-import Hero from '../03-composites/Hero';
-import Layout from '../04-layouts/layout';
-import useSiteMetadata from '../hooks/use-site-meta-data';
-import { TagsQuery } from '../graphqlTypes';
 import Main from '../02-components/Main';
 import TagList, { Tag } from '../02-components/TagList';
+import Hero from '../03-composites/Hero';
+import Layout from '../04-layouts/layout';
+import { TagsQuery } from '../graphqlTypes';
+import useSiteMetadata from '../hooks/use-site-meta-data';
 
 const Articles = () => {
     const siteMetaData = useSiteMetadata();
@@ -32,7 +32,7 @@ const Articles = () => {
             const string2 = b.fieldValue || '';
             return string1.toLowerCase().localeCompare(string2.toLowerCase());
         })
-        .map(tag => ({ display: `${tag.fieldValue} (${tag.totalCount})`, name: tag.fieldValue || '' }));
+        .map((tag) => ({ display: `${tag.fieldValue} (${tag.totalCount})`, name: tag.fieldValue || '' }));
 
     return (
         <Layout>
