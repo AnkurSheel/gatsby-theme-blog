@@ -1,35 +1,39 @@
+import { Link } from 'gatsby';
+import Img, { FluidObject } from 'gatsby-image';
 import React from 'react';
 import HeaderLinks, { HeaderLinkData } from '../02-components/HeaderLinks';
-import HomeLink from '../02-components/HomeLink';
 import useSiteImages from '../hooks/use-site-images';
 import useSiteMetadata from '../hooks/use-site-meta-data';
-import { Styles, theme } from '../tokens';
+import { Styles } from '../tokens';
 
 const styles: Styles = {
-    wrapper: {
-        position: 'sticky',
-        top: 0,
-        left: 0,
-        margin: '0 auto',
-        width: '100%',
-        zIndex: 1000,
-        backgroundColor: theme.colors.header.background,
-        color: theme.colors.header.text,
-        fontWeight: 'bold',
-        border: `1px solid ${theme.colors.header.border}`,
+    header: {
+        padding: '2rem 0',
+        position: 'fixed',
+        minHeight: '100vh',
+        textDecoration: 'none',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '20%',
     },
     nav: {
         display: 'flex',
         justifyContent: 'space-between',
-        margin: '0 auto',
+        margin: '3rem 0',
         maxWidth: '70ch',
         padding: '0 2ch',
         alignItems: 'center',
+        flexDirection: 'column',
     },
-    header: {
-        boxAlign: 'center',
-        WebkitBoxAlign: 'center',
-        display: 'flex',
+    icon: {
+        margin: '1rem',
+        borderRadius: '50%',
+        minWidth: 100,
+        minHeight: 100,
+    },
+    link: {
+        textDecoration: 'none',
     },
 };
 
@@ -41,19 +45,30 @@ const DesktopHeader = () => {
     }
 
     const { headerTitle, headerLinks, siteTitle } = siteMetadata;
-    const icon = image && image.fluid && image.fluid;
-    const links = (headerLinks && (headerLinks.filter((h) => h !== undefined) as HeaderLinkData[])) || [];
+    const icon = image && image.fluid;
+    let links: HeaderLinkData[] = [{ label: headerTitle || 'Home', url: '/' }];
+
+    links = headerLinks ? links.concat(...(headerLinks.filter((h) => h !== undefined) as HeaderLinkData[])) : links;
+
+    let fluid: FluidObject | undefined;
+    if (icon) {
+        fluid = {
+            aspectRatio: icon.aspectRatio || 1,
+            src: icon.src || '',
+            srcSet: icon.srcSet || '',
+            base64: icon.base64,
+            sizes: icon.sizes || '',
+            srcSetWebp: icon.srcSetWebp,
+            srcWebp: icon.srcWebp,
+        };
+    }
 
     return (
-        <header css={styles.wrapper}>
-            <nav css={styles.nav}>
-                <HomeLink icon={icon} iconTitle={siteTitle} headerTitle={headerTitle} />
-                {headerLinks && (
-                    <div css={styles.header}>
-                        <HeaderLinks headerLinks={links} />
-                    </div>
-                )}
-            </nav>
+        <header css={styles.header}>
+            <Link css={styles.home} to="/" aria-label="View home page">
+                {fluid && <Img css={styles.icon} fluid={fluid} alt={siteTitle} />}
+            </Link>
+            <nav css={styles.nav}>{headerLinks && <HeaderLinks headerLinks={links} />}</nav>
         </header>
     );
 };

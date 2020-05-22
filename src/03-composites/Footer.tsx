@@ -13,6 +13,7 @@ const styles: Styles = {
         borderRadius: '10px',
         margin: '1rem',
         padding: '1rem',
+        width: '100%',
     },
     nav: {},
 };
@@ -24,12 +25,13 @@ const Footer = () => {
     }
 
     const { authorName, footerLinks } = siteMetadata;
-    const links = (footerLinks && (footerLinks.filter(f => f !== undefined) as FooterColumnData[])) || [];
+    const links = (footerLinks && (footerLinks.filter((f) => f !== undefined) as FooterColumnData[])) || [];
     return (
         <footer css={styles.footer}>
             <FooterColumn sectionName={`${authorName} © ${new Date().getFullYear()}`} />
             {links.map((column: FooterColumnData) => {
-                const links1 = (column.links && (column.links.filter(l => l !== undefined) as FooterLinkData[])) || [];
+                const links1 =
+                    (column.links && (column.links.filter((l) => l !== undefined) as FooterLinkData[])) || [];
                 return (
                     <FooterColumn
                         sectionName={column.sectionName}

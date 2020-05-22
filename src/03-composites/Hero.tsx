@@ -7,7 +7,7 @@ const styles: StyleWithOptions<HeroProps> = (props) => {
     return {
         container: {
             display: 'flex',
-            width: '100vw',
+            width: '100%',
             height: '30vh',
             marginBottom: '2rem',
             justifyContent: 'center',
