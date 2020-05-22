@@ -22,6 +22,20 @@ const useSiteMetadata = () => {
                         label
                         url
                     }
+                    socialLinks {
+                        twitter {
+                            url
+                            text
+                        }
+                        github {
+                            url
+                            text
+                        }
+                        linkedin {
+                            url
+                            text
+                        }
+                    }
                     footerLinks {
                         sectionName
                         links {

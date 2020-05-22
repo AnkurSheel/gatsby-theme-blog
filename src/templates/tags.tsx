@@ -1,12 +1,12 @@
+import { SEO } from '@codinators/gatsby-shared-library';
 import { graphql } from 'gatsby';
 import React from 'react';
-import { SEO } from '@codinators/gatsby-shared-library';
+import Main from '../02-components/Main';
 import Hero from '../03-composites/Hero';
 import PostsList from '../03-composites/PostsList';
 import Layout from '../04-layouts/layout';
 import { PostsByTagQuery } from '../graphqlTypes';
 import useSiteMetadata from '../hooks/use-site-meta-data';
-import Main from '../02-components/Main';
 
 interface TagsProps {
     data: PostsByTagQuery;

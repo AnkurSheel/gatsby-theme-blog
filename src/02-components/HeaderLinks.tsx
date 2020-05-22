@@ -5,9 +5,8 @@ import { Styles } from '../tokens';
 
 const styles: Styles = {
     link: {
-        color: 'inherit',
-        padding: '0.5rem',
         textDecoration: 'none',
+        margin: '0.75rem',
     },
 };
 export type HeaderLinkData = Pick<SiteSiteMetadataHeaderLinks, 'label' | 'url'>;
@@ -19,7 +18,7 @@ interface HeaderLinkProps {
 const HeaderLinks = ({ headerLinks }: HeaderLinkProps) => {
     return (
         <>
-            {headerLinks.map(headerLink => {
+            {headerLinks.map((headerLink) => {
                 return (
                     headerLink.url &&
                     headerLink.label && (
@@ -29,7 +28,7 @@ const HeaderLinks = ({ headerLinks }: HeaderLinkProps) => {
                             key={`header-link-${headerLink.url}`}
                             aria-label={`View ${headerLink.label} page`}
                         >
-                            {headerLink.label}
+                            <h5>{headerLink.label}</h5>
                         </Link>
                     )
                 );

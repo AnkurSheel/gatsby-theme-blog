@@ -1,11 +1,11 @@
-import React from 'react';
 import { SEO } from '@codinators/gatsby-shared-library';
+import React from 'react';
+import Main from '../02-components/Main';
 import Hero from '../03-composites/Hero';
 import PostsList from '../03-composites/PostsList';
 import Layout from '../04-layouts/layout';
-import useSiteMetadata from '../hooks/use-site-meta-data';
 import { BlogPostQuery } from '../graphqlTypes';
-import Main from '../02-components/Main';
+import useSiteMetadata from '../hooks/use-site-meta-data';
 
 interface BlogListProps {
     pageContext: {
@@ -25,7 +25,7 @@ const BlogList = ({ pageContext, path }: BlogListProps) => {
     const title = `All Articles`;
     const siteUrl = siteMetaData?.siteUrl || '';
 
-    const posts = nodes.map(p => {
+    const posts = nodes.map((p) => {
         return {
             title: p.title,
             path: p.path,

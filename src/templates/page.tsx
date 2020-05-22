@@ -1,13 +1,13 @@
-import React from 'react';
+import { SEO } from '@codinators/gatsby-shared-library';
 import { graphql } from 'gatsby';
 import { IFluidObject } from 'gatsby-background-image';
-import { SEO } from '@codinators/gatsby-shared-library';
-import { PageByIdQuery } from '../graphqlTypes';
-import useSiteMetadata from '../hooks/use-site-meta-data';
-import Layout from '../04-layouts/layout';
-import Hero from '../03-composites/Hero';
+import React from 'react';
 import Main from '../02-components/Main';
 import Content from '../03-composites/Content';
+import Hero from '../03-composites/Hero';
+import Layout from '../04-layouts/layout';
+import { PageByIdQuery } from '../graphqlTypes';
+import useSiteMetadata from '../hooks/use-site-meta-data';
 
 interface PageProps {
     data: Pick<PageByIdQuery, 'page'>;
