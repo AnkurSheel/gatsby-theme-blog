@@ -1,3 +1,16 @@
+# [3.0.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.11.1...v3.0.0) (2020-05-22)
+
+
+### Features
+
+* add social links and remove footer ([7be0dc6](https://github.com/AnkurSheel/gatsby-theme-blog/commit/7be0dc65af50acbd5edcb9955cdd8024411f4100))
+* make desktop layout a 2 column layout ([165b22a](https://github.com/AnkurSheel/gatsby-theme-blog/commit/165b22a286989f41b304710b582856323e11fc4c))
+
+
+### BREAKING CHANGES
+
+* social links need to be passed in siteconfig.js
+
 ## [2.11.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.11.0...v2.11.1) (2020-05-21)
 
 
