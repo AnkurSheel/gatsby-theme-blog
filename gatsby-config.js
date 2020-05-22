@@ -1,7 +1,7 @@
 const pluginOptions = require('./gatsby/plugins');
 const withDefaults = require('./gatsby/utils/defaultThemeOptions');
 
-module.exports = options => {
+module.exports = (options) => {
     const { contentDir, useExternalMDX } = withDefaults(options);
 
     return {
@@ -55,6 +55,9 @@ module.exports = options => {
                 options: {
                     path: `${__dirname}/src/pages`,
                 },
+            },
+            {
+                resolve: `gatsby-plugin-twitter`,
             },
         ].filter(Boolean),
     };
