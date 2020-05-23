@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.0.0...v3.0.1) (2020-05-23)
+
+
+### Bug Fixes
+
+* layout fixes ([b4e8976](https://github.com/AnkurSheel/gatsby-theme-blog/commit/b4e897686899b3b11a4e6a04494761f3de0a4bd7))
+
 # [3.0.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v2.11.1...v3.0.0) (2020-05-22)
 
 
