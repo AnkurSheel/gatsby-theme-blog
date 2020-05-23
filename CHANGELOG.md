@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.0.1...v3.0.2) (2020-05-23)
+
+
+### Bug Fixes
+
+* title for social icons ([72fba70](https://github.com/AnkurSheel/gatsby-theme-blog/commit/72fba70bca3806a7e4b8b0ab6f158ecad077aa6e))
+
 ## [3.0.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.0.0...v3.0.1) (2020-05-23)
 
 
