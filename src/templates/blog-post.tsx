@@ -8,7 +8,7 @@ import Article from '../03-composites/Article';
 import Content from '../03-composites/Content';
 import Hero from '../03-composites/Hero';
 import RelatedPosts from '../03-composites/RelatedPosts';
-import Layout from '../04-layouts/layout';
+import Layout from '../04-layouts/default-layout';
 import { BlogPostByIdQuery } from '../graphqlTypes';
 import useSiteMetadata from '../hooks/use-site-meta-data';
 

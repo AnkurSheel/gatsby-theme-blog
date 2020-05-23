@@ -5,7 +5,7 @@ import React from 'react';
 import Main from '../02-components/Main';
 import Content from '../03-composites/Content';
 import Hero from '../03-composites/Hero';
-import Layout from '../04-layouts/layout';
+import Layout from '../04-layouts/default-layout';
 import { PageByIdQuery } from '../graphqlTypes';
 import useSiteMetadata from '../hooks/use-site-meta-data';
 

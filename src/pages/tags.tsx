@@ -4,7 +4,7 @@ import React from 'react';
 import Main from '../02-components/Main';
 import TagList, { Tag } from '../02-components/TagList';
 import Hero from '../03-composites/Hero';
-import Layout from '../04-layouts/layout';
+import Layout from '../04-layouts/default-layout';
 import { TagsQuery } from '../graphqlTypes';
 import useSiteMetadata from '../hooks/use-site-meta-data';
 

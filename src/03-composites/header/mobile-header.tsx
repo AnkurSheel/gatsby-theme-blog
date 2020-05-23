@@ -1,33 +1,13 @@
 import React, { useState } from 'react';
-import HeaderLinks, { HeaderLinkData } from '../02-components/HeaderLinks';
-import HomeLink from '../02-components/HomeLink';
-import useSiteImages from '../hooks/use-site-images';
-import useSiteMetadata from '../hooks/use-site-meta-data';
-import { StyleWithOptions, theme } from '../tokens';
+import HeaderLinks, { HeaderLinkData } from '../../02-components/HeaderLinks';
+import HomeIconLink from '../../02-components/home-icon-link';
+import useSiteImages from '../../hooks/use-site-images';
+import useSiteMetadata from '../../hooks/use-site-meta-data';
+import { StyleWithOptions, theme } from '../../tokens';
 
 type StyleOptions = { isToggledOn: boolean };
 const styles: StyleWithOptions<StyleOptions> = ({ isToggledOn }: StyleOptions) => {
     return {
-        wrapper: {
-            position: 'sticky',
-            top: 0,
-            left: 0,
-            margin: '0 auto',
-            width: '100%',
-            zIndex: 1000,
-            backgroundColor: theme.colors.header.background,
-            color: theme.colors.header.text,
-            fontWeight: 'bold',
-            border: `1px solid ${theme.colors.header.border}`,
-        },
-        nav: {
-            display: 'flex',
-            justifyContent: 'space-between',
-            margin: '0 auto',
-            maxWidth: '70ch',
-            padding: '0 2ch',
-            alignItems: 'center',
-        },
         burgerButton: {
             cursor: 'pointer',
             padding: '0.5rem 0.75rem',
@@ -104,39 +84,33 @@ const MobileHeader = () => {
     const links = (headerLinks && (headerLinks.filter((h) => h !== undefined) as HeaderLinkData[])) || [];
 
     const toggle = () => setToggle(!isToggledOn);
-    return (
-        <header css={styles({ isToggledOn }).wrapper}>
-            <nav css={styles({ isToggledOn }).nav}>
-                {!isToggledOn && (
-                    <>
-                        <HomeLink icon={icon} iconTitle={siteTitle} headerTitle={headerTitle} />
-                        <button
-                            css={styles({ isToggledOn }).burgerButton}
-                            onClick={toggle}
-                            aria-label={`${isToggledOn ? 'close menu' : 'open menu'}`}
-                            type="button"
-                        >
-                            <div css={styles({ isToggledOn }).burger} />
-                        </button>
-                    </>
-                )}
-                {isToggledOn && (
-                    <div css={styles({ isToggledOn }).panel}>
-                        <nav css={styles({ isToggledOn }).openNav}>
-                            <HeaderLinks headerLinks={links} />
-                        </nav>
-                        <button
-                            css={styles({ isToggledOn }).closeButton}
-                            onClick={toggle}
-                            aria-label={`${isToggledOn ? 'close menu' : 'open menu'}`}
-                            type="button"
-                        >
-                            <div css={styles({ isToggledOn }).burger} />
-                        </button>
-                    </div>
-                )}
+
+    return isToggledOn ? (
+        <div css={styles({ isToggledOn }).panel}>
+            <nav css={styles({ isToggledOn }).openNav}>
+                <HeaderLinks headerLinks={links} />
             </nav>
-        </header>
+            <button
+                css={styles({ isToggledOn }).closeButton}
+                onClick={toggle}
+                aria-label={`${isToggledOn ? 'close menu' : 'open menu'}`}
+                type="button"
+            >
+                <div css={styles({ isToggledOn }).burger} />
+            </button>
+        </div>
+    ) : (
+        <>
+            <HomeIconLink icon={icon} iconTitle={siteTitle} headerTitle={headerTitle} />
+            <button
+                css={styles({ isToggledOn }).burgerButton}
+                onClick={toggle}
+                aria-label={`${isToggledOn ? 'close menu' : 'open menu'}`}
+                type="button"
+            >
+                <div css={styles({ isToggledOn }).burger} />
+            </button>
+        </>
     );
 };
 

@@ -60,8 +60,6 @@ export default {
         overlay: 'rgba(0,0,0,0.5)',
     },
     media: {
-        small: '(min-width: 480px)',
-        medium: '(min-width: 700px)',
-        large: '(min-width: 960px)',
+        desktop: '(min-width: 800px)',
     },
 };

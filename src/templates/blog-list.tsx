@@ -3,7 +3,7 @@ import React from 'react';
 import Main from '../02-components/Main';
 import Hero from '../03-composites/Hero';
 import PostsList from '../03-composites/PostsList';
-import Layout from '../04-layouts/layout';
+import Layout from '../04-layouts/default-layout';
 import { BlogPostQuery } from '../graphqlTypes';
 import useSiteMetadata from '../hooks/use-site-meta-data';
 

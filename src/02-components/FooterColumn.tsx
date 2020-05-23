@@ -10,6 +10,7 @@ const styles: Styles = {
         marginBottom: '1em',
         display: 'flex',
         paddingRight: '1em',
+        alignItems: 'center',
     },
     title: {
         margin: '0 0 1rem',
@@ -35,7 +36,7 @@ const FooterColumn = ({ sectionName, links }: FooterColumnProps) => {
         <div css={styles.column}>
             {sectionName && <h5 css={styles.title}>{sectionName}</h5>}
             {links &&
-                links.map(item => {
+                links.map((item) => {
                     return <FooterItem item={item} key={`footer-column-item-${item.label}`} />;
                 })}
         </div>

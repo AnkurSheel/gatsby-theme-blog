@@ -4,7 +4,7 @@ import { Cat } from 'react-kawaii';
 import { oc } from 'ts-optchain';
 import Main from '../02-components/Main';
 import RecentPosts from '../02-components/RecentPosts';
-import Layout from '../04-layouts/layout';
+import Layout from '../04-layouts/default-layout';
 import useSiteMetadata from '../hooks/use-site-meta-data';
 import { Styles, theme } from '../tokens';
 

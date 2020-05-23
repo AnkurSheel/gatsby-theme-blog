@@ -14,9 +14,15 @@ const styles: Styles = {
         textDecoration: 'none',
     },
     icon: {
-        width: '3rem',
-        height: '3rem',
-        marginRight: '1rem',
+        margin: '1rem',
+        borderRadius: '50%',
+        minWidth: 100,
+        minHeight: 100,
+        '@media screen and (max-width: 800px)': {
+            width: '3rem',
+            height: '3rem',
+            marginRight: '1rem',
+        },
     },
     title: {},
 };
@@ -28,7 +34,7 @@ interface HomeLinkProps {
     headerTitle?: string;
 }
 
-const HomeLink = ({ icon, iconTitle, headerTitle }: HomeLinkProps) => {
+const HomeIconLink = ({ icon, iconTitle, headerTitle }: HomeLinkProps) => {
     let fluid: FluidObject | undefined;
     if (icon) {
         fluid = {
@@ -44,10 +50,10 @@ const HomeLink = ({ icon, iconTitle, headerTitle }: HomeLinkProps) => {
     }
     return (
         <Link css={styles.home} to="/" aria-label="View home page">
-            {fluid && <Img css={styles.icon} fluid={fluid} alt={iconTitle} />}
-            {headerTitle && <span css={styles.title}>{headerTitle}</span>}
+            {fluid && <Img css={styles.icon} fluid={fluid} alt={iconTitle} title={iconTitle} />}
+            {headerTitle && <p css={styles.title}>{headerTitle}</p>}
         </Link>
     );
 };
 
-export default HomeLink;
+export default HomeIconLink;
