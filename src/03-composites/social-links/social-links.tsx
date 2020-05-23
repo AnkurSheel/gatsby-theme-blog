@@ -1,8 +1,7 @@
 import React from 'react';
 import useSiteMetadata from '../../hooks/use-site-meta-data';
-import { Styles, theme } from '../../tokens';
-import githubsvg from './github.svg';
-import linkedinsvg from './linkedin.svg';
+import { Styles } from '../../tokens';
+import { GithubSvg, LinkedinSvg } from '../../01-elements/icons';
 
 const styles: Styles = {
     socialLinks: {
@@ -15,9 +14,6 @@ const styles: Styles = {
     socialButton: {
         width: '28px',
         margin: '0 auto',
-    },
-    image: {
-        border: 'none',
     },
 };
 
@@ -53,7 +49,7 @@ const SocialLinks = () => {
                     href={github.url}
                     title={github.text}
                 >
-                    <img css={styles.image} src={githubsvg} alt="asd" />
+                    <GithubSvg />
                 </a>
             )}
             {linkedin?.url && (
@@ -64,7 +60,7 @@ const SocialLinks = () => {
                     href={linkedin.url}
                     title={linkedin.text}
                 >
-                    <img css={styles.image} src={linkedinsvg} alt="asd" />
+                    <LinkedinSvg />
                 </a>
             )}
         </div>
