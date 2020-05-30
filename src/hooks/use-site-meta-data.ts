@@ -35,6 +35,10 @@ const useSiteMetadata = () => {
                             url
                             text
                         }
+                        rss {
+                            url
+                            text
+                        }
                     }
                     footerLinks {
                         sectionName

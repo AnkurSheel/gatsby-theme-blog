@@ -3659,6 +3659,8 @@ export enum SiteFieldsEnum {
     SiteMetadataSocialLinksGithubText = 'siteMetadata___socialLinks___github___text',
     SiteMetadataSocialLinksLinkedinUrl = 'siteMetadata___socialLinks___linkedin___url',
     SiteMetadataSocialLinksLinkedinText = 'siteMetadata___socialLinks___linkedin___text',
+    SiteMetadataSocialLinksRssUrl = 'siteMetadata___socialLinks___rss___url',
+    SiteMetadataSocialLinksRssText = 'siteMetadata___socialLinks___rss___text',
     SiteMetadataFooterLinks = 'siteMetadata___footerLinks',
     SiteMetadataFooterLinksSectionName = 'siteMetadata___footerLinks___sectionName',
     SiteMetadataFooterLinksLinks = 'siteMetadata___footerLinks___links',
@@ -4735,12 +4737,14 @@ export type SiteSiteMetadataSocialLinks = {
     twitter?: Maybe<SiteSiteMetadataSocialLinksTwitter>;
     github?: Maybe<SiteSiteMetadataSocialLinksGithub>;
     linkedin?: Maybe<SiteSiteMetadataSocialLinksLinkedin>;
+    rss?: Maybe<SiteSiteMetadataSocialLinksRss>;
 };
 
 export type SiteSiteMetadataSocialLinksFilterInput = {
     twitter?: Maybe<SiteSiteMetadataSocialLinksTwitterFilterInput>;
     github?: Maybe<SiteSiteMetadataSocialLinksGithubFilterInput>;
     linkedin?: Maybe<SiteSiteMetadataSocialLinksLinkedinFilterInput>;
+    rss?: Maybe<SiteSiteMetadataSocialLinksRssFilterInput>;
 };
 
 export type SiteSiteMetadataSocialLinksGithub = {
@@ -4759,6 +4763,16 @@ export type SiteSiteMetadataSocialLinksLinkedin = {
 };
 
 export type SiteSiteMetadataSocialLinksLinkedinFilterInput = {
+    url?: Maybe<StringQueryOperatorInput>;
+    text?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SiteSiteMetadataSocialLinksRss = {
+    url?: Maybe<Scalars['String']>;
+    text?: Maybe<Scalars['String']>;
+};
+
+export type SiteSiteMetadataSocialLinksRssFilterInput = {
     url?: Maybe<StringQueryOperatorInput>;
     text?: Maybe<StringQueryOperatorInput>;
 };
@@ -5001,6 +5015,7 @@ export type SiteMetaDataQuery = {
                     twitter?: Maybe<Pick<SiteSiteMetadataSocialLinksTwitter, 'url' | 'text'>>;
                     github?: Maybe<Pick<SiteSiteMetadataSocialLinksGithub, 'url' | 'text'>>;
                     linkedin?: Maybe<Pick<SiteSiteMetadataSocialLinksLinkedin, 'url' | 'text'>>;
+                    rss?: Maybe<Pick<SiteSiteMetadataSocialLinksRss, 'url' | 'text'>>;
                 }>;
                 footerLinks?: Maybe<
                     Array<

@@ -1,7 +1,7 @@
 import React from 'react';
 import useSiteMetadata from '../../hooks/use-site-meta-data';
 import { Styles } from '../../tokens';
-import { GithubSvg, LinkedinSvg } from '../../01-elements/icons';
+import { GithubSvg, LinkedinSvg, RssSvg } from '../../01-elements/icons';
 
 const styles: Styles = {
     socialLinks: {
@@ -27,6 +27,7 @@ const SocialLinks = () => {
     const twitter = socialLinks?.twitter;
     const github = socialLinks?.github;
     const linkedin = socialLinks?.linkedin;
+    const rss = socialLinks?.rss;
 
     return (
         <div css={styles.socialLinks}>
@@ -61,6 +62,11 @@ const SocialLinks = () => {
                     title={linkedin.text}
                 >
                     <LinkedinSvg />
+                </a>
+            )}
+            {rss?.url && (
+                <a css={styles.socialButton} target="_blank" rel="noopener noreferrer" href={rss.url} title={rss.text}>
+                    <RssSvg />
                 </a>
             )}
         </div>
