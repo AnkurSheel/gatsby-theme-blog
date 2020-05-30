@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.0.2...v3.1.0) (2020-05-30)
+
+
+### Features
+
+* add rss to social link ([aedf75f](https://github.com/AnkurSheel/gatsby-theme-blog/commit/aedf75f96034617aee728bb2f973415920941282))
+
 ## [3.0.2](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.0.1...v3.0.2) (2020-05-23)
 
 
