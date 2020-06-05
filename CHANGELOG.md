@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.1.0...v3.1.1) (2020-06-05)
+
+
+### Bug Fixes
+
+* update packages bump version ([8f7b1de](https://github.com/AnkurSheel/gatsby-theme-blog/commit/8f7b1dea2e8bc38f028bb4cda34f11e471aa6ca1))
+
 # [3.1.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.0.2...v3.1.0) (2020-05-30)
 
 
