@@ -80,7 +80,7 @@
         "@semantic-release/changelog": "^5.0.1",
         "@semantic-release/git": "^9.0.0",
         "@types/react": "^16.9.31",
-        "@types/react-helmet": "^5.0.9",
+        "@types/react-helmet": "^6.0.0",
         "@types/react-kawaii": "^0.11.0",
         "@typescript-eslint/eslint-plugin": "^3.1.0",
         "@typescript-eslint/parser": "^3.1.0",
