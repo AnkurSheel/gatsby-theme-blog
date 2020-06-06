@@ -1,6 +1,6 @@
 import { Global } from '@emotion/core';
 import React from 'react';
-import 'typeface-fira-sans';
+import 'typeface-inter';
 import { theme } from '../tokens';
 
 const GlobalStyle = () => (
@@ -65,8 +65,8 @@ const GlobalStyle = () => (
                 // fontWeight: 400,
                 color: theme.colors.paragraph,
                 background: theme.colors.background,
-                fontFamily: "'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoue UI', Roboto, Arial, sans-serif",
-                fontSize: '16px',
+                fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoue UI', Roboto, Arial, sans-serif",
+                fontSize: '18px',
                 '& > div': {
                     marginTop: 0,
                 },

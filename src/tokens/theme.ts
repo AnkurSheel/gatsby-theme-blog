@@ -5,7 +5,7 @@ export default {
         paragraph: '#fff3ec',
         title: '#fffffe',
         subTitle: '#fff3ec',
-        link: '#e78fb3',
+        link: '#ffbdfa',
         card: {
             background: '#ffc0ad',
             title: '#271c19',
@@ -24,7 +24,7 @@ export default {
         footer: {
             background: '#55423d',
             paragraph: '#fff3ec',
-            link: '#e78fb3',
+            link: '#ffbdfa',
         },
         notFound: {
             kawaiiColor: '#fff3ec',
