@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.1.1...v3.2.0) (2020-06-06)
+
+
+### Features
+
+* update font to inter and some styling changes ([bc68a47](https://github.com/AnkurSheel/gatsby-theme-blog/commit/bc68a47c0bab819fc2efe4c93dfec7fc676d8a90))
+
 ## [3.1.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.1.0...v3.1.1) (2020-06-05)
 
 
