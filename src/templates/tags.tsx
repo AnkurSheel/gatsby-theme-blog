@@ -45,8 +45,11 @@ const Tags = (props: TagsProps) => {
 export default Tags;
 
 export const pageQuery = graphql`
-    query PostsByTag($tagRegex: String!) {
-        allPost(sort: { fields: date, order: DESC }, filter: { tags: { regex: $tagRegex }, draft: { eq: false } }) {
+    query PostsByTag($tagRegex: String!, $date: Date) {
+        allPost(
+            sort: { fields: date, order: DESC }
+            filter: { tags: { regex: $tagRegex }, draft: { eq: false }, date: { lte: $date } }
+        ) {
             nodes {
                 date(formatString: "DD MMMM, YYYY")
                 title

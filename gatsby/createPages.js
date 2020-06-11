@@ -20,7 +20,7 @@ const buildPages = async (graphql, isDevelop, reporter, createPage) => {
     }
 
     const pages = pagesResult.data.allPage.nodes;
-    pages.forEach(page => {
+    pages.forEach((page) => {
         createPage({
             path: page.path,
             component: require.resolve('../src/templates/page.tsx'),
@@ -91,7 +91,7 @@ const buildBlogListPage = async (allPosts, path, createPage) => {
 };
 
 const buildPosts = async (posts, createPage) => {
-    posts.forEach(post => {
+    posts.forEach((post) => {
         createPage({
             path: post.path,
             component: require.resolve(`../src/templates/blog-post.tsx`),
@@ -103,13 +103,14 @@ const buildPosts = async (posts, createPage) => {
 const buildTags = async (posts, createPage) => {
     posts
         .reduce((acc, cur) => [...new Set([...acc, ...cur.tags])], [])
-        .forEach(uniqTag => {
+        .forEach((uniqTag) => {
             const tag = slugify(uniqTag);
             createPage({
                 path: `tags/${tag}`,
                 component: require.resolve('../src/templates/tags.tsx'),
                 context: {
                     tagRegex: `/^${uniqTag}$/i`,
+                    date: todaysDate,
                     tag: uniqTag,
                 },
             });
@@ -120,7 +121,7 @@ const buildTags = async (posts, createPage) => {
 const buildShareImages = async (posts, isDevelop, createPage) => {
     if (isDevelop) {
         const BlogPostShareImage = require.resolve('../src/templates/blog-post-share-image.tsx');
-        posts.forEach(post => {
+        posts.forEach((post) => {
             createPage({
                 path: `${post.path}/image_tw`,
                 component: BlogPostShareImage,
