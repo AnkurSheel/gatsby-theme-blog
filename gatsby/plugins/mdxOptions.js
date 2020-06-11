@@ -14,7 +14,6 @@ module.exports = {
                 showCaptions: ['title', 'alt'],
             },
         },
-        { resolve: 'gatsby-remark-autolink-headers' },
         {
             resolve: 'gatsby-remark-prismjs',
             options: {
