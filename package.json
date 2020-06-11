@@ -22,7 +22,7 @@
         "format": "prettier --write src/**/*.{js,jsx,ts,tsx} config/**/*.js gatsby-*.js content/**/*.{md,mdx,markdown}",
         "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
         "lint": "eslint . --ext ts --ext tsx --ext js --ext jsx",
-        "lint:fix": "lint --fix",
+        "lint:fix": "yarn lint --fix",
         "lint:markdown": "markdownlint **/*.mdx --ignore node_modules/**",
         "lint:markdown:fix": "markdownlint **/*.mdx --ignore node_modules/** --fix",
         "generate-graphql": "graphql-codegen --config ./config/codegen.yml",
