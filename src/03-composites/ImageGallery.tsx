@@ -50,6 +50,9 @@ const ImageGallery = (props: ImageGalleryProps) => {
             }
         `
     );
+    const { relativeDirectory, subDirectory } = props;
+    const path = relativeDirectory?.substring(relativeDirectory?.lastIndexOf('/') + 1);
+
     return (
         <>
             <div css={styles.container}>
@@ -58,17 +61,17 @@ const ImageGallery = (props: ImageGalleryProps) => {
                         return <></>;
                     }
                     return gallery
-                        .filter(g => {
+                        .filter((g) => {
                             if (!g || !g.image || !g.image.relativeDirectory) {
                                 return false;
                             }
-                            const { relativeDirectory } = g.image;
-                            const shouldShow = relativeDirectory.includes(props.relativeDirectory);
+                            const { relativeDirectory: imageRelativeDirectory } = g.image;
+                            const shouldShow = imageRelativeDirectory.includes(path);
                             return shouldShow && props.subDirectory
-                                ? relativeDirectory.includes(props.subDirectory)
+                                ? imageRelativeDirectory.includes(subDirectory)
                                 : shouldShow;
                         })
-                        .map(g => {
+                        .map((g) => {
                             const image = g && g.image;
                             const fluid = image && image.childImageSharp && image.childImageSharp.fluid;
                             const name = image && image.name;
