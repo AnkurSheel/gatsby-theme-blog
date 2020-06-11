@@ -62,7 +62,11 @@ const RelatedPosts = (props: RelatedPostsComponentProps) => {
             }
         `
     );
-    const articles = data.allPost.nodes.filter((article) => article.path !== slug);
+    const padLeft0 = (n: number) => n.toString().padStart(2, '0');
+    const formatDate = (d: Date) => `${d.getFullYear()}-${padLeft0(d.getMonth() + 1)}-${padLeft0(d.getDate())}`;
+    const todaysDate = formatDate(new Date());
+
+    const articles = data.allPost.nodes.filter((article) => article.path !== slug && article.date <= todaysDate);
 
     const identityMap: IdentityMap = {};
 
