@@ -1,3 +1,18 @@
+# [3.3.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.2.0...v3.3.0) (2020-06-11)
+
+
+### Bug Fixes
+
+* do not show future posts in related posts ([8e297a3](https://github.com/AnkurSheel/gatsby-theme-blog/commit/8e297a338db4052215238a9d0f5bfd11a5612471))
+* do not show future posts in tag pages ([052d2ad](https://github.com/AnkurSheel/gatsby-theme-blog/commit/052d2ad0e89201bd6b49c2bb3a6d361892503320))
+* images for gallery was not showing ([aae78d8](https://github.com/AnkurSheel/gatsby-theme-blog/commit/aae78d8307e56cf714c933bbe58272c8c9af620c))
+* remove extra slash from SEO titles ([4545157](https://github.com/AnkurSheel/gatsby-theme-blog/commit/45451579b783021a2cb1fe52ecb2f4e830b0e09a))
+
+
+### Features
+
+* remove autolink headers ([d7a2505](https://github.com/AnkurSheel/gatsby-theme-blog/commit/d7a2505bab03be97c18fc6c25a2945cea94ea6a9))
+
 # [3.2.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.1.1...v3.2.0) (2020-06-06)
 
 
