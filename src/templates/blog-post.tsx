@@ -1,9 +1,9 @@
-import { SEO } from '@codinators/gatsby-shared-library';
 import { graphql } from 'gatsby';
 import { IFluidObject } from 'gatsby-background-image';
 import React from 'react';
 import Donate from '../02-components/Donate';
 import Main from '../02-components/Main';
+import SEO from '../02-components/Seo';
 import Article from '../03-composites/Article';
 import Content from '../03-composites/Content';
 import Hero from '../03-composites/Hero';
@@ -22,7 +22,6 @@ const BlogPostTemplate = ({ data: { post } }: BlogPostTemplateProps) => {
         return <></>;
     }
     const { siteUrl } = siteMetaData;
-    const twitterUserName = siteMetaData.twitterUsername || '';
 
     const { title, excerpt, draft, body, imageFacebook, imageTwitter, tags, date, path } = post;
     const fluid = (post.featuredImage?.sharp?.fluid || undefined) as IFluidObject | undefined;
@@ -35,7 +34,6 @@ const BlogPostTemplate = ({ data: { post } }: BlogPostTemplateProps) => {
                 imageFacebook={`${siteUrl}${imageFacebook.publicURL}`}
                 imageTwitter={`${siteUrl}${imageTwitter.publicURL}`}
                 url={`${siteUrl}${path}`}
-                twitterUsername={twitterUserName}
                 isBlog
             />
 

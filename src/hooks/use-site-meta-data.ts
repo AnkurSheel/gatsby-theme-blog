@@ -12,6 +12,7 @@ const useSiteMetadata = () => {
                     siteDescription
                     twitterUsername
                     donateText
+                    webMonetization
                     buyMeACoffee {
                         altText
                         link

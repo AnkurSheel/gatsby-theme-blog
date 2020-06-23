@@ -2,10 +2,11 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 import 'prismjs/themes/prism-okaidia.css';
 import React, { ReactNode } from 'react';
 import GlobalStyle from '../../01-elements/GlobalStyles';
-import { Styles, theme } from '../../tokens';
-import Header from '../../03-composites/header';
+import Monetization from '../../02-components/Monetization';
 import Footer from '../../03-composites/Footer';
+import Header from '../../03-composites/header';
 import useMedia from '../../hooks/use-media';
+import { Styles, theme } from '../../tokens';
 
 const styles: Styles = {
     container: {
@@ -54,6 +55,7 @@ const Layout = ({ children }: LayoutProps) => {
     return (
         <div css={styles.container}>
             <GlobalStyle />
+            <Monetization />
             <aside css={styles.aside}>
                 <Header />
             </aside>

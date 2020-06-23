@@ -1,6 +1,6 @@
-import { SEO } from '@codinators/gatsby-shared-library';
 import React from 'react';
 import Main from '../02-components/Main';
+import SEO from '../02-components/Seo';
 import Hero from '../03-composites/Hero';
 import PostsList from '../03-composites/PostsList';
 import Layout from '../04-layouts/default-layout';

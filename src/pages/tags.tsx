@@ -1,7 +1,7 @@
-import { SEO } from '@codinators/gatsby-shared-library';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import Main from '../02-components/Main';
+import SEO from '../02-components/Seo';
 import TagList, { Tag } from '../02-components/TagList';
 import Hero from '../03-composites/Hero';
 import Layout from '../04-layouts/default-layout';
