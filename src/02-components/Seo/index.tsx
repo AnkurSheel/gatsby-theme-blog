@@ -1,18 +1,24 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import useSiteMetadata from '../../hooks/use-site-meta-data';
 
 interface SEOProps {
     isBlog: boolean;
     title: string;
     description: string;
     url: string;
-    twitterUsername?: string;
     imageFacebook?: string;
     imageTwitter?: string;
 }
 
 const SEO = (props: SEOProps) => {
-    const { isBlog, title, imageFacebook, imageTwitter, description, url, twitterUsername } = props;
+    const { isBlog, title, imageFacebook, imageTwitter, description, url } = props;
+
+    const siteMetaData = useSiteMetadata();
+    if (!siteMetaData) {
+        return <></>;
+    }
+    const { twitterUsername } = siteMetaData;
 
     return (
         <Helmet title={title}>
