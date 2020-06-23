@@ -1,3 +1,11 @@
+# [3.4.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.3.0...v3.4.0) (2020-06-23)
+
+
+### Features
+
+* add monetization component ([505ea4f](https://github.com/AnkurSheel/gatsby-theme-blog/commit/505ea4ff87d3c9233d0ed67f50d8987c649481d0))
+* move SEO from shared library ([92c08ad](https://github.com/AnkurSheel/gatsby-theme-blog/commit/92c08ada35522185960df0ebdf540b2aa954fd4d))
+
 # [3.3.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.2.0...v3.3.0) (2020-06-11)
 
 
