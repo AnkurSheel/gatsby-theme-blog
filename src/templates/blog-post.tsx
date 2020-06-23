@@ -1,9 +1,9 @@
-import { SEO } from '@codinators/gatsby-shared-library';
 import { graphql } from 'gatsby';
 import { IFluidObject } from 'gatsby-background-image';
 import React from 'react';
 import Donate from '../02-components/Donate';
 import Main from '../02-components/Main';
+import SEO from '../02-components/Seo';
 import Article from '../03-composites/Article';
 import Content from '../03-composites/Content';
 import Hero from '../03-composites/Hero';
