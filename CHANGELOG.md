@@ -1,3 +1,10 @@
+# [3.5.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.4.0...v3.5.0) (2020-06-26)
+
+
+### Features
+
+* update font size ([0f283f7](https://github.com/AnkurSheel/gatsby-theme-blog/commit/0f283f71eb29cac10d457b3bf9566c0a54d4807d))
+
 # [3.4.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.3.0...v3.4.0) (2020-06-23)
 
 
