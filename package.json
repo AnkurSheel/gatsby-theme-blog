@@ -72,7 +72,7 @@
         "@babel/core": "^7.9.0",
         "@codinators/eslint-config": "^1.0.0",
         "@commitlint/cli": "^8.2.0",
-        "@commitlint/config-conventional": "^8.2.0",
+        "@commitlint/config-conventional": "^9.1.1",
         "@graphql-codegen/cli": "^1.13.1",
         "@graphql-codegen/typescript": "^1.13.1",
         "@graphql-codegen/typescript-operations": "^1.13.1",
