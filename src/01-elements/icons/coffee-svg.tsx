@@ -4,7 +4,6 @@ import * as React from 'react';
 function CoffeeSvg(props: React.SVGProps<SVGSVGElement>) {
     return (
         <svg width={24} height={36} viewBox="0 0 24 36" {...props}>
-            <title>Group</title>
             <g fill="none" fillRule="evenodd">
                 <path fill="#FF9100" d="M11.835 7.655l-8.74-.052 4.292 27.113h10.456l4.292-27.113z" />
                 <path fill="#FD0" d="M11.835 7.655l-8.74-.052 4.292 27.113h8.272L19.95 7.603z" />

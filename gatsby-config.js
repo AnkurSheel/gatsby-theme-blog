@@ -56,9 +56,6 @@ module.exports = (options) => {
                     path: `${__dirname}/src/pages`,
                 },
             },
-            {
-                resolve: `gatsby-plugin-twitter`,
-            },
         ].filter(Boolean),
     };
 };

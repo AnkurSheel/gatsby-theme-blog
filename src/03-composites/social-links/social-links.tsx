@@ -1,7 +1,7 @@
 import React from 'react';
+import { GithubSvg, LinkedinSvg, RssSvg, TwitterSvg } from '../../01-elements/icons';
 import useSiteMetadata from '../../hooks/use-site-meta-data';
 import { Styles } from '../../tokens';
-import { GithubSvg, LinkedinSvg, RssSvg } from '../../01-elements/icons';
 
 const styles: Styles = {
     socialLinks: {
@@ -31,15 +31,15 @@ const SocialLinks = () => {
 
     return (
         <div css={styles.socialLinks}>
-            {twitter && (
+            {twitter?.url && (
                 <a
+                    css={styles.socialButton}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     href={twitter.url}
-                    className="twitter-follow-button"
-                    data-size="large"
-                    data-show-screen-name="false"
-                    data-show-count="false"
+                    title={twitter.text}
                 >
-                    {twitter.text || 'Follow me'}
+                    <TwitterSvg />
                 </a>
             )}
             {github?.url && (
