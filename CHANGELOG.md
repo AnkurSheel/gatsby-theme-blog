@@ -1,3 +1,10 @@
+# [3.6.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.5.0...v3.6.0) (2020-08-10)
+
+
+### Features
+
+* update social links ([2ec21a8](https://github.com/AnkurSheel/gatsby-theme-blog/commit/2ec21a8803749f0f5ade1edb5c532be258be3595))
+
 # [3.5.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.4.0...v3.5.0) (2020-06-26)
 
 
