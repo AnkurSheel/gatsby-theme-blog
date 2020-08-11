@@ -1,3 +1,10 @@
+## [3.6.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.6.0...v3.6.1) (2020-08-11)
+
+
+### Bug Fixes
+
+* bump for upgrade deps ([1b2ac35](https://github.com/AnkurSheel/gatsby-theme-blog/commit/1b2ac357603bc25470da9d81ce74e875f2565034))
+
 # [3.6.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.5.0...v3.6.0) (2020-08-10)
 
 
