@@ -1,3 +1,10 @@
+## [3.7.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.7.0...v3.7.1) (2020-09-01)
+
+
+### Bug Fixes
+
+* upgrade deps ([12eabcb](https://github.com/AnkurSheel/gatsby-theme-blog/commit/12eabcb49ecd2771ffd18c60b95b14e18767613b))
+
 # [3.7.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.6.1...v3.7.0) (2020-09-01)
 
 
