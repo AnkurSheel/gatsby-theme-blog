@@ -1,3 +1,10 @@
+# [3.7.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.6.1...v3.7.0) (2020-09-01)
+
+
+### Features
+
+* make social images optional ([06239c6](https://github.com/AnkurSheel/gatsby-theme-blog/commit/06239c627d7bbbe22754810e36d8fa10ba3eb930))
+
 ## [3.6.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.6.0...v3.6.1) (2020-08-11)
 
 
