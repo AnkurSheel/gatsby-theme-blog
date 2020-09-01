@@ -1,4 +1,4 @@
-const createPageType = actions => {
+const createPageType = (actions) => {
     actions.createTypes(`
     type Page implements Node @dontInfer{
       id: ID!
@@ -11,7 +11,7 @@ const createPageType = actions => {
     }`);
 };
 
-const createPostType = actions => {
+const createPostType = (actions) => {
     actions.createTypes(`
     type Post implements Node @dontInfer {
         id: ID!
@@ -26,8 +26,8 @@ const createPostType = actions => {
         draft: Boolean
         featuredImage: File @fileByRelativePath
         featuredImagePosition: String
-        imageFacebook: File! @fileByRelativePath
-        imageTwitter: File! @fileByRelativePath
+        imageFacebook: File @fileByRelativePath
+        imageTwitter: File @fileByRelativePath
     }`);
 };
 
