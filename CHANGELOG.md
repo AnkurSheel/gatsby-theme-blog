@@ -1,3 +1,10 @@
+## [3.7.2](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.7.1...v3.7.2) (2020-09-05)
+
+
+### Bug Fixes
+
+* fix issue if the social images had not been generated during development ([cefdce6](https://github.com/AnkurSheel/gatsby-theme-blog/commit/cefdce62608c9071a25cfbc12105fba5997c8956))
+
 ## [3.7.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.7.0...v3.7.1) (2020-09-01)
 
 
