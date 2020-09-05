@@ -31,8 +31,8 @@ const BlogPostTemplate = ({ data: { post } }: BlogPostTemplateProps) => {
             <SEO
                 title={title}
                 description={excerpt}
-                imageFacebook={`${siteUrl}${imageFacebook.publicURL}`}
-                imageTwitter={`${siteUrl}${imageTwitter.publicURL}`}
+                imageFacebook={imageFacebook && `${siteUrl}${imageFacebook.publicURL}`}
+                imageTwitter={imageTwitter && `${siteUrl}${imageTwitter.publicURL}`}
                 url={`${siteUrl}${path}`}
                 isBlog
             />
