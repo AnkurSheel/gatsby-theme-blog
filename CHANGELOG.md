@@ -1,3 +1,15 @@
+# [3.8.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.7.3...v3.8.0) (2020-11-23)
+
+
+### Bug Fixes
+
+* update desktop header styling ([411c892](https://github.com/AnkurSheel/gatsby-theme-blog/commit/411c8928eae99de2bc2e0abd250a1b4b8e9532ce))
+
+
+### Features
+
+* add a contact page ([ebf9281](https://github.com/AnkurSheel/gatsby-theme-blog/commit/ebf92810c3f3a050a6f8f97a16d664dfd4bf66d7))
+
 ## [3.7.3](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.7.2...v3.7.3) (2020-10-08)
 
 
