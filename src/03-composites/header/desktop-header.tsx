@@ -10,9 +10,8 @@ const styles: Styles = {
     nav: {
         display: 'flex',
         justifyContent: 'space-between',
-        margin: '3rem 0',
+        margin: '1rem 0',
         maxWidth: '70ch',
-        padding: '0 2ch',
         alignItems: 'center',
         flexDirection: 'column',
     },
@@ -45,7 +44,6 @@ const DesktopHeader = () => {
             <footer css={styles.footer}>
                 <h4>Connect with me</h4>
                 <SocialLinks />
-                <h5>{`${authorName} © ${new Date().getFullYear()}`}</h5>
             </footer>
         </>
     );

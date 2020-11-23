@@ -24,6 +24,8 @@ const styles: Style = {
             flexDirection: 'column',
             width: '20%',
             justifyContent: 'space-evenly',
+            maxHeight: '100vh',
+            minWidth: '200px',
         },
     },
 };
