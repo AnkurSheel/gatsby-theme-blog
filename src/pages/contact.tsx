@@ -28,7 +28,7 @@ const styles: Styles = {
     },
     buttonContainer: {
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: 'space-evenly',
         margin: '1em',
     },
     button: {
