@@ -1,3 +1,10 @@
+## [3.8.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.8.0...v3.8.1) (2020-11-23)
+
+
+### Bug Fixes
+
+* update contact page styling ([1d31208](https://github.com/AnkurSheel/gatsby-theme-blog/commit/1d31208fb0503df4c0de978162a02ef430c98cd5))
+
 # [3.8.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.7.3...v3.8.0) (2020-11-23)
 
 
