@@ -97,7 +97,7 @@
         "graphql": "^15.0.0",
         "husky": "^4.2.3",
         "lint-staged": "^10.1.1",
-        "markdownlint-cli": "^0.24.0",
+        "markdownlint-cli": "^0.26.0",
         "npm-normalize-package-bin": "^1.0.1",
         "prettier": "^2.0.2",
         "puppeteer": "^5.2.1",
