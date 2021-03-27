@@ -28,7 +28,6 @@ const createPostNode = (parent, createNode, createNodeId, node, blogBasePath) =>
         tags: node.frontmatter.tags,
         excerpt: node.frontmatter.excerpt,
         draft: node.frontmatter.draft || false,
-        canonicalUrl: node.frontmatter.canonicalUrl || null,
         featuredImage: node.frontmatter.featuredImage || null,
         imageFacebook: './image-facebook.png',
         imageTwitter: './image-twitter.png',

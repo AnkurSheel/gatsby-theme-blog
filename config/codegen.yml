@@ -3,7 +3,7 @@ schema: http://localhost:8000/___graphql
 documents:
     - ./src/**/*.{ts,tsx}
     - ./gatsby/*.js
-    - ../node_modules/gatsby*/!(node_modules)/**/*.js
+    - ./node_modules/gatsby*/!(node_modules)/**/*.js
 generates:
     ./src/graphqlTypes.ts:
         plugins:

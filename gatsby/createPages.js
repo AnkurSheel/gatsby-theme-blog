@@ -51,7 +51,6 @@ const getPosts = async (graphql, isDevelop, reporter) => {
                     draft
                     date(formatString: "DD MMMM, YYYY")
                     body
-                    canonicalUrl
                     featuredImage {
                         publicURL
                         sharp: childImageSharp {

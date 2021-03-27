@@ -24,7 +24,6 @@ const createPostType = (actions) => {
         timeToRead: Int!
         html: String!
         draft: Boolean
-        canonicalUrl: String
         featuredImage: File @fileByRelativePath
         featuredImagePosition: String
         imageFacebook: File @fileByRelativePath
