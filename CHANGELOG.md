@@ -1,3 +1,15 @@
+## [3.9.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.9.0...v3.9.1) (2021-03-27)
+
+
+### Bug Fixes
+
+* version bump to downgrade deps ([927d961](https://github.com/AnkurSheel/gatsby-theme-blog/commit/927d961c354fd64316b251a506fc401020501804))
+
+
+### Reverts
+
+* reverting f5bde0032d70f28de364e7b1b8c78613387338dd ([0e7791f](https://github.com/AnkurSheel/gatsby-theme-blog/commit/0e7791f64d4ec7a33a52296e3a76d3b32c638bad))
+
 # [3.9.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.8.1...v3.9.0) (2021-03-27)
 
 
