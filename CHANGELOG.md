@@ -1,3 +1,10 @@
+# [3.9.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.8.1...v3.9.0) (2021-03-27)
+
+
+### Features
+
+* add support to override canonical url ([80652e4](https://github.com/AnkurSheel/gatsby-theme-blog/commit/80652e4edc22423c8a1e407047c95e3d4fd94a2a))
+
 ## [3.8.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.8.0...v3.8.1) (2020-11-23)
 
 
