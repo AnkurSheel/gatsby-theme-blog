@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import { graphql } from 'gatsby';
 import { IFluidObject } from 'gatsby-background-image';
 import React from 'react';
@@ -23,7 +24,7 @@ const BlogPostTemplate = ({ data: { post } }: BlogPostTemplateProps) => {
     }
     const { siteUrl } = siteMetaData;
 
-    const { title, excerpt, draft, body, imageFacebook, imageTwitter, tags, date, path } = post;
+    const { title, excerpt, draft, body, imageFacebook, imageTwitter, tags, date, path, canonicalUrl } = post;
     const fluid = (post.featuredImage?.sharp?.fluid || undefined) as IFluidObject | undefined;
     const featuredImagePosition = post.featuredImagePosition || '';
     return (
@@ -34,6 +35,7 @@ const BlogPostTemplate = ({ data: { post } }: BlogPostTemplateProps) => {
                 imageFacebook={imageFacebook && `${siteUrl}${imageFacebook.publicURL}`}
                 imageTwitter={imageTwitter && `${siteUrl}${imageTwitter.publicURL}`}
                 url={`${siteUrl}${path}`}
+                canonicalUrl={canonicalUrl}
                 isBlog
             />
 
@@ -70,6 +72,7 @@ export const postQuery = graphql`
             draft
             date(formatString: "DD MMMM, YYYY")
             body
+            canonicalUrl
             featuredImage {
                 publicURL
                 sharp: childImageSharp {

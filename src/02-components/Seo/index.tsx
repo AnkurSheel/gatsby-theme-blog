@@ -1,3 +1,5 @@
+/* eslint-disable react/require-default-props */
+/* eslint-disable no-use-before-define */
 import React from 'react';
 import Helmet from 'react-helmet';
 import useSiteMetadata from '../../hooks/use-site-meta-data';
@@ -7,12 +9,13 @@ interface SEOProps {
     title: string;
     description: string;
     url: string;
+    canonicalUrl?: string;
     imageFacebook?: string;
     imageTwitter?: string;
 }
 
 const SEO = (props: SEOProps) => {
-    const { isBlog, title, imageFacebook, imageTwitter, description, url } = props;
+    const { isBlog, title, imageFacebook, imageTwitter, description, url, canonicalUrl } = props;
 
     const siteMetaData = useSiteMetadata();
     if (!siteMetaData) {
@@ -24,7 +27,7 @@ const SEO = (props: SEOProps) => {
         <Helmet title={title}>
             <html lang="en" />
             <meta name="description" content={description} />
-            <link rel="canonical" href={url} />
+            <link rel="canonical" href={canonicalUrl ?? url} />
 
             {/* Google / Search Engine Tags */}
             <meta itemProp="name" content={title} />
