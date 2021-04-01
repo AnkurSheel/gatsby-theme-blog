@@ -1069,9 +1069,9 @@
     to-fast-properties "^2.0.0"
 
 "@codinators/eslint-config@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@codinators/eslint-config/-/eslint-config-1.0.0.tgz#78a3c4bb45a5559226ac7a07d962c6b558fcfdc0"
-  integrity sha512-pCyVtIhfnRut5GMBh8uDqvvnhP42OYM4bnmkknyd/MffO7IFFwMjncr2uOIX2srqCNntGmHDSHIwxV6tQrtELg==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@codinators/eslint-config/-/eslint-config-1.1.0.tgz#0cb46e6cbe1e1507db21a890a0544491e7c8fc54"
+  integrity sha512-n+fZxIOH2t23vQFqQb87S+k5C65QL7voY4fCHhYXgz2DIy3F4zZPExTgmulZ5yJZnmkEzIlMCFJioukPEg0jow==
 
 "@codinators/gatsby-shared-library@^1.1.3":
   version "1.6.0"
