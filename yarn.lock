@@ -17987,9 +17987,9 @@ typeface-cookie@^1.1.13:
   integrity sha512-9UO8Ishya6K4fE09sFd2/78p8kF5uBK/HHytjspfQWAK1ksrY1Kbk5zA0PAGZsoAQRnK7H/zvvbvG+SzWE27DA==
 
 typeface-inter@^3.12.0:
-  version "3.15.0"
-  resolved "https://registry.yarnpkg.com/typeface-inter/-/typeface-inter-3.15.0.tgz#7ac09c0bcc5fdd5c5b85727df6478ee287f56deb"
-  integrity sha512-kWLJsvqSJTBKilu1HsBYHwi3usFg8JQ9I9u+bcU2kOkIi48fOZy8sYacbFmlJ9EHRVNqqvM4zeI73WCSKNMOuQ==
+  version "3.15.1"
+  resolved "https://registry.yarnpkg.com/typeface-inter/-/typeface-inter-3.15.1.tgz#bbd39cc26ed1c7b3a2bc797996a9d053b507e727"
+  integrity sha512-xlEvjfaTvFnr3ZmwM6fs5/KOKLpAuNksAUxiYfa6dKqZham2oTGm0gI1j/tcgxh1reihhrKbTFfFjtCV9wwxXA==
 
 typescript@^4.0.3:
   version "4.1.2"
