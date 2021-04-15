@@ -1,6 +1,5 @@
 import React from 'react';
 import { Cat } from 'react-kawaii';
-import { oc } from 'ts-optchain';
 import Main from '../02-components/Main';
 import RecentPosts from '../02-components/RecentPosts';
 import SEO from '../02-components/Seo';
@@ -24,22 +23,22 @@ const styles: Styles = {
 
 const NotFoundPage = () => {
     const siteMetaData = useSiteMetadata();
-    const siteUrl = oc(siteMetaData).siteUrl('');
+    const siteUrl = siteMetaData?.siteUrl || '';
     return (
-        <Layout>
-            <SEO title="Page Not Found" description="Page Not Found" url={`${siteUrl}/404.html`} isBlog={false} />
-            <Main>
-                <h1 css={styles.mainTitle}>Oh No! Page Not Found</h1>
-                <Cat css={styles.cat} size={160} mood="ko" color={theme.colors.notFound.kawaiiColor} />
-                <p css={styles.text}>
-                    Looks like you&apos;ve followed a broken link or entered a URL that doesn&apos;t exist on this site.
-                </p>
-            </Main>
-            <Main>
-                <h1 css={styles.mainTitle}>Recent Posts</h1>
-                <RecentPosts />
-            </Main>
-        </Layout>
+      <Layout>
+        <SEO title="Page Not Found" description="Page Not Found" url={`${siteUrl}/404.html`} isBlog={false} />
+        <Main>
+          <h1 css={styles.mainTitle}>Oh No! Page Not Found</h1>
+          <Cat css={styles.cat} size={160} mood="ko" color={theme.colors.notFound.kawaiiColor} />
+          <p css={styles.text}>
+            Looks like you&apos;ve followed a broken link or entered a URL that doesn&apos;t exist on this site.
+          </p>
+        </Main>
+        <Main>
+          <h1 css={styles.mainTitle}>Recent Posts</h1>
+          <RecentPosts />
+        </Main>
+      </Layout>
     );
 };
 
