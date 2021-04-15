@@ -1,3 +1,10 @@
+# [3.10.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.9.1...v3.10.0) (2021-04-15)
+
+
+### Features
+
+* move video and quote from shared library ([0c38a00](https://github.com/AnkurSheel/gatsby-theme-blog/commit/0c38a009c5019e13e3bdf34a618c081b2d90d30d))
+
 ## [3.9.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.9.0...v3.9.1) (2021-03-27)
 
 
