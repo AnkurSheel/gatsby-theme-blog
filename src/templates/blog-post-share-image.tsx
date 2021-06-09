@@ -6,6 +6,7 @@ import { StyleWithOptions, theme } from '../tokens';
 
 const styles: StyleWithOptions<BlogPostShareImageProps> = (props: BlogPostShareImageProps) => {
     const image = props.data.post?.featuredImage?.publicURL;
+    // eslint-disable-next-line no-console
     console.log({ image });
     return {
         preview: {
@@ -14,7 +15,7 @@ const styles: StyleWithOptions<BlogPostShareImageProps> = (props: BlogPostShareI
             height: `${props.pageContext.height}px`,
             backgroundImage: image && `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${image})`,
             backgroundPosition: 'center',
-            backgroundSize: 'contain',
+            backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
         },
         textContainer: {
@@ -46,6 +47,7 @@ const styles: StyleWithOptions<BlogPostShareImageProps> = (props: BlogPostShareI
 
 interface BlogPostShareImageProps {
     data: Pick<BlogPostShareImageQuery, 'post'>;
+    // eslint-disable-next-line react/no-unused-prop-types
     pageContext: {
         width: number;
         height: number;
