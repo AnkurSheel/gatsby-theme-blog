@@ -1,3 +1,12 @@
+# [3.11.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.10.0...v3.11.0) (2021-06-10)
+
+
+### Features
+
+* ignore social images for site images ([1adf98a](https://github.com/AnkurSheel/gatsby-theme-blog/commit/1adf98a883a95ca85da632e14c3276dc781be40e))
+* use cover for social card ([03e7a7f](https://github.com/AnkurSheel/gatsby-theme-blog/commit/03e7a7fe19eaac3b9c6461a130f9c508b654767a))
+* use social images from images Directory ([ea400cb](https://github.com/AnkurSheel/gatsby-theme-blog/commit/ea400cb812a9d8cd4214c8a380c67970404b4108))
+
 # [3.10.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.9.1...v3.10.0) (2021-04-15)
 
 
