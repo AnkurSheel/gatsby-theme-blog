@@ -27,7 +27,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 };
 
 exports.onCreateNode = async ({ node, actions: { createNode }, getNode, createNodeId }, options) => {
-    const { basePath, postsBasePath } = withDefaults(options);
+    const { basePath, postsBasePath, contentDir } = withDefaults(options);
     const parent = getNode(node.parent);
 
     if (node.internal.type !== 'Mdx') {
@@ -39,7 +39,7 @@ exports.onCreateNode = async ({ node, actions: { createNode }, getNode, createNo
     }
 
     if (parent.sourceInstanceName === 'posts') {
-        createPostNode(parent, createNode, createNodeId, node, postsBasePath);
+        createPostNode(parent, createNode, createNodeId, node, postsBasePath, contentDir.images);
     }
 };
 

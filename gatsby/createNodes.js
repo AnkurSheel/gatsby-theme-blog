@@ -1,3 +1,4 @@
+const { join } = require(`path`);
 const { urlResolve } = require(`gatsby-core-utils`);
 const { getPostDetailsFromDir } = require('./utils/helpers');
 
@@ -18,8 +19,10 @@ const createPageNode = (parent, createNode, createNodeId, node, basePath) => {
     });
 };
 
-const createPostNode = (parent, createNode, createNodeId, node, blogBasePath) => {
+const createPostNode = (parent, createNode, createNodeId, node, blogBasePath, imageDir) => {
     const postDetails = getPostDetailsFromDir(blogBasePath, parent.relativeDirectory);
+    const imagePath = join(process.cwd(), imageDir, 'social', `${postDetails.path}-image-`);
+
     createNode({
         id: createNodeId(`Post-${node.id}`),
         title: node.frontmatter.title || parent.name,
@@ -30,8 +33,8 @@ const createPostNode = (parent, createNode, createNodeId, node, blogBasePath) =>
         draft: node.frontmatter.draft || false,
         canonicalUrl: node.frontmatter.canonicalUrl || null,
         featuredImage: node.frontmatter.featuredImage || null,
-        imageFacebook: './image-facebook.png',
-        imageTwitter: './image-twitter.png',
+        imageFacebook: `${imagePath}facebook.png`,
+        imageTwitter: `${imagePath}twitter.png`,
         featuredImagePosition: node.frontmatter.featuredImagePosition || '',
         parent: node.id,
         internal: {
