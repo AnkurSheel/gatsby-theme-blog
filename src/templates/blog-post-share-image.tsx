@@ -15,7 +15,7 @@ const styles: StyleWithOptions<BlogPostShareImageProps> = (props: BlogPostShareI
             height: `${props.pageContext.height}px`,
             backgroundImage: image && `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${image})`,
             backgroundPosition: 'center',
-            backgroundSize: 'cover',
+            backgroundSize: '100% 100%',
             backgroundRepeat: 'no-repeat',
         },
         textContainer: {
@@ -65,13 +65,13 @@ const BlogPostShareImage = (props: BlogPostShareImageProps) => {
     const minutes = post.timeToRead === 1 ? `${post.timeToRead} min` : `${post.timeToRead} mins`;
 
     return (
-        <div css={styles(props).preview}>
-            <GlobalStyle />
-            <div css={styles(props).textContainer}>
-                <h1 css={styles(props).title}>{post.title}</h1>
-                {minutes && <h2 css={styles(props).readTime}>{minutes}</h2>}
-            </div>
+      <div css={styles(props).preview}>
+        <GlobalStyle />
+        <div css={styles(props).textContainer}>
+          <h1 css={styles(props).title}>{post.title}</h1>
+          {minutes && <h2 css={styles(props).readTime}>{minutes}</h2>}
         </div>
+      </div>
     );
 };
 
