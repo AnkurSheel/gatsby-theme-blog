@@ -1,3 +1,10 @@
+## [3.11.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.11.0...v3.11.1) (2021-07-17)
+
+
+### Bug Fixes
+
+* bump for updating deps ([d03a66e](https://github.com/AnkurSheel/gatsby-theme-blog/commit/d03a66e5a53f1c10831e7bd40e4a4f65c3795f53))
+
 # [3.11.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.10.0...v3.11.0) (2021-06-10)
 
 
