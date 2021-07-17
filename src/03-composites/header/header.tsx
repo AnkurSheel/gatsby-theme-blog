@@ -1,11 +1,10 @@
 import React from 'react';
 import useMedia from '../../hooks/use-media';
-import { theme } from '../../tokens';
+import { theme, Styles } from '../../tokens';
 import MobileHeader from './mobile-header';
-import { Style } from '../../tokens/types';
 import DesktopHeader from './desktop-header';
 
-const styles: Style = {
+const styles: Styles = {
     header: {
         display: 'flex',
         alignItems: 'center',
