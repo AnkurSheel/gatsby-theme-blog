@@ -9,11 +9,11 @@ jobs:
       condition: not(contains(variables['Build.SourceBranch'], 'tag'))
       steps:
           - task: NodeTool@0
-            displayName: 'Use Node 10.x'
+            displayName: 'Use Node 14.x'
             inputs:
-                versionSpec: 10.x
+                versionSpec: 14.x
 
-          - script: yarn install
+          - script: yarn install --frozen-lockfile
             displayName: Install dependencies
 
           - script: yarn semantic-release
