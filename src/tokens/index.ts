@@ -1,2 +1,2 @@
 export { default as theme } from './theme';
-export { Styles, StyleWithOptions } from './types';
+export type { Styles, StyleWithOptions } from './types';
