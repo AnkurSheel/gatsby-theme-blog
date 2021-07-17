@@ -1,3 +1,10 @@
+## [3.11.2](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.11.1...v3.11.2) (2021-07-17)
+
+
+### Bug Fixes
+
+* warning Style cannot be imported ([584398f](https://github.com/AnkurSheel/gatsby-theme-blog/commit/584398fa202b23c24aeeae4579883a3bf9296d08))
+
 ## [3.11.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.11.0...v3.11.1) (2021-07-17)
 
 
