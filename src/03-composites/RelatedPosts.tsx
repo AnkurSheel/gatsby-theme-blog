@@ -101,7 +101,7 @@ const RelatedPosts = (props: RelatedPostsComponentProps) => {
     }
     return (
         <section css={styles.container}>
-            <h1 css={styles.header}>More like this</h1>
+            <h2 css={styles.header}>More like this</h2>
             <ul css={styles.list}>
                 {arrayIdentityMap.map((identity) => {
                     const { title, path } = identity.article;
