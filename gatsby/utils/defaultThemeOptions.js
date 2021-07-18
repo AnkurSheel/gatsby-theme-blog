@@ -5,6 +5,7 @@ module.exports = ({
     allPostsPath = 'blog/',
     useExternalMDX = false,
     rss = { file: 'rss.xml', title: 'RSS' },
+    linksOutputPath = './links.json',
 }) => ({
     basePath,
     contentDir,
@@ -12,4 +13,5 @@ module.exports = ({
     allPostsPath,
     useExternalMDX,
     rss,
+    linksOutputPath,
 });

@@ -1,25 +1,9 @@
-const slugify = require('@sindresorhus/slugify');
 const { todaysDate } = require('./utils/helpers');
+const { getPosts, getPages, getTags } = require('./getGraphqlData');
 
 const buildPages = async (graphql, isDevelop, reporter, createPage) => {
-    const pagesFilter = `(filter: { draft: { eq: false }})`;
+    const pages = await getPages(graphql, isDevelop, reporter);
 
-    const pagesResult = await graphql(`
-        query Pages {
-            allPage ${isDevelop ? '' : pagesFilter} {
-                nodes {
-                    id
-                    path
-                }
-            }
-        }
-    `);
-
-    if (pagesResult.errors) {
-        reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query for pages');
-    }
-
-    const pages = pagesResult.data.allPage.nodes;
     pages.forEach((page) => {
         createPage({
             path: page.path,
@@ -27,60 +11,6 @@ const buildPages = async (graphql, isDevelop, reporter, createPage) => {
             context: { id: page.id },
         });
     });
-};
-
-const getPosts = async (graphql, isDevelop, reporter) => {
-    const postsFilter = isDevelop
-        ? `(
-            sort: { fields: date, order: DESC }
-        )`
-        : `(
-            filter: { draft: { eq: false }, date: { lte: "${todaysDate}" } }
-            sort: { fields: date, order: DESC }
-        )`;
-
-    const postsResult = await graphql(`
-        query BlogPost {
-            allPost${postsFilter} {
-                nodes {
-                    id
-                    path
-                    title
-                    tags
-                    excerpt
-                    draft
-                    date(formatString: "DD MMMM, YYYY")
-                    body
-                    canonicalUrl
-                    featuredImage {
-                        publicURL
-                        sharp: childImageSharp {
-                            fluid(maxWidth: 800) {
-                                aspectRatio
-                                src
-                                srcSet
-                                sizes
-                                originalName
-                            }
-                        }
-                    }
-                    featuredImagePosition
-                    imageTwitter {
-                        publicURL
-                    }
-                    imageFacebook {
-                        publicURL
-                    }
-                }
-            }
-        }
-    `);
-
-    if (postsResult.errors) {
-        reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query for posts');
-    }
-    const allPosts = postsResult.data;
-    return allPosts;
 };
 
 const buildBlogListPage = async (allPosts, path, createPage) => {
@@ -102,20 +32,19 @@ const buildPosts = async (posts, createPage) => {
 };
 
 const buildTags = async (posts, createPage) => {
-    posts
-        .reduce((acc, cur) => [...new Set([...acc, ...cur.tags])], [])
-        .forEach((uniqTag) => {
-            const tag = slugify(uniqTag);
-            createPage({
-                path: `tags/${tag}`,
-                component: require.resolve('../src/templates/tags.tsx'),
-                context: {
-                    tagRegex: `/^${uniqTag}$/i`,
-                    date: todaysDate,
-                    tag: uniqTag,
-                },
-            });
+    const tags = await getTags(posts);
+
+    tags.forEach((tag) => {
+        createPage({
+            path: tag.path,
+            component: require.resolve('../src/templates/tags.tsx'),
+            context: {
+                tagRegex: `/^${tag.uniqueTag}$/i`,
+                date: todaysDate,
+                tag: tag.uniqueTag,
+            },
         });
+    });
 };
 
 // generate post share images (dev only)
@@ -155,7 +84,6 @@ const buildRandomPostPage = async (allPosts, createPage) => {
     });
 };
 
-exports.getPosts = getPosts;
 exports.buildPages = buildPages;
 exports.buildBlogListPage = buildBlogListPage;
 exports.buildPosts = buildPosts;

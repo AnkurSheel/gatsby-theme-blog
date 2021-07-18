@@ -1,8 +1,11 @@
+const path = require('path');
+const fs = require('fs');
 const withDefaults = require('./gatsby/utils/defaultThemeOptions');
 const { createDir } = require('./gatsby/createDir');
 const { createPageType, createPostType } = require('./gatsby/createTypes');
 const { createPageNode, createPostNode } = require('./gatsby/createNodes');
 const { createBodyResolver, createTimeToReadResolver, createHtmlResolver } = require('./gatsby/createResolvers');
+const { getPosts, getPages, getTags } = require('./gatsby/getGraphqlData');
 const {
     buildPages,
     buildBlogListPage,
@@ -10,7 +13,6 @@ const {
     buildTags,
     buildShareImages,
     buildRandomPostPage,
-    getPosts,
 } = require('./gatsby/createPages');
 
 exports.onPreBootstrap = ({ store }, options) => {
@@ -84,4 +86,31 @@ exports.createPages = async ({ graphql, actions, reporter }, options) => {
         buildShareImages(allPosts.allPost.nodes, isDevelop, createPage),
         buildRandomPostPage(allPosts, createPage),
     ]);
+};
+
+exports.onPostBuild = async ({ graphql, reporter }, options) => {
+    const { linksOutputPath } = withDefaults(options);
+    reporter.verbose(`Writing all pages to ${linksOutputPath}`);
+
+    const allPosts = await getPosts(graphql, true, reporter);
+    const allPages = await getPages(graphql, true, reporter);
+    const allTags = await getTags(allPosts.allPost.nodes);
+
+    const postData = allPosts.allPost.nodes.map((a) => {
+        return { title: a.title, excerpt: a.excerpt, path: a.path };
+    });
+    const pageData = allPages.map((a) => {
+        return { title: a.title, excerpt: null, path: a.path };
+    });
+
+    const tagData = allTags.map((a) => {
+        return { title: `Tag ${a.uniqueTag}`, excerpt: null, path: `/${a.path}` };
+    });
+
+    const data = pageData.concat(postData).concat(tagData);
+
+    await fs.writeFile(linksOutputPath, JSON.stringify(data, null, '\t'), (err) => {
+        if (err) throw err;
+    });
+    reporter.verbose(`Finished Writing ${data.length} pages to ${linksOutputPath}`);
 };
