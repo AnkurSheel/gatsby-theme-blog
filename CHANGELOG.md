@@ -1,3 +1,11 @@
+## [3.12.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.12.0...v3.12.1) (2021-07-18)
+
+
+### Bug Fixes
+
+* make related post heading a h2 ([193275c](https://github.com/AnkurSheel/gatsby-theme-blog/commit/193275c0cc21b291679f5235c85fe1fa71d8d45a))
+* update verbose message when writing links to file ([ca50057](https://github.com/AnkurSheel/gatsby-theme-blog/commit/ca50057561ad84c67fac97238e82f598e81406b3))
+
 # [3.12.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.11.3...v3.12.0) (2021-07-18)
 
 
