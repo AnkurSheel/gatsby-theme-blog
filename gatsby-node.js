@@ -112,5 +112,5 @@ exports.onPostBuild = async ({ graphql, reporter }, options) => {
     await fs.writeFile(linksOutputPath, JSON.stringify(data, null, '\t'), (err) => {
         if (err) throw err;
     });
-    reporter.verbose(`Finished Writing ${data.length} pages to ${linksOutputPath}`);
+    reporter.verbose(`Finished Writing ${data.length} links to ${linksOutputPath}`);
 };
