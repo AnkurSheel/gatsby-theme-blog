@@ -88,7 +88,7 @@ exports.createPages = async ({ graphql, actions, reporter }, options) => {
     ]);
 };
 
-exports.onPostBuild = async ({ graphql, reporter }, options) => {
+async function writeLinksToFile(options, reporter, graphql) {
     const { linksOutputPath } = withDefaults(options);
     reporter.verbose(`Writing all pages to ${linksOutputPath}`);
 
@@ -104,7 +104,7 @@ exports.onPostBuild = async ({ graphql, reporter }, options) => {
     });
 
     const tagData = allTags.map((a) => {
-        return { title: `Tag ${a.uniqueTag}`, excerpt: null, path: `/${a.path}` };
+        return { title: `Posts tagged as ${a.uniqueTag}`, excerpt: null, path: `/${a.path}` };
     });
 
     const data = pageData.concat(postData).concat(tagData);
@@ -113,4 +113,8 @@ exports.onPostBuild = async ({ graphql, reporter }, options) => {
         if (err) throw err;
     });
     reporter.verbose(`Finished Writing ${data.length} links to ${linksOutputPath}`);
+}
+
+exports.onPostBuild = async ({ graphql, reporter }, options) => {
+    await writeLinksToFile(options, reporter, graphql);
 };
