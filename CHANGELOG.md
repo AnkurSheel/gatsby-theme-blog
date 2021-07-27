@@ -1,3 +1,10 @@
+# [3.13.0](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.12.1...v3.13.0) (2021-07-27)
+
+
+### Features
+
+* sort pages before creating link file ([61ac78b](https://github.com/AnkurSheel/gatsby-theme-blog/commit/61ac78b979fd530e161cd711775bb96b6b2adbfc))
+
 ## [3.12.1](https://github.com/AnkurSheel/gatsby-theme-blog/compare/v3.12.0...v3.12.1) (2021-07-18)
 
 
